@@ -1,17 +1,19 @@
 {
   "name": "ui-toolkit",
-  "version": "0.0.0",
-  "dependencies": {
+  "version": "0.0.1",
+  "devDependencies": {
     "polymer-tools": "git://github.com/custom-elements/polymer-tools#master",
     "polymer": "git://github.com/custom-elements/polymer#master",
     "ui-fonts": "git://github.com/custom-elements/ui-fonts",
     "ui-button": "git://github.com/custom-elements/ui-button",
-    "ui-styles": "git://github.com/custom-elements/ui-styles"
+    "ui-styles": "git://github.com/custom-elements/ui-styles",
+    "ui-fast-picker": "git://github.com/custom-elements/ui-fast-picker"
   },
   "repository": "git://github.com/custom-elements/ui-toolkit",
   "license": "ISC",
   "scripts": {
-    "postinstall": "polymer-build src/ build/",
+    "prepublish": "polymer-build src/ build/",
     "test": "polymer-build watch . src/ build/"
-  }
+  },
+  "files": ["build/ui-toolkit.html"]
 }

@@ -11,6 +11,9 @@
       body {
         font-family: "Helvetica Neue", "Helvetica", Arial;
       }
+      ui-fast-picker {
+        margin-left: 3em;
+      }
     </style>
   </head>
   <body unresolved>
@@ -24,6 +27,14 @@
     </ui-button>
     <ui-button inverted icon="fa-bullhorn" label="No Yelling" hotkey="y" enabled="false" onclick="console.log('aaaa!');">
     </ui-button>
+
+    <h1>Flags</h1>
+    <ui-fast-picker>
+    <ui-fast-picker-item value="3"><i class="red solid flag"></i></ui-fast-picker-item>
+    <ui-fast-picker-item value="2"><i class="yellow solid flag"></i></ui-fast-picker-item>
+    <ui-fast-picker-item value="1"><i class="green solid flag"></i></ui-fast-picker-item>
+    <ui-fast-picker-item value="0"><i class="black solid flag"></i></ui-fast-picker-item>
+    </ui-fast-picker>
     <script>
       document.addEventListener('polymer-ready', function() {
         //poke your element here
