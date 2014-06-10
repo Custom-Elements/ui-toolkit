@@ -1,6 +1,6 @@
 {
   "name": "ui-toolkit",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "devDependencies": {
     "polymer-tools": "git://github.com/custom-elements/polymer-tools#master",
     "polymer": "git://github.com/custom-elements/polymer#master",
@@ -13,10 +13,10 @@
   "repository": "git://github.com/custom-elements/ui-toolkit",
   "license": "ISC",
   "scripts": {
-    "prepublish": "bower install && polymer-build src/ build/",
-    "test": "polymer-build watch . src/ build/"
+    "prepublish": "make",
+    "test": "make test"
   },
   "files": [
-    "build/ui-toolkit.html"
+    "build/"
   ]
 }
