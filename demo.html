@@ -14,6 +14,10 @@
       ui-fast-picker {
         margin-left: 3em;
       }
+
+      form {
+        max-width: 30em;
+      }
     </style>
   </head>
   <body unresolved>
@@ -40,5 +44,17 @@
         //poke your element here
       })
     </script>
+
+    <h1>Inputs</h1>
+    <form>
+      <ui-input placeholder="Hi Mom" icon="fa-female">
+      </ui-input>
+      <ui-input placeholder="When?" icon="fa-calendar" type="date">
+      </ui-input>
+      <ui-input placeholder="Secret Code?" icon="fa-eye" type="password">
+      </ui-input>
+      <ui-input placeholder="Multiline madness" multiline="10">
+      </ui-input>
+    </form>
   </body>
 </html>

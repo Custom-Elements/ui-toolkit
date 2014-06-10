@@ -18,5 +18,8 @@
   },
   "files": [
     "build/"
-  ]
+  ],
+  "dependencies": {
+    "ui-input": "git://github.com/custom-elements/ui-input"
+  }
 }
