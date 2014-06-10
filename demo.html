@@ -10,51 +10,80 @@
     <style>
       body {
         font-family: "Helvetica Neue", "Helvetica", Arial;
+        display: flex;
+        flex-wrap: wrap;
       }
       ui-fast-picker {
         margin-left: 3em;
       }
-
+      ui-overlay {
+        min-width: 5em;
+        min-height: 5em;
+        background-color: rgba(239, 39, 45, 0.5);
+        border: 1px solid rgba(0, 0, 0, 0.04);
+      }
+      .shady {
+        background-color: rgba(0, 0, 0, 0.2);
+      }
+      section {
+        margin: 1em;
+      }
       form {
         max-width: 30em;
+      }
+      section h1 {
+        margin-top: 0;
       }
     </style>
   </head>
   <body unresolved>
-    <h1>Buttons</h1>
+    <section tile>
+      <h1>Buttons</h1>
 
-    <ui-button icon="fa-bomb" label="The Bomb!" hotkey="b" onclick="console.log('boom!');">
-    </ui-button>
-    <ui-button icon="fa-bullhorn" label="No Yelling" hotkey="y" enabled="false" onclick="console.log('aaaa!');">
-    </ui-button>
-    <ui-button inverted icon="fa-bomb" label="The Bomb!" hotkey="b" onclick="console.log('boom!');">
-    </ui-button>
-    <ui-button inverted icon="fa-bullhorn" label="No Yelling" hotkey="y" enabled="false" onclick="console.log('aaaa!');">
-    </ui-button>
+      <ui-button icon="fa-bomb" label="The Bomb!" hotkey="b" onclick="console.log('boom!');">
+      </ui-button>
+      <ui-button icon="fa-bullhorn" label="No Yelling" hotkey="y" enabled="false" onclick="console.log('aaaa!');">
+      </ui-button>
+      <ui-button inverted icon="fa-bomb" label="The Bomb!" hotkey="b" onclick="console.log('boom!');">
+      </ui-button>
+      <ui-button inverted icon="fa-bullhorn" label="No Yelling" hotkey="y" enabled="false" onclick="console.log('aaaa!');">
+      </ui-button>
+    </section>
 
-    <h1>Flags</h1>
-    <ui-fast-picker>
-    <ui-fast-picker-item value="3"><i class="red solid flag"></i></ui-fast-picker-item>
-    <ui-fast-picker-item value="2"><i class="yellow solid flag"></i></ui-fast-picker-item>
-    <ui-fast-picker-item value="1"><i class="green solid flag"></i></ui-fast-picker-item>
-    <ui-fast-picker-item value="0"><i class="black solid flag"></i></ui-fast-picker-item>
-    </ui-fast-picker>
-    <script>
-      document.addEventListener('polymer-ready', function() {
-        //poke your element here
-      })
-    </script>
+    <section tile>
+      <h1>Flags</h1>
+      <ui-fast-picker>
+      <ui-fast-picker-item value="3"><i class="red solid flag"></i></ui-fast-picker-item>
+      <ui-fast-picker-item value="2"><i class="yellow solid flag"></i></ui-fast-picker-item>
+      <ui-fast-picker-item value="1"><i class="green solid flag"></i></ui-fast-picker-item>
+      <ui-fast-picker-item value="0"><i class="black solid flag"></i></ui-fast-picker-item>
+      </ui-fast-picker>
+    </section>
 
-    <h1>Inputs</h1>
-    <form>
-      <ui-input placeholder="Hi Mom" icon="fa-female">
-      </ui-input>
-      <ui-input placeholder="When?" icon="fa-calendar" type="date">
-      </ui-input>
-      <ui-input placeholder="Secret Code?" icon="fa-eye" type="password">
-      </ui-input>
-      <ui-input placeholder="Multiline madness" multiline="10">
-      </ui-input>
-    </form>
+    <section tile>
+      <h1>Inputs</h1>
+      <form>
+        <ui-input placeholder="Hi Mom" icon="fa-female">
+        </ui-input>
+        <ui-input placeholder="When?" icon="fa-calendar" type="date">
+        </ui-input>
+        <ui-input placeholder="Secret Code?" icon="fa-eye" type="password">
+        </ui-input>
+        <ui-input placeholder="Multiline madness" multiline="10">
+        </ui-input>
+      </form>
+    </section>
+
+    <section tile>
+      <h1>Overlays</h1>
+      <ui-overlay detail="hi">
+        <div overlay class="shady">A</div>
+        <div>Cover Me!</div>
+      </ui-overlay>
+      <ui-overlay hover>
+        <div overlay class="shady">B</div>
+        <div>Hover Me!</div>
+      </ui-overlay>
+    </section>
   </body>
 </html>

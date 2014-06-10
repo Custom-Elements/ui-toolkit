@@ -20,6 +20,7 @@
     "build/"
   ],
   "dependencies": {
-    "ui-input": "git://github.com/custom-elements/ui-input"
+    "ui-input": "git://github.com/custom-elements/ui-input",
+    "ui-overlay": "git://github.com/custom-elements/ui-overlay"
   }
 }
