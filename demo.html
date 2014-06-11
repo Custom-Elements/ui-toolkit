@@ -25,8 +25,17 @@
       .shady {
         background-color: rgba(0, 0, 0, 0.2);
       }
+      .sidebar {
+        padding: 0.33em;
+      }
       section {
         margin: 1em;
+      }
+      section section {
+        position: relative;
+        margin: 0;
+        width: 100%;
+        min-height: 4em;
       }
       form {
         max-width: 30em;
@@ -89,11 +98,9 @@
       <h1>Overlays</h1>
       <ui-overlay detail="hi">
         <div overlay class="shady">A</div>
-        <div>Cover Me!</div>
       </ui-overlay>
       <ui-overlay hover>
         <div overlay class="shady">B</div>
-        <div>Hover Me!</div>
       </ui-overlay>
     </section>
     <section tile>
@@ -121,6 +128,17 @@
           </ui-toolbar-button>
         </ui-toolbar>
       </nav>
+    </section>
+    <section tile>
+      <h1>Resizers</h1>
+      <section>
+        <ui-resizebox class="shady" left>
+        <div class="sidebar">Rock</div>
+        </ui-resizebox>
+        <ui-resizebox class="shady" right>
+        <div class="sidebar">Hard Place</div>
+        </ui-resizebox>
+      </section>
     </section>
     <script>
       document.addEventListener('polymer-ready', function() {

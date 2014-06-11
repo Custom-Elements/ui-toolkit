@@ -1,6 +1,6 @@
 {
   "name": "ui-toolkit",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "devDependencies": {
     "polymer-tools": "git://github.com/custom-elements/polymer-tools#master",
     "polymer": "git://github.com/custom-elements/polymer#master",
@@ -22,6 +22,7 @@
   "dependencies": {
     "ui-input": "git://github.com/custom-elements/ui-input",
     "ui-overlay": "git://github.com/custom-elements/ui-overlay",
+    "ui-resizebox": "git://github.com/custom-elements/ui-resizebox",
     "ui-toolbar": "git://github.com/custom-elements/ui-toolbar",
     "ui-tooltip": "git://github.com/custom-elements/ui-tooltip",
     "ui-typeahead": "git://github.com/custom-elements/ui-typeahead"
