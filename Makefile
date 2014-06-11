@@ -8,6 +8,7 @@ test: polymer
 	polymer-build watch . src/ build/
 
 polymer:
+	[ -d build ] || mkdir build
 	cp node_modules/polymer/layout.* build/
 	cp node_modules/polymer/polymer.* build/
 	cp node_modules/polymer/platform.* build/
