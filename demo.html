@@ -46,6 +46,13 @@
       nav {
         position: relative;
       }
+      .redbox {
+        background-color: red;
+        display: inline-block;
+        box-sizing: border-box;
+        border: .25em solid white;
+        padding: 1em;
+      }
     </style>
   </head>
   <body unresolved>
@@ -140,8 +147,31 @@
         </ui-resizebox>
       </section>
     </section>
+    <section tile>
+      <h1>Tiler</h1>
+      <section class="redboxholder">
+      <ui-grid-tiler selector=".redbox">
+      <template id="tiles" repeat="{{tiles}}">
+        <section class="redbox">{{id}}</section>
+      </template>
+      </ui-grid-tiler>
+      </section>
     <script>
       document.addEventListener('polymer-ready', function() {
+        var ct = 0
+        document.querySelector('#tiles').model = {tiles: []};
+        var tiles = document.querySelector('#tiles').model.tiles;
+        var tileMe = function() {
+          if (tiles.length > 15)
+            tiles.grow = false;
+          else if (tiles.length == 0)
+            tiles.grow = true;
+          if (tiles.grow)
+            tiles.push({id: ct++});
+          else
+            tiles.pop();
+        }
+        setInterval(tileMe, 1000);
         var items = []
         var typeahead = document.querySelector('ui-typeahead');
         var setData = function(prefix) {

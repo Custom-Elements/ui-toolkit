@@ -20,6 +20,7 @@
     "build/"
   ],
   "dependencies": {
+    "ui-grid-tiler": "git://github.com/custom-elements/ui-grid-tiler",
     "ui-input": "git://github.com/custom-elements/ui-input",
     "ui-overlay": "git://github.com/custom-elements/ui-overlay",
     "ui-resizebox": "git://github.com/custom-elements/ui-resizebox",
