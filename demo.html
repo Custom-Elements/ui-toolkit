@@ -34,6 +34,9 @@
       section h1 {
         margin-top: 0;
       }
+      nav {
+        position: relative;
+      }
     </style>
   </head>
   <body unresolved>
@@ -101,6 +104,23 @@
         </p>
         <div tip>This tip is the <i class="fa fa-bomb"></i></div>
       </ui-tooltip>
+    </section>
+    <section tile>
+      <h1>Toolbars</h1>
+      <nav>
+        <ui-toolbar>
+          <ui-toolbar-button icon="fa-bars" hotkey="b" onclick="console.log('burger!');">
+          </ui-toolbar-button>
+          <ui-toolbar-button icon="fa-beer" toggle="true" hotkey="32">
+          </ui-toolbar-button>
+          <ui-toolbar-button icon="fa-user" toggle="true" active="false">
+          </ui-toolbar-button>
+          <ui-toolbar-button icon="fa-bomb" hotkey="f" enabled="false" onclick="console.log('boom!');">
+          </ui-toolbar-button>
+          <ui-toolbar-button icon="fa-gear" selected="true" onclick="this.selected = !this.selected;">
+          </ui-toolbar-button>
+        </ui-toolbar>
+      </nav>
     </section>
     <script>
       document.addEventListener('polymer-ready', function() {
