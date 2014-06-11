@@ -61,7 +61,7 @@
     </section>
 
     <section tile>
-      <h1>Inputs</h1>
+      <h1>Inputs and Typeaheads</h1>
       <form>
         <ui-input placeholder="Hi Mom" icon="fa-female">
         </ui-input>
@@ -69,6 +69,14 @@
         </ui-input>
         <ui-input placeholder="Secret Code?" icon="fa-eye" type="password">
         </ui-input>
+        <ui-typeahead icon="fa-search" placeholder="This is a typeahead" debounce="200">
+        <!-- dynamically templated items -->
+        <template id="typeahead-template" repeat="{{items}}">
+          <ui-typeahead-item>
+          <span><i class="fa {{icon}}"></i> {{ text }}</span>
+          </ui-typeahead-item>
+        </template>
+        </ui-typeahead>
         <ui-input placeholder="Multiline madness" multiline="10">
         </ui-input>
       </form>
@@ -94,5 +102,50 @@
         <div tip>This tip is the <i class="fa fa-bomb"></i></div>
       </ui-tooltip>
     </section>
+    <script>
+      document.addEventListener('polymer-ready', function() {
+        var items = []
+        var typeahead = document.querySelector('ui-typeahead');
+        var setData = function(prefix) {
+          var t = document.querySelector('#typeahead-template');
+          items = [
+            {
+            icon: 'fa-eye',
+            text: 'Hello ' + prefix,
+            detail: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. " },
+            {
+              icon: 'fa-car',
+              text: 'Goodbye ' + prefix,
+              detail: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt."
+            },
+            {
+              icon: 'fa-check',
+              text: 'Another ' + prefix,
+              detail: "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem."
+            },
+            {
+              icon: 'fa-plus',
+              text: 'The Final ' + prefix,
+              detail: "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? "
+            }
+          ];
+
+          if (!prefix )
+            items = []
+
+          t.model = { items: items };
+        };
+
+        typeahead.addEventListener('inputChange', function(e) {
+          setData(e.detail.value);
+        });
+
+        typeahead.addEventListener('change', function(e) {
+          console.log('value changed', e.detail);
+          document.querySelector('#selected-item').model = { item: items[e.detail.index] };
+          Platform.performMicrotaskCheckpoint();
+        });
+      });
+    </script>
   </body>
 </html>

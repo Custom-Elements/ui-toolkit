@@ -22,6 +22,7 @@
   "dependencies": {
     "ui-input": "git://github.com/custom-elements/ui-input",
     "ui-overlay": "git://github.com/custom-elements/ui-overlay",
-    "ui-tooltip": "git://github.com/custom-elements/ui-tooltip"
+    "ui-tooltip": "git://github.com/custom-elements/ui-tooltip",
+    "ui-typeahead": "git://github.com/custom-elements/ui-typeahead"
   }
 }
