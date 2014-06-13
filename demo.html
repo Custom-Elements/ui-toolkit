@@ -158,6 +158,17 @@
       </ui-button>
     </section>
     <section tile>
+      <h1>Modals</h1>
+      <ui-modal id="modal">
+        <h4>Pay Attention!</h4>
+        <hr/>
+        <p>Click me and I will leave you alone</p>
+      </ui-modal>
+      <ui-progress id="loader"></ui-progress>
+      <ui-button label="Mode Me!" onclick="document.querySelector('#modal').show();">
+      </ui-button>
+    </section>
+    <section tile>
       <h1>Tiler</h1>
       <section class="redboxholder">
         <ui-grid-tiler selector=".redbox">
