@@ -149,14 +149,24 @@
       </section>
     </section>
     <section tile>
+      <h1>Loader Progress</h1>
+      <p>Look up :)</p>
+      <ui-progress id="loader"></ui-progress>
+      <ui-button label="Start" onclick="document.querySelector('#loader').start();">
+      </ui-button>
+      <ui-button label="Stop" onclick="document.querySelector('#loader').stop();">
+      </ui-button>
+    </section>
+    <section tile>
       <h1>Tiler</h1>
       <section class="redboxholder">
-      <ui-grid-tiler selector=".redbox">
-      <template id="tiles" repeat="{{tiles}}">
-        <section class="redbox">{{id}}</section>
-      </template>
-      </ui-grid-tiler>
+        <ui-grid-tiler selector=".redbox">
+        <template id="tiles" repeat="{{tiles}}">
+          <section class="redbox">{{id}}</section>
+        </template>
+        </ui-grid-tiler>
       </section>
+    </section>
     <script>
       document.addEventListener('polymer-ready', function() {
         var ct = 0

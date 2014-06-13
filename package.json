@@ -1,6 +1,6 @@
 {
   "name": "ui-toolkit",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "devDependencies": {
     "polymer-tools": "git://github.com/custom-elements/polymer-tools#master",
     "polymer": "git://github.com/custom-elements/polymer#master",
@@ -27,5 +27,6 @@
     "build/"
   ],
   "dependencies": {
+    "ui-progress": "git://github.com/custom-elements/ui-progress"
   }
 }
