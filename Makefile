@@ -2,10 +2,10 @@
 
 build: polymer
 	bower install
-	polymer-build src/ build/
+	polymer-build --exclude-polymer src/ build/
 
 test: polymer
-	polymer-build watch . src/ build/
+	polymer-build --exclude-polymer watch . src/ build/
 
 polymer:
 	[ -d build ] || mkdir build
