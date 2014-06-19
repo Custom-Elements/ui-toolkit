@@ -60,13 +60,13 @@
     <section tile>
       <h1>Buttons</h1>
 
-      <ui-button icon="fa-bomb" label="The Bomb!" hotkey="b" onclick="console.log('boom!');">
+      <ui-button icon="fa-bomb" label="The Bomb!" onclick="console.log('boom!');">
       </ui-button>
-      <ui-button icon="fa-bullhorn" label="No Yelling" hotkey="y" enabled="false" onclick="console.log('aaaa!');">
+      <ui-button icon="fa-bullhorn" label="No Yelling" enabled="false" onclick="console.log('aaaa!');">
       </ui-button>
-      <ui-button inverted icon="fa-bomb" label="The Bomb!" hotkey="b" onclick="console.log('boom!');">
+      <ui-button inverted icon="fa-bomb" label="The Bomb!" onclick="console.log('boom!');">
       </ui-button>
-      <ui-button inverted icon="fa-bullhorn" label="No Yelling" hotkey="y" enabled="false" onclick="console.log('aaaa!');">
+      <ui-button inverted icon="fa-bullhorn" label="No Yelling" enabled="false" onclick="console.log('aaaa!');">
       </ui-button>
     </section>
 
@@ -124,13 +124,15 @@
       <h1>Toolbars</h1>
       <nav>
         <ui-toolbar>
-          <ui-toolbar-button icon="fa-bars" hotkey="b" onclick="console.log('burger!');">
+          <ui-toolbar-button icon="fa-bars" onclick="console.log('burger!');">
+            <ui-hotkey key="alt+b"></ui-hotkey>
           </ui-toolbar-button>
-          <ui-toolbar-button icon="fa-beer" toggle="true" hotkey="32">
+          <ui-toolbar-button icon="fa-beer" toggle="true">
           </ui-toolbar-button>
           <ui-toolbar-button icon="fa-user" toggle="true" active="false">
           </ui-toolbar-button>
-          <ui-toolbar-button icon="fa-bomb" hotkey="f" enabled="false" onclick="console.log('boom!');">
+          <ui-toolbar-button icon="fa-bomb" enabled="false" onclick="console.log('boom!');">
+            <ui-hotkey key="control+b"></ui-hotkey>
           </ui-toolbar-button>
           <ui-toolbar-button icon="fa-gear" selected="true" onclick="this.selected = !this.selected;">
           </ui-toolbar-button>
@@ -178,10 +180,20 @@
         </ui-grid-tiler>
       </section>
     </section>
+    <section tile>
+      <h1>Hotkeys</h1>
+      <section>
+        <p>Press Shift+/ for an awesome alert!</p>
+        <ui-hotkey key="shift+/" id="shiftslash"></ui-hotkey>
+        <p>Press Control+B to trigger the bomb from the toolbar above!</p>
+        <p>Press Alt+B to trigger the burger from the toolbar above!</p>
+      </section>
+    </section>
     <script>
       document.addEventListener('polymer-ready', function() {
         var ct = 0
         document.querySelector('#tiles').model = {tiles: []};
+        var shiftSlash = document.querySelector('#shiftslash');
         var tiles = document.querySelector('#tiles').model.tiles;
         var tileMe = function() {
           if (tiles.length > 15)
@@ -234,6 +246,11 @@
           console.log('value changed', e.detail);
           document.querySelector('#selected-item').model = { item: items[e.detail.index] };
           Platform.performMicrotaskCheckpoint();
+        });
+
+        shiftSlash.addEventListener('click', function(e) {
+          console.log('Shift+/: ', e);
+          alert('Shift+/ pressed!');
         });
       });
     </script>

@@ -9,6 +9,7 @@
     "ui-fast-picker": "git://github.com/custom-elements/ui-fast-picker",
     "ui-fonts": "git://github.com/custom-elements/ui-fonts",
     "ui-grid-tiler": "git://github.com/custom-elements/ui-grid-tiler",
+    "ui-hotkey": "git://github.com/custom-elements/ui-hotkey",
     "ui-input": "git://github.com/custom-elements/ui-input",
     "ui-modal": "git://github.com/custom-elements/ui-modal",
     "ui-overlay": "git://github.com/custom-elements/ui-overlay",
