@@ -170,6 +170,22 @@
       <ui-button label="Mode Me!" onclick="document.querySelector('#modal').show();">
       </ui-button>
     </section>
+
+    <section tile>
+      <h1>Hotkeys</h1>
+      <section>
+        <p>Press Shift+/ for an awesome alert!</p>
+        <ui-hotkey key="shift+/" id="shiftslash"></ui-hotkey>
+        <p>Press Control+B to trigger the bomb from the toolbar above!</p>
+        <p>Press Alt+B to trigger the burger from the toolbar above!</p>
+      </section>
+    </section>
+
+    <section tile>
+      <h1>Login with Awesome Auth</h1>
+      <glg-awesome-auth appName="awesome-auth-example"></glg-awesome-auth>
+    </section>
+
     <section tile>
       <h1>Tiler</h1>
       <section class="redboxholder">
@@ -178,15 +194,6 @@
           <section class="redbox">{{id}}</section>
         </template>
         </ui-grid-tiler>
-      </section>
-    </section>
-    <section tile>
-      <h1>Hotkeys</h1>
-      <section>
-        <p>Press Shift+/ for an awesome alert!</p>
-        <ui-hotkey key="shift+/" id="shiftslash"></ui-hotkey>
-        <p>Press Control+B to trigger the bomb from the toolbar above!</p>
-        <p>Press Alt+B to trigger the burger from the toolbar above!</p>
       </section>
     </section>
     <script>
