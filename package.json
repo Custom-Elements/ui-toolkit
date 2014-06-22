@@ -18,8 +18,7 @@
     "ui-styles": "git://github.com/custom-elements/ui-styles",
     "ui-toolbar": "git://github.com/custom-elements/ui-toolbar",
     "ui-tooltip": "git://github.com/custom-elements/ui-tooltip",
-    "ui-typeahead": "git://github.com/custom-elements/ui-typeahead",
-    "glg-awesome-auth": "git://github.com/custom-elements/glg-awesome-auth"
+    "ui-typeahead": "git://github.com/custom-elements/ui-typeahead"
   },
   "repository": "git://github.com/custom-elements/ui-toolkit",
   "license": "ISC",

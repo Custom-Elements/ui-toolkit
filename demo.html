@@ -32,7 +32,7 @@
       section {
         margin: 1em;
       }
-      section section {
+      box section {
         position: relative;
         margin: 0;
         width: 100%;
@@ -57,9 +57,11 @@
     </style>
   </head>
   <body unresolved>
-    <section tile>
-      <h1>Buttons</h1>
-
+    <container>
+    <h1>ui-toolkit</h1>
+    <hr/>
+    <h2>Buttons</h2>
+    <box>
       <ui-button icon="fa-bomb" label="The Bomb!" onclick="console.log('boom!');">
       </ui-button>
       <ui-button icon="fa-bullhorn" label="No Yelling" enabled="false" onclick="console.log('aaaa!');">
@@ -68,20 +70,20 @@
       </ui-button>
       <ui-button inverted icon="fa-bullhorn" label="No Yelling" enabled="false" onclick="console.log('aaaa!');">
       </ui-button>
-    </section>
+    </box>
 
-    <section tile>
-      <h1>Flags</h1>
+    <h2>Flags</h2>
+    <box>
       <ui-fast-picker>
       <ui-fast-picker-item value="3"><i class="red solid flag"></i></ui-fast-picker-item>
       <ui-fast-picker-item value="2"><i class="yellow solid flag"></i></ui-fast-picker-item>
       <ui-fast-picker-item value="1"><i class="green solid flag"></i></ui-fast-picker-item>
       <ui-fast-picker-item value="0"><i class="black solid flag"></i></ui-fast-picker-item>
       </ui-fast-picker>
-    </section>
+    </box>
 
-    <section tile>
-      <h1>Inputs and Typeaheads</h1>
+    <h2>Inputs and Typeaheads</h2>
+    <box>
       <form>
         <ui-input placeholder="Hi Mom" icon="fa-female">
         </ui-input>
@@ -100,28 +102,30 @@
         <ui-input placeholder="Multiline madness" multiline="10">
         </ui-input>
       </form>
-    </section>
+    </box>
 
-    <section tile>
-      <h1>Overlays</h1>
+    <h2>Overlays</h2>
+    <box>
       <ui-overlay detail="hi">
         <div overlay class="shady">A</div>
       </ui-overlay>
       <ui-overlay hover>
         <div overlay class="shady">B</div>
       </ui-overlay>
-    </section>
-    <section tile>
-      <h1>Tooltips</h1>
+    </box>
+
+    <h2>Tooltips</h2>
+    <box>
       <ui-tooltip>
         <p>
           I am some seriously <i class="fa fa-paw"></i> content, hover over me.
         </p>
         <div tip>This tip is the <i class="fa fa-bomb"></i></div>
       </ui-tooltip>
-    </section>
-    <section tile>
-      <h1>Toolbars</h1>
+    </box>
+
+    <h2>Toolbars</h2>
+    <box>
       <nav>
         <ui-toolbar>
           <ui-toolbar-button icon="fa-bars" onclick="console.log('burger!');">
@@ -138,9 +142,10 @@
           </ui-toolbar-button>
         </ui-toolbar>
       </nav>
-    </section>
-    <section tile>
-      <h1>Resizers</h1>
+    </box>
+
+    <h2>Resizers</h2>
+    <box>
       <section>
         <ui-resizebox class="shady" left>
         <div class="sidebar">Rock</div>
@@ -149,45 +154,43 @@
         <div class="sidebar">Hard Place</div>
         </ui-resizebox>
       </section>
-    </section>
-    <section tile>
-      <h1>Loader Progress</h1>
+    </box>
+
+    <h2>Loader Progress</h2>
+    <box>
       <p>Look up :)</p>
       <ui-progress id="loader"></ui-progress>
       <ui-button label="Start" onclick="document.querySelector('#loader').start();">
       </ui-button>
       <ui-button label="Stop" onclick="document.querySelector('#loader').stop();">
       </ui-button>
-    </section>
-    <section tile>
-      <h1>Modals</h1>
+    </box>
+
+
+    <h2>Modals</h2>
+    <box>
       <ui-modal id="modal">
-        <h4>Pay Attention!</h4>
-        <hr/>
-        <p>Click me and I will leave you alone</p>
+      <h4>Pay Attention!</h4>
+      <hr/>
+      <p>Click me and I will leave you alone</p>
       </ui-modal>
       <ui-progress id="loader"></ui-progress>
       <ui-button label="Mode Me!" onclick="document.querySelector('#modal').show();">
       </ui-button>
-    </section>
+    </box>
 
-    <section tile>
-      <h1>Hotkeys</h1>
+    <h2>Hotkeys</h2>
+    <box>
       <section>
         <p>Press Shift+/ for an awesome alert!</p>
         <ui-hotkey key="shift+/" id="shiftslash"></ui-hotkey>
         <p>Press Control+B to trigger the bomb from the toolbar above!</p>
         <p>Press Alt+B to trigger the burger from the toolbar above!</p>
       </section>
-    </section>
+    </box>
 
-    <section tile>
-      <h1>Login with Awesome Auth</h1>
-      <glg-awesome-auth appName="awesome-auth-example"></glg-awesome-auth>
-    </section>
-
-    <section tile>
-      <h1>Tiler</h1>
+    <h2>Tiler</h2>
+    <box>
       <section class="redboxholder">
         <ui-grid-tiler selector=".redbox">
         <template id="tiles" repeat="{{tiles}}">
@@ -195,7 +198,8 @@
         </template>
         </ui-grid-tiler>
       </section>
-    </section>
+    </box>
+    
     <script>
       document.addEventListener('polymer-ready', function() {
         var ct = 0
@@ -249,17 +253,12 @@
           setData(e.detail.value);
         });
 
-        typeahead.addEventListener('change', function(e) {
-          console.log('value changed', e.detail);
-          document.querySelector('#selected-item').model = { item: items[e.detail.index] };
-          Platform.performMicrotaskCheckpoint();
-        });
-
         shiftSlash.addEventListener('click', function(e) {
           console.log('Shift+/: ', e);
           alert('Shift+/ pressed!');
         });
       });
     </script>
+    </container>
   </body>
 </html>
