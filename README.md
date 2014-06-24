@@ -3,6 +3,8 @@
 Polymer elements packed together for high speed reference, saves you
 build time.
 
+[The Demo](http://custom-elements.github.io/ui-toolkit/)
+
 ##TL;DR:
 
 ```shell
