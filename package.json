@@ -6,6 +6,7 @@
     "polymer": "git://github.com/custom-elements/polymer#master",
     "polymer-build": "",
     "ui-button": "git://github.com/custom-elements/ui-button",
+    "ui-switch": "git://github.com/custom-elements/ui-switch",
     "ui-fast-picker": "git://github.com/custom-elements/ui-fast-picker",
     "ui-fonts": "git://github.com/custom-elements/ui-fonts",
     "ui-grid-tiler": "git://github.com/custom-elements/ui-grid-tiler",

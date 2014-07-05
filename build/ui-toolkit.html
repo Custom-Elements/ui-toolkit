@@ -341,6 +341,22 @@ table {
 .hide {
   display: none !important;
 }
+.border {
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+}
+.focused-border {
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.33) inset;
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.33) inset;
+}
+.cannot-select-text {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 .solid.flag:before {
   font-size: 1.5em;
   content: "\25a3";
@@ -3889,7 +3905,7 @@ box {
     </template>
   </section>
 </template>
-<script built="/Users/wballard/ui-toolkit/node_modules/ui-button/src/ui-button.litcoffee">(function e(t, n, r) {
+<script built="/Users/wballard/git/custom-elements/ui-toolkit/node_modules/ui-button/src/ui-button.litcoffee">(function e(t, n, r) {
     function s(o, u) {
         if (!n[o]) {
             if (!t[o]) {
@@ -3944,9 +3960,212 @@ box {
 }, {}, [ 1 ]);</script>
 </polymer-element>
 
+<polymer-element name="ui-switch" attributes="">
+<template>
+  <section>
+    <style>.hide {
+  display: none !important;
+}
+.border {
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+}
+.focused-border {
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.33) inset;
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.33) inset;
+}
+.cannot-select-text {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.solid.flag:before {
+  font-size: 1.5em;
+  content: "\25a3";
+  font-style: normal;
+}
+.yellow.flag:before {
+  -webkit-text-fill-color: #fae843;
+  -webkit-text-stroke: 1px #454545;
+}
+.red.flag:before {
+  -webkit-text-fill-color: #ef272d;
+  -webkit-text-stroke: 1px #454545;
+}
+.green.flag:before {
+  -webkit-text-fill-color: #c8ed8d;
+  -webkit-text-stroke: 1px #454545;
+}
+.grey.flag:before {
+  -webkit-text-fill-color: rgba(0, 0, 0, 0.61);
+  -webkit-text-stroke: 1px #454545;
+}
+[animated] {
+  opacity: 1.0;
+  transition: width 0.2s ease, opacity 0.2s ease;
+  -webkit-transition: width 0.2s ease, opacity 0.2s ease;
+}
+[animated][hide] {
+  display: inline-block !important;
+  width: 0 !important;
+  opacity: 0 !important;
+}
+[fadeout] {
+  opacity: 1.0;
+  transition: opacity 0.2s ease;
+  -webkit-transition: opacity 0.2s ease;
+}
+[fadeout][hide] {
+  opacity: 0 !important;
+}
+[closeup] {
+  opacity: 1.0;
+  transition: height 0.2s ease, opacity 0.2s ease;
+  -webkit-transition: height 0.2s ease, opacity 0.2s ease;
+}
+[closeup][hide] {
+  display: inline-block !important;
+  height: 0 !important;
+  opacity: 0 !important;
+}
+[tile] {
+  padding: 1em;
+  background-color: rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+[animated] {
+  opacity: 1.0;
+  transition: width 0.2s ease, opacity 0.2s ease;
+  -webkit-transition: width 0.2s ease, opacity 0.2s ease;
+}
+[animated][hide] {
+  display: inline-block !important;
+  width: 0 !important;
+  opacity: 0 !important;
+}
+.sheen {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.01), rgba(0, 0, 0, 0.1));
+}
+:host {
+  display: inline-block;
+  box-model: border-box;
+  position: relative;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+:host #switch {
+  box-sizing: content-box;
+  display: inline-block;
+  width: 2.5em;
+  height: 1em;
+  background-color: rgba(0, 0, 0, 0.1);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.01), rgba(0, 0, 0, 0.02));
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+  margin-right: 0.5em;
+  padding: 0.2em;
+  transition: 0.2s ease;
+  -webkit-transition: 0.2s ease;
+}
+:host #switchhandle {
+  box-sizing: border-box;
+  display: inline-block;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.01), rgba(0, 0, 0, 0.02));
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+  width: 1em;
+  height: 1em;
+  transition: 0.1s ease-out;
+  -webkit-transition: 0.1s ease-out;
+  margin-left: 0;
+  background-color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+:host input {
+  position: absolute;
+  opacity: 0;
+}
+:host([checked]) #switchhandle {
+  margin-left: 1.5em;
+}
+:host([checked]) #switch {
+  background-color: #c8ed8d;
+}
+:host([focused]) #switch {
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.33) inset;
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.33) inset;
+}
+</style>
+    <input type="checkbox" id="check" on-change="{{onChange}}" on-focus="{{onFocus}}" on-blur="{{onBlur}}">
+    <label id="checklabel" for="check" horizontal="" layout="" center="">
+      <section id="switch">
+        <span id="switchhandle"></span>
+      </section>
+      <content on-click="{{onContentClick}}"></content>
+    </label>
+</section>
+</template>
+<script built="/Users/wballard/git/custom-elements/ui-toolkit/node_modules/ui-switch/src/ui-switch.litcoffee">(function e(t, n, r) {
+    function s(o, u) {
+        if (!n[o]) {
+            if (!t[o]) {
+                var a = typeof require == "function" && require;
+                if (!u && a) return a(o, !0);
+                if (i) return i(o, !0);
+                throw new Error("Cannot find module '" + o + "'");
+            }
+            var f = n[o] = {
+                exports: {}
+            };
+            t[o][0].call(f.exports, function(e) {
+                var n = t[o][1][e];
+                return s(n ? n : e);
+            }, f, f.exports, e, t, n, r);
+        }
+        return n[o].exports;
+    }
+    var i = typeof require == "function" && require;
+    for (var o = 0; o < r.length; o++) s(r[o]);
+    return s;
+})({
+    1: [ function(require, module, exports) {
+        Polymer("ui-switch", {
+            onChange: function() {
+                if (this.$.check.checked) {
+                    return this.setAttribute("checked", "");
+                } else {
+                    return this.removeAttribute("checked");
+                }
+            },
+            onFocus: function() {
+                return this.setAttribute("focused", "");
+            },
+            onBlur: function() {
+                return this.removeAttribute("focused");
+            },
+            onContentClick: function() {
+                return console.log("aaa");
+            },
+            created: function() {},
+            ready: function() {},
+            attached: function() {},
+            domReady: function() {},
+            detached: function() {}
+        });
+    }, {} ]
+}, {}, [ 1 ]);</script>
+</polymer-element>
+
 <polymer-element name="ui-hotkey" attributes="key">
   <template> </template>
-  <script built="/Users/wballard/ui-toolkit/node_modules/ui-hotkey/src/ui-hotkey.litcoffee">(function e(t, n, r) {
+  <script built="/Users/wballard/git/custom-elements/ui-toolkit/node_modules/ui-hotkey/src/ui-hotkey.litcoffee">(function e(t, n, r) {
     function s(o, u) {
         if (!n[o]) {
             if (!t[o]) {
@@ -4130,7 +4349,7 @@ background {
   <content>
   </content>
 </template>
-<script built="/Users/wballard/ui-toolkit/node_modules/ui-fast-picker/src/ui-fast-picker.litcoffee">(function e(t, n, r) {
+<script built="/Users/wballard/git/custom-elements/ui-toolkit/node_modules/ui-fast-picker/src/ui-fast-picker.litcoffee">(function e(t, n, r) {
     function s(o, u) {
         if (!n[o]) {
             if (!t[o]) {
@@ -6676,7 +6895,7 @@ section[pressed] {
     <content></content>
   </section>
 </template>
-<script built="/Users/wballard/ui-toolkit/node_modules/ui-fast-picker/src/ui-fast-picker-item.litcoffee">(function e(t, n, r) {
+<script built="/Users/wballard/git/custom-elements/ui-toolkit/node_modules/ui-fast-picker/src/ui-fast-picker-item.litcoffee">(function e(t, n, r) {
     function s(o, u) {
         if (!n[o]) {
             if (!t[o]) {
@@ -8435,7 +8654,7 @@ input[type="week"] {
   </section>
   <content></content>
 </template>
-<script built="/Users/wballard/ui-toolkit/node_modules/ui-input/src/ui-input.litcoffee">(function e(t, n, r) {
+<script built="/Users/wballard/git/custom-elements/ui-toolkit/node_modules/ui-input/src/ui-input.litcoffee">(function e(t, n, r) {
     function s(o, u) {
         if (!n[o]) {
             if (!t[o]) {
@@ -8531,6 +8750,22 @@ input[type="week"] {
 <template>
   <style>.hide {
   display: none !important;
+}
+.border {
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+}
+.focused-border {
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.33) inset;
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.33) inset;
+}
+.cannot-select-text {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 .solid.flag:before {
   font-size: 1.5em;
@@ -8632,7 +8867,7 @@ input[type="week"] {
     <content></content>
   </section>
 </template>
-<script built="/Users/wballard/ui-toolkit/node_modules/ui-overlay/src/ui-overlay.litcoffee">(function e(t, n, r) {
+<script built="/Users/wballard/git/custom-elements/ui-toolkit/node_modules/ui-overlay/src/ui-overlay.litcoffee">(function e(t, n, r) {
     function s(o, u) {
         if (!n[o]) {
             if (!t[o]) {
@@ -8799,6 +9034,22 @@ input[type="week"] {
   <style>.hide {
   display: none !important;
 }
+.border {
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+}
+.focused-border {
+  box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.33) inset;
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.33) inset;
+}
+.cannot-select-text {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 .solid.flag:before {
   font-size: 1.5em;
   content: "\25a3";
@@ -8957,7 +9208,7 @@ input[type="week"] {
   </div>
   <content></content>
 </template>
-<script built="/Users/wballard/ui-toolkit/node_modules/ui-tooltip/src/ui-tooltip.litcoffee">(function e(t, n, r) {
+<script built="/Users/wballard/git/custom-elements/ui-toolkit/node_modules/ui-tooltip/src/ui-tooltip.litcoffee">(function e(t, n, r) {
     function s(o, u) {
         if (!n[o]) {
             if (!t[o]) {
@@ -9211,7 +9462,7 @@ ui-typeahead[selected] ui-typeahead-item[selected]::before {
   </section>
 
 </template>
-<script built="/Users/wballard/ui-toolkit/node_modules/ui-typeahead/src/ui-typeahead.litcoffee">(function e(t, n, r) {
+<script built="/Users/wballard/git/custom-elements/ui-toolkit/node_modules/ui-typeahead/src/ui-typeahead.litcoffee">(function e(t, n, r) {
     function s(o, u) {
         if (!n[o]) {
             if (!t[o]) {
@@ -11709,7 +11960,7 @@ ui-typeahead[selected] ui-typeahead-item[selected]::before {
 </style>
   <content></content>
 </template>
-<script built="/Users/wballard/ui-toolkit/node_modules/ui-typeahead/src/ui-typeahead-item.litcoffee">(function e(t, n, r) {
+<script built="/Users/wballard/git/custom-elements/ui-toolkit/node_modules/ui-typeahead/src/ui-typeahead-item.litcoffee">(function e(t, n, r) {
     function s(o, u) {
         if (!n[o]) {
             if (!t[o]) {
@@ -13451,7 +13702,7 @@ ui-typeahead[selected] ui-typeahead-item[selected]::before {
     </span>
   </section>
 </template>
-<script built="/Users/wballard/ui-toolkit/node_modules/ui-toolbar/src/ui-toolbar-button.litcoffee">(function e(t, n, r) {
+<script built="/Users/wballard/git/custom-elements/ui-toolkit/node_modules/ui-toolbar/src/ui-toolbar-button.litcoffee">(function e(t, n, r) {
     function s(o, u) {
         if (!n[o]) {
             if (!t[o]) {
@@ -13611,7 +13862,7 @@ ui-typeahead[selected] ui-typeahead-item[selected]::before {
 </style>
   <content></content>
 </template>
-<script built="/Users/wballard/ui-toolkit/node_modules/ui-toolbar/src/ui-toolbar.litcoffee">(function e(t, n, r) {
+<script built="/Users/wballard/git/custom-elements/ui-toolkit/node_modules/ui-toolbar/src/ui-toolbar.litcoffee">(function e(t, n, r) {
     function s(o, u) {
         if (!n[o]) {
             if (!t[o]) {
@@ -13698,7 +13949,7 @@ ui-typeahead[selected] ui-typeahead-item[selected]::before {
     <content></content>
   </section>
 </template>
-<script built="/Users/wballard/ui-toolkit/node_modules/ui-resizebox/src/ui-resizebox.litcoffee">(function e(t, n, r) {
+<script built="/Users/wballard/git/custom-elements/ui-toolkit/node_modules/ui-resizebox/src/ui-resizebox.litcoffee">(function e(t, n, r) {
     function s(o, u) {
         if (!n[o]) {
             if (!t[o]) {
@@ -13861,7 +14112,7 @@ body /deep/ .tile-25 {
 </style>
   <content></content>
 </template>
-<script built="/Users/wballard/ui-toolkit/node_modules/ui-grid-tiler/src/ui-grid-tiler.litcoffee">(function e(t, n, r) {
+<script built="/Users/wballard/git/custom-elements/ui-toolkit/node_modules/ui-grid-tiler/src/ui-grid-tiler.litcoffee">(function e(t, n, r) {
     function s(o, u) {
         if (!n[o]) {
             if (!t[o]) {
@@ -16381,7 +16632,7 @@ body /deep/ .tile-25 {
   </section>
   <content></content>
 </template>
-<script built="/Users/wballard/ui-toolkit/node_modules/ui-progress/src/ui-progress.litcoffee">(function e(t, n, r) {
+<script built="/Users/wballard/git/custom-elements/ui-toolkit/node_modules/ui-progress/src/ui-progress.litcoffee">(function e(t, n, r) {
     function s(o, u) {
         if (!n[o]) {
             if (!t[o]) {
@@ -16559,7 +16810,7 @@ body /deep/ .tile-25 {
     <content></content>
   </section>
 </template>
-<script built="/Users/wballard/ui-toolkit/node_modules/ui-modal/src/ui-modal.litcoffee">(function e(t, n, r) {
+<script built="/Users/wballard/git/custom-elements/ui-toolkit/node_modules/ui-modal/src/ui-modal.litcoffee">(function e(t, n, r) {
     function s(o, u) {
         if (!n[o]) {
             if (!t[o]) {
