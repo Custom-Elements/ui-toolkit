@@ -6996,7 +6996,8 @@ section[pressed] {
 }, {}, [ 1 ]);</script>
 </polymer-element>
 
-<polymer-element name="ui-input" attributes="value multiline icon iconAnimation placeholder disabled type autofocus">
+<polymer-element name="ui-input" attributes="value multiline icon iconAnimation placeholder disabled type autofocus
+ autocorrect autocapitalize autocomplete">
 <template>
   <style>.hide {
   display: none !important;
@@ -8731,10 +8732,10 @@ input[type="week"] {
       <i id="icon" class="fa {{icon}} {{iconAnimation}}"></i>
     </template>
     <template if="{{multiline}}">
-      <textarea id="input" value="{{value}}" disabled?="{{disabled}}" placeholder="{{placeholder}}" aria-labelledby="placeholder" aria-invalid="{{invalid}}" on-change="{{change}}" on-focus="{{inputFocus}}" on-blur="{{blur}}" on-keyup="keyup" on-cut="cut" on-paste="paste" on-drop="drop" autofocus?="{{autofocus}}"></textarea>
+      <textarea id="input" value="{{value}}" disabled?="{{disabled}}" placeholder="{{placeholder}}" aria-labelledby="placeholder" aria-invalid="{{invalid}}" on-change="{{change}}" on-focus="{{inputFocus}}" on-blur="{{blur}}" on-keyup="keyup" on-cut="cut" on-paste="paste" on-drop="drop" autocorrect="{{autocorrect}}" autocapitalize="{{autocapitalize}}" autocomplete="{{autocomplete}}" autofocus?="{{autofocus}}"></textarea>
     </template>
     <template if="{{!multiline}}">
-      <input type="{{type}}" id="input" value="{{value}}" disabled?="{{disabled}}" placeholder="{{placeholder}}" aria-labelledby="placeholder" aria-invalid="{{invalid}}" on-change="{{change}}" on-focus="{{inputFocus}}" on-blur="{{blur}}" on-keyup="keyup" autofocus?="{{autofocus}}">
+      <input type="{{type}}" id="input" value="{{value}}" disabled?="{{disabled}}" placeholder="{{placeholder}}" autocorrect="{{autocorrect}}" autocapitalize="{{autocapitalize}}" autocomplete="{{autocomplete}}" aria-labelledby="placeholder" aria-invalid="{{invalid}}" on-change="{{change}}" on-focus="{{inputFocus}}" on-blur="{{blur}}" on-keyup="keyup" autofocus?="{{autofocus}}">
     </template>
   </section>
   <content></content>
@@ -8820,7 +8821,10 @@ input[type="week"] {
                 });
             },
             created: function() {
-                return this.type = "text";
+                this.type = "text";
+                this.autocomplete = "off";
+                this.autocorrect = "off";
+                return this.autocapitalize = "none";
             },
             ready: function() {},
             attached: function() {},
@@ -16851,6 +16855,32 @@ body /deep/ .tile-25 {
   <style>.hide {
   display: none !important;
 }
+.flat {
+  background-image: linear-gradient(rgba(51, 51, 51, 0.01), rgba(51, 51, 51, 0.06) 80%, rgba(51, 51, 51, 0.04));
+}
+.dark-tint {
+  background-image: linear-gradient(rgba(51, 51, 51, 0.61), rgba(51, 51, 51, 0.67) 80%, rgba(51, 51, 51, 0.65));
+}
+.border {
+  box-shadow: 0px 0px 0px 1px rgba(51, 51, 51, 0.1) inset;
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(51, 51, 51, 0.1) inset;
+}
+.focused-border {
+  box-shadow: 0px 0px 0px 1px rgba(51, 51, 51, 0.33) inset;
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(51, 51, 51, 0.33) inset;
+}
+.input-focused-border {
+  box-shadow: 0px 0px 0px 1px rgba(51, 51, 51, 0.33) inset, 0.3em 0em 0em 0em rgba(51, 51, 51, 0.33) inset;
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(51, 51, 51, 0.33) inset, 0.3em 0em 0em 0em rgba(51, 51, 51, 0.33) inset;
+}
+.cannot-select-text {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 .solid.flag:before {
   font-size: 1.5em;
   content: "\25a3";
@@ -16869,7 +16899,7 @@ body /deep/ .tile-25 {
   -webkit-text-stroke: 1px #454545;
 }
 .grey.flag:before {
-  -webkit-text-fill-color: rgba(0, 0, 0, 0.61);
+  -webkit-text-fill-color: rgba(51, 51, 51, 0.61);
   -webkit-text-stroke: 1px #454545;
 }
 [animated] {
@@ -16902,8 +16932,8 @@ body /deep/ .tile-25 {
 }
 [tile] {
   padding: 1em;
-  background-color: rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: rgba(51, 51, 51, 0.1);
+  border: 1px solid rgba(51, 51, 51, 0.1);
 }
 [animated] {
   opacity: 1.0;
@@ -16928,7 +16958,7 @@ body /deep/ .tile-25 {
   right: 0;
   height: 100%;
   z-index: 999999;
-  background-color: rgba(0, 0, 0, 0.85);
+  background-color: rgba(51, 51, 51, 0.61);
   opacity: 1.0;
   transition: opacity 0.2s ease;
   -webkit-transition: opacity 0.2s ease;
@@ -16944,8 +16974,8 @@ body /deep/ .tile-25 {
   max-height: 50%;
   background-color: #ffffff;
   padding: 1em;
-  box-shadow: 0px 0px 3px 3px #333333, 0px 0px 1px 1px #333333 inset;
-  -webkit-box-shadow: 0px 0px 3px 3px #333333, 0px 0px 1px 1px #333333 inset;
+  box-shadow: 0px 4px 1em rgba(51, 51, 51, 0.61);
+  -webkit-box-shadow: 0px 4px 1em rgba(51, 51, 51, 0.61);
   opacity: 1.0;
   transition: 0.2s ease;
   -webkit-transition: 0.2s ease;
