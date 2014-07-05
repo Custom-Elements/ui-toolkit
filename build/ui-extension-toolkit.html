@@ -1736,9 +1736,9 @@
 }, {}, [ 1 ]);</script>
 </polymer-element>
 
-<polymer-element name="ui-switch" attributes="">
+<polymer-element name="ui-switch" attributes="checked" on-click="{{onContentClick}}">
 <template>
-  <section>
+  <section on-click="{{onSwitchClick}}">
     <style>.hide {
   display: none !important;
 }
@@ -1868,10 +1868,10 @@
   position: absolute;
   opacity: 0;
 }
-:host([checked]) #switchhandle {
+:host([on]) #switchhandle {
   margin-left: 1.5em;
 }
-:host([checked]) #switch {
+:host([on]) #switch {
   background-color: #c8ed8d;
 }
 :host([focused]) #switch {
@@ -1884,7 +1884,7 @@
       <section id="switch">
         <span id="switchhandle"></span>
       </section>
-      <content on-click="{{onContentClick}}"></content>
+      <content></content>
     </label>
 </section>
 </template>
@@ -1913,12 +1913,22 @@
 })({
     1: [ function(require, module, exports) {
         Polymer("ui-switch", {
-            onChange: function() {
-                if (this.$.check.checked) {
-                    return this.setAttribute("checked", "");
+            checked: {
+                value: false,
+                reflect: true
+            },
+            checkedChanged: function() {
+                if (this.checked) {
+                    this.$.check.setAttribute("checked", "");
+                    this.setAttribute("on", "");
                 } else {
-                    return this.removeAttribute("checked");
+                    this.$.check.removeAttribute("checked");
+                    this.removeAttribute("on");
                 }
+                return this.fire("change");
+            },
+            onChange: function() {
+                return this.checked = this.$.check.checked;
             },
             onFocus: function() {
                 return this.setAttribute("focused", "");
@@ -1926,8 +1936,11 @@
             onBlur: function() {
                 return this.removeAttribute("focused");
             },
-            onContentClick: function() {
-                return console.log("aaa");
+            onContentClick: function(evt) {
+                return this.checked = !this.checked;
+            },
+            onSwitchClick: function(evt) {
+                return evt.stopPropagation();
             },
             created: function() {},
             ready: function() {},
@@ -4645,7 +4658,7 @@ background {
   z-index: initial;
 }
 :host(:not([clone])) {
-  background: rgba(0, 0, 0, 0.33);
+  background: rgba(0, 0, 0, 0.1);
   box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1) inset;
   -webkit-box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1) inset;
   padding-right: 0.3em;
