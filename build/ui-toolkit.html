@@ -347,6 +347,9 @@ table {
 .dark-tint {
   background-image: linear-gradient(rgba(51, 51, 51, 0.61), rgba(51, 51, 51, 0.67) 80%, rgba(51, 51, 51, 0.65));
 }
+.light-tint {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.61), rgba(255, 255, 255, 0.67) 80%, rgba(255, 255, 255, 0.65));
+}
 .border {
   box-shadow: 0px 0px 0px 1px rgba(51, 51, 51, 0.1) inset;
   -webkit-box-shadow: 0px 0px 0px 1px rgba(51, 51, 51, 0.1) inset;
@@ -3796,6 +3799,9 @@ box {
 .dark-tint {
   background-image: linear-gradient(rgba(51, 51, 51, 0.61), rgba(51, 51, 51, 0.67) 80%, rgba(51, 51, 51, 0.65));
 }
+.light-tint {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.61), rgba(255, 255, 255, 0.67) 80%, rgba(255, 255, 255, 0.65));
+}
 .border {
   box-shadow: 0px 0px 0px 1px rgba(51, 51, 51, 0.1) inset;
   -webkit-box-shadow: 0px 0px 0px 1px rgba(51, 51, 51, 0.1) inset;
@@ -3998,8 +4004,7 @@ box {
 
 <polymer-element name="ui-switch" attributes="checked" on-click="{{onContentClick}}">
 <template>
-  <section on-click="{{onSwitchClick}}">
-    <style>.hide {
+  <style>.hide {
   display: none !important;
 }
 .flat {
@@ -4007,6 +4012,9 @@ box {
 }
 .dark-tint {
   background-image: linear-gradient(rgba(51, 51, 51, 0.61), rgba(51, 51, 51, 0.67) 80%, rgba(51, 51, 51, 0.65));
+}
+.light-tint {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.61), rgba(255, 255, 255, 0.67) 80%, rgba(255, 255, 255, 0.65));
 }
 .border {
   box-shadow: 0px 0px 0px 1px rgba(51, 51, 51, 0.1) inset;
@@ -4132,22 +4140,23 @@ box {
   -webkit-transition: 0.1s ease-out;
   margin-left: 0;
 }
+:host #check[checked] ~ #checklabel #switch {
+  background-color: #c8ed8d;
+}
+:host #check[checked] ~ #checklabel #switchhandle {
+  margin-left: 1.5em;
+}
 :host input {
   position: absolute;
   opacity: 0;
-}
-:host([on]) #switchhandle {
-  margin-left: 1.5em;
-}
-:host([on]) #switch {
-  background-color: #c8ed8d;
 }
 :host([focused]) #switch {
   box-shadow: 0px 0px 0px 1px rgba(51, 51, 51, 0.33) inset;
   -webkit-box-shadow: 0px 0px 0px 1px rgba(51, 51, 51, 0.33) inset;
 }
 </style>
-    <input type="checkbox" id="check" on-change="{{onChange}}" on-focus="{{onFocus}}" on-blur="{{onBlur}}">
+  <section on-click="{{onSwitchClick}}">
+    <input type="checkbox" id="check" on-click="{{onChange}}" on-change="{{onChange}}" on-focus="{{onFocus}}" on-blur="{{onBlur}}">
     <label id="checklabel" for="check" horizontal="" layout="" center="">
       <section id="switch">
         <span id="switchhandle"></span>
@@ -4188,10 +4197,8 @@ box {
             checkedChanged: function() {
                 if (this.checked) {
                     this.$.check.setAttribute("checked", "");
-                    this.setAttribute("on", "");
                 } else {
                     this.$.check.removeAttribute("checked");
-                    this.removeAttribute("on");
                 }
                 return this.fire("change");
             },
@@ -7008,6 +7015,9 @@ section[pressed] {
 .dark-tint {
   background-image: linear-gradient(rgba(51, 51, 51, 0.61), rgba(51, 51, 51, 0.67) 80%, rgba(51, 51, 51, 0.65));
 }
+.light-tint {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.61), rgba(255, 255, 255, 0.67) 80%, rgba(255, 255, 255, 0.65));
+}
 .border {
   box-shadow: 0px 0px 0px 1px rgba(51, 51, 51, 0.1) inset;
   -webkit-box-shadow: 0px 0px 0px 1px rgba(51, 51, 51, 0.1) inset;
@@ -8846,6 +8856,9 @@ input[type="week"] {
 .dark-tint {
   background-image: linear-gradient(rgba(51, 51, 51, 0.61), rgba(51, 51, 51, 0.67) 80%, rgba(51, 51, 51, 0.65));
 }
+.light-tint {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.61), rgba(255, 255, 255, 0.67) 80%, rgba(255, 255, 255, 0.65));
+}
 .border {
   box-shadow: 0px 0px 0px 1px rgba(51, 51, 51, 0.1) inset;
   -webkit-box-shadow: 0px 0px 0px 1px rgba(51, 51, 51, 0.1) inset;
@@ -9138,6 +9151,9 @@ input[type="week"] {
 }
 .dark-tint {
   background-image: linear-gradient(rgba(51, 51, 51, 0.61), rgba(51, 51, 51, 0.67) 80%, rgba(51, 51, 51, 0.65));
+}
+.light-tint {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.61), rgba(255, 255, 255, 0.67) 80%, rgba(255, 255, 255, 0.65));
 }
 .border {
   box-shadow: 0px 0px 0px 1px rgba(51, 51, 51, 0.1) inset;

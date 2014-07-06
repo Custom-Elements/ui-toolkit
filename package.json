@@ -1,12 +1,13 @@
 {
   "name": "ui-toolkit",
-  "version": "0.0.28",
+  "version": "0.0.29",
   "devDependencies": {
     "bower": "~1.3.5",
     "polymer": "git://github.com/custom-elements/polymer#master",
     "polymer-build": "",
     "ui-button": "git://github.com/custom-elements/ui-button",
     "ui-switch": "git://github.com/custom-elements/ui-switch",
+    "ui-check": "git://github.com/custom-elements/ui-check",
     "ui-fast-picker": "git://github.com/custom-elements/ui-fast-picker",
     "ui-fonts": "git://github.com/custom-elements/ui-fonts",
     "ui-grid-tiler": "git://github.com/custom-elements/ui-grid-tiler",
