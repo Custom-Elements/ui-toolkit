@@ -1,0 +1,40 @@
+      <border>
+        <style>
+          ui-navigation {
+            height: 10em;
+          }
+        </style>
+        <ui-navigation>
+          <ui-view id="main" title="Menu">
+          <ul>
+            <li push-screen="#fruit"><h2>Fruit</h2></li>
+            <li push-screen="#vegetables"><h2>Vegetables</h2></li>
+            <li push-screen="#meats"><h2>Meats</h2></li>
+          </ul>
+          </ui-view>
+          <ui-view id="fruit" title="Fruit">
+          <ul>
+            <li push-screen="#detail"><h2>Apple</h2></li>
+            <li push-screen="#detail"><h2>Pear</h2></li>
+            <li push-screen="#detail"><h2>Banana</h2></li>
+          </ul>
+          </ui-view>
+          <ui-view id="vegetables" title="Vegetables">
+          <ul>
+            <li push-screen="#detail"><h2>Carrot</h2></li>
+            <li push-screen="#detail"><h2>Tomato</h2></li>
+            <li push-screen="#detail"><h2>Kale</h2></li>
+          </ul>
+          </ui-view>
+          <ui-view id="meats" title="Meats">
+          <ul>
+            <li push-screen="#detail"><h2>Veal</h2></li>
+            <li push-screen="#detail"><h2>Salmon</h2></li>
+            <li push-screen="#detail"><h2>Duck</h2></li>
+          </ul>
+          </ui-view>
+          <ui-view id="detail" title="Details">
+            <h2>Great Choice!<info>☻</info></h2>
+          </ui-view>
+        </ui-navigation>
+      </border>
