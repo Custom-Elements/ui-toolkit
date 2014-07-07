@@ -1,0 +1,16 @@
+<p>
+  <ui-sparkline id="spark1"></ui-sparkline> sparking trends and
+  more <ui-sparkline id="spark2"></ui-sparkline>
+</p>
+<script>
+  document.addEventListener('polymer-ready', function() {
+    var points = [];
+    while (points.length < 20) {
+      points.push(Math.random());
+    }
+    document.querySelector('#spark1').data = points;
+    points = points.slice();
+    points.reverse();
+    document.querySelector('#spark2').data = points;
+  })
+</script>

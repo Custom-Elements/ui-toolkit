@@ -147,6 +147,11 @@
       </ui-overlay>
     </box>
 
+    <h2>Sparklines</h2>
+    <box>
+      <link rel="import" href="./demo/ui-sparkline.html">
+    </box>
+
     <h2>Tooltips</h2>
     <box>
       <ui-tooltip>
@@ -323,6 +328,7 @@
 
     <script>
       document.addEventListener('polymer-ready', function() {
+        console.log('polymer is ready');
         var ct = 0
         document.querySelector('#tiles').model = {tiles: []};
         var shiftSlash = document.querySelector('#shiftslash');
