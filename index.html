@@ -8887,7 +8887,7 @@ table {
   display: none !important;
 }
 .flat {
-  background-image: linear-gradient(rgba(51, 51, 51, 0.01), rgba(51, 51, 51, 0.06) 80%, rgba(51, 51, 51, 0.04));
+  background-image: linear-gradient(rgba(51, 51, 51, 0.01), rgba(51, 51, 51, 0.02) 80%, rgba(51, 51, 51, 0.01));
 }
 .ultra-dark-tint {
   background-image: linear-gradient(rgba(51, 51, 51, 0.85), rgba(51, 51, 51, 0.91) 80%, rgba(51, 51, 51, 0.89));
@@ -8984,6 +8984,16 @@ table {
 }
 .sheen {
   background-image: linear-gradient(rgba(255, 255, 255, 0.01), rgba(0, 0, 0, 0.1));
+}
+[inverted] {
+  color: #ffffff;
+}
+[inverted] hr,
+[inverted] blockquote,
+[inverted] abbr,
+[inverted] li {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.33);
 }
 html {
   font-style: normal;
@@ -9110,7 +9120,6 @@ pre {
   margin-right: 0;
   margin-bottom: 0;
   margin-left: 0;
-  background-color: rgba(51, 51, 51, 0.1);
   -webkit-background-clip: padding-box;
   -moz-background-clip: padding-box;
   background-clip: padding-box;
@@ -9156,23 +9165,122 @@ container {
   overflow: visible;
 }
 box {
-  display: block;
   padding: 1em;
   margin-top: 0.5em;
   margin-right: 0;
   margin-bottom: 1em;
   margin-left: 0;
-  border: 1px solid rgba(51, 51, 51, 0.1);
-}
-border {
+  box-shadow: 0px 0px 0px 1px rgba(51, 51, 51, 0.1) inset;
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(51, 51, 51, 0.1) inset;
   display: block;
   border: 1px solid rgba(51, 51, 51, 0.1);
+}
+border,
+.border {
+  display: block;
+  border: 1px solid rgba(51, 51, 51, 0.1);
+}
+[border] {
+  border: 1px solid rgba(51, 51, 51, 0.1);
+}
+panel,
+.panel {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  text-align: center;
+}
+panel p,
+.panel p,
+panel h1,
+.panel h1,
+panel h2,
+.panel h2,
+panel h3,
+.panel h3,
+panel h4,
+.panel h4,
+panel h5,
+.panel h5,
+panel h6,
+.panel h6,
+panel ul,
+.panel ul,
+panel ol,
+.panel ol,
+panel dl,
+.panel dl,
+panel blockquote,
+.panel blockquote {
+  margin: 0;
 }
 heading,
 .heading {
-  display: block;
-  background-color: rgba(51, 51, 51, 0.33);
-  background-image: linear-gradient(rgba(255, 255, 255, 0.61), rgba(255, 255, 255, 0.67) 80%, rgba(255, 255, 255, 0.65));
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: rgba(51, 51, 51, 0.1);
+  background-image: linear-gradient(rgba(51, 51, 51, 0.01), rgba(51, 51, 51, 0.02) 80%, rgba(51, 51, 51, 0.01));
+}
+heading p,
+.heading p,
+heading h1,
+.heading h1,
+heading h2,
+.heading h2,
+heading h3,
+.heading h3,
+heading h4,
+.heading h4,
+heading h5,
+.heading h5,
+heading h6,
+.heading h6,
+heading ul,
+.heading ul,
+heading ol,
+.heading ol,
+heading dl,
+.heading dl,
+heading blockquote,
+.heading blockquote {
+  margin: 0;
+}
+well,
+.well {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 1em;
+}
+well p,
+.well p,
+well h1,
+.well h1,
+well h2,
+.well h2,
+well h3,
+.well h3,
+well h4,
+.well h4,
+well h5,
+.well h5,
+well h6,
+.well h6,
+well ul,
+.well ul,
+well ol,
+.well ol,
+well dl,
+.well dl,
+well blockquote,
+.well blockquote {
+  margin: 0;
 }
 [fullscreen],
 [full],
@@ -17284,7 +17392,7 @@ stop {
   display: none !important;
 }
 .flat {
-  background-image: linear-gradient(rgba(51, 51, 51, 0.01), rgba(51, 51, 51, 0.06) 80%, rgba(51, 51, 51, 0.04));
+  background-image: linear-gradient(rgba(51, 51, 51, 0.01), rgba(51, 51, 51, 0.02) 80%, rgba(51, 51, 51, 0.01));
 }
 .ultra-dark-tint {
   background-image: linear-gradient(rgba(51, 51, 51, 0.85), rgba(51, 51, 51, 0.91) 80%, rgba(51, 51, 51, 0.89));
@@ -17392,23 +17500,122 @@ container {
   overflow: visible;
 }
 box {
-  display: block;
   padding: 1em;
   margin-top: 0.5em;
   margin-right: 0;
   margin-bottom: 1em;
   margin-left: 0;
-  border: 1px solid rgba(51, 51, 51, 0.1);
-}
-border {
+  box-shadow: 0px 0px 0px 1px rgba(51, 51, 51, 0.1) inset;
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(51, 51, 51, 0.1) inset;
   display: block;
   border: 1px solid rgba(51, 51, 51, 0.1);
+}
+border,
+.border {
+  display: block;
+  border: 1px solid rgba(51, 51, 51, 0.1);
+}
+[border] {
+  border: 1px solid rgba(51, 51, 51, 0.1);
+}
+panel,
+.panel {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  text-align: center;
+}
+panel p,
+.panel p,
+panel h1,
+.panel h1,
+panel h2,
+.panel h2,
+panel h3,
+.panel h3,
+panel h4,
+.panel h4,
+panel h5,
+.panel h5,
+panel h6,
+.panel h6,
+panel ul,
+.panel ul,
+panel ol,
+.panel ol,
+panel dl,
+.panel dl,
+panel blockquote,
+.panel blockquote {
+  margin: 0;
 }
 heading,
 .heading {
-  display: block;
-  background-color: rgba(51, 51, 51, 0.33);
-  background-image: linear-gradient(rgba(255, 255, 255, 0.61), rgba(255, 255, 255, 0.67) 80%, rgba(255, 255, 255, 0.65));
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: rgba(51, 51, 51, 0.1);
+  background-image: linear-gradient(rgba(51, 51, 51, 0.01), rgba(51, 51, 51, 0.02) 80%, rgba(51, 51, 51, 0.01));
+}
+heading p,
+.heading p,
+heading h1,
+.heading h1,
+heading h2,
+.heading h2,
+heading h3,
+.heading h3,
+heading h4,
+.heading h4,
+heading h5,
+.heading h5,
+heading h6,
+.heading h6,
+heading ul,
+.heading ul,
+heading ol,
+.heading ol,
+heading dl,
+.heading dl,
+heading blockquote,
+.heading blockquote {
+  margin: 0;
+}
+well,
+.well {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 1em;
+}
+well p,
+.well p,
+well h1,
+.well h1,
+well h2,
+.well h2,
+well h3,
+.well h3,
+well h4,
+.well h4,
+well h5,
+.well h5,
+well h6,
+.well h6,
+well ul,
+.well ul,
+well ol,
+.well ol,
+well dl,
+.well dl,
+well blockquote,
+.well blockquote {
+  margin: 0;
 }
 [fullscreen],
 [full],
@@ -17501,7 +17708,7 @@ heading,
   display: none !important;
 }
 .flat {
-  background-image: linear-gradient(rgba(51, 51, 51, 0.01), rgba(51, 51, 51, 0.06) 80%, rgba(51, 51, 51, 0.04));
+  background-image: linear-gradient(rgba(51, 51, 51, 0.01), rgba(51, 51, 51, 0.02) 80%, rgba(51, 51, 51, 0.01));
 }
 .ultra-dark-tint {
   background-image: linear-gradient(rgba(51, 51, 51, 0.85), rgba(51, 51, 51, 0.91) 80%, rgba(51, 51, 51, 0.89));
@@ -17609,23 +17816,122 @@ container {
   overflow: visible;
 }
 box {
-  display: block;
   padding: 1em;
   margin-top: 0.5em;
   margin-right: 0;
   margin-bottom: 1em;
   margin-left: 0;
-  border: 1px solid rgba(51, 51, 51, 0.1);
-}
-border {
+  box-shadow: 0px 0px 0px 1px rgba(51, 51, 51, 0.1) inset;
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(51, 51, 51, 0.1) inset;
   display: block;
   border: 1px solid rgba(51, 51, 51, 0.1);
+}
+border,
+.border {
+  display: block;
+  border: 1px solid rgba(51, 51, 51, 0.1);
+}
+[border] {
+  border: 1px solid rgba(51, 51, 51, 0.1);
+}
+panel,
+.panel {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  text-align: center;
+}
+panel p,
+.panel p,
+panel h1,
+.panel h1,
+panel h2,
+.panel h2,
+panel h3,
+.panel h3,
+panel h4,
+.panel h4,
+panel h5,
+.panel h5,
+panel h6,
+.panel h6,
+panel ul,
+.panel ul,
+panel ol,
+.panel ol,
+panel dl,
+.panel dl,
+panel blockquote,
+.panel blockquote {
+  margin: 0;
 }
 heading,
 .heading {
-  display: block;
-  background-color: rgba(51, 51, 51, 0.33);
-  background-image: linear-gradient(rgba(255, 255, 255, 0.61), rgba(255, 255, 255, 0.67) 80%, rgba(255, 255, 255, 0.65));
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: rgba(51, 51, 51, 0.1);
+  background-image: linear-gradient(rgba(51, 51, 51, 0.01), rgba(51, 51, 51, 0.02) 80%, rgba(51, 51, 51, 0.01));
+}
+heading p,
+.heading p,
+heading h1,
+.heading h1,
+heading h2,
+.heading h2,
+heading h3,
+.heading h3,
+heading h4,
+.heading h4,
+heading h5,
+.heading h5,
+heading h6,
+.heading h6,
+heading ul,
+.heading ul,
+heading ol,
+.heading ol,
+heading dl,
+.heading dl,
+heading blockquote,
+.heading blockquote {
+  margin: 0;
+}
+well,
+.well {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 1em;
+}
+well p,
+.well p,
+well h1,
+.well h1,
+well h2,
+.well h2,
+well h3,
+.well h3,
+well h4,
+.well h4,
+well h5,
+.well h5,
+well h6,
+.well h6,
+well ul,
+.well ul,
+well ol,
+.well ol,
+well dl,
+.well dl,
+well blockquote,
+.well blockquote {
+  margin: 0;
 }
 [fullscreen],
 [full],
@@ -17649,6 +17955,16 @@ heading,
   top: 0;
   left: 0;
   bottom: 0;
+}
+[inverted] {
+  color: #ffffff;
+}
+[inverted] hr,
+[inverted] blockquote,
+[inverted] abbr,
+[inverted] li {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.33);
 }
 html {
   font-style: normal;
@@ -17775,7 +18091,6 @@ pre {
   margin-right: 0;
   margin-bottom: 0;
   margin-left: 0;
-  background-color: rgba(51, 51, 51, 0.1);
   -webkit-background-clip: padding-box;
   -moz-background-clip: padding-box;
   background-clip: padding-box;
@@ -17821,21 +18136,41 @@ success {
   height: 100%;
 }
 :host nav {
-  display: block;
-  background-color: rgba(51, 51, 51, 0.33);
-  background-image: linear-gradient(rgba(255, 255, 255, 0.61), rgba(255, 255, 255, 0.67) 80%, rgba(255, 255, 255, 0.65));
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  background-color: rgba(51, 51, 51, 0.1);
+  background-image: linear-gradient(rgba(51, 51, 51, 0.01), rgba(51, 51, 51, 0.02) 80%, rgba(51, 51, 51, 0.01));
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   align-items: center;
 }
+:host nav p,
+:host nav h1,
+:host nav h2,
+:host nav h3,
+:host nav h4,
+:host nav h5,
+:host nav h6,
+:host nav ul,
+:host nav ol,
+:host nav dl,
+:host nav blockquote {
+  margin: 0;
+}
 :host nav h6 {
   display: block;
   margin: 0;
   line-height: 2em;
-  text-align: center;
-  width: 100%;
 }
 :host nav h6[back] {
   position: absolute;
@@ -17949,123 +18284,13 @@ success {
 }, {}, [ 1 ]);</script>
 </polymer-element>
 
-<style>.hide {
-  display: none !important;
-}
-.flat {
-  background-image: linear-gradient(rgba(51, 51, 51, 0.01), rgba(51, 51, 51, 0.06) 80%, rgba(51, 51, 51, 0.04));
-}
-.ultra-dark-tint {
-  background-image: linear-gradient(rgba(51, 51, 51, 0.85), rgba(51, 51, 51, 0.91) 80%, rgba(51, 51, 51, 0.89));
-}
-.dark-tint {
-  background-image: linear-gradient(rgba(51, 51, 51, 0.61), rgba(51, 51, 51, 0.67) 80%, rgba(51, 51, 51, 0.65));
-}
-.light-tint {
-  background-image: linear-gradient(rgba(255, 255, 255, 0.61), rgba(255, 255, 255, 0.67) 80%, rgba(255, 255, 255, 0.65));
-}
-.border {
-  box-shadow: 0px 0px 0px 1px rgba(51, 51, 51, 0.1) inset;
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(51, 51, 51, 0.1) inset;
-}
-.focused-border {
-  box-shadow: 0px 0px 0px 1px rgba(51, 51, 51, 0.33) inset;
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(51, 51, 51, 0.33) inset;
-}
-.input-focused-border {
-  box-shadow: 0px 0px 0px 1px rgba(51, 51, 51, 0.33) inset, 0.3em 0em 0em 0em rgba(51, 51, 51, 0.33) inset;
-  -webkit-box-shadow: 0px 0px 0px 1px rgba(51, 51, 51, 0.33) inset, 0.3em 0em 0em 0em rgba(51, 51, 51, 0.33) inset;
-}
-.cannot-select-text {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-.solid.flag:before {
-  font-size: 1.5em;
-  content: "\25a3";
-  font-style: normal;
-}
-.yellow.flag:before {
-  -webkit-text-fill-color: #fae843;
-  -webkit-text-stroke: 1px #454545;
-}
-.red.flag:before {
-  -webkit-text-fill-color: #ef272d;
-  -webkit-text-stroke: 1px #454545;
-}
-.green.flag:before {
-  -webkit-text-fill-color: #c8ed8d;
-  -webkit-text-stroke: 1px #454545;
-}
-.grey.flag:before {
-  -webkit-text-fill-color: rgba(51, 51, 51, 0.61);
-  -webkit-text-stroke: 1px #454545;
-}
-[animated] {
-  opacity: 1.0;
-  transition: width 0.2s ease-out, opacity 0.2s ease-out;
-  -webkit-transition: width 0.2s ease-out, opacity 0.2s ease-out;
-}
-[animated][hide] {
-  display: inline-block !important;
-  width: 0 !important;
-  opacity: 0 !important;
-}
-[fadeout] {
-  opacity: 1.0;
-  transition: opacity 0.2s ease-out;
-  -webkit-transition: opacity 0.2s ease-out;
-}
-[fadeout][hide] {
-  opacity: 0 !important;
-}
-[closeup] {
-  opacity: 1.0;
-  transition: height 0.2s ease-out, opacity 0.2s ease-out;
-  -webkit-transition: height 0.2s ease-out, opacity 0.2s ease-out;
-}
-[closeup][hide] {
-  display: inline-block !important;
-  height: 0 !important;
-  opacity: 0 !important;
-}
-[tile] {
-  padding: 1em;
-  background-color: rgba(51, 51, 51, 0.1);
-  border: 1px solid rgba(51, 51, 51, 0.1);
-}
-[animated] {
-  opacity: 1.0;
-  transition: width 0.2s ease-out, opacity 0.2s ease-out;
-  -webkit-transition: width 0.2s ease-out, opacity 0.2s ease-out;
-}
-[animated][hide] {
-  display: inline-block !important;
-  width: 0 !important;
-  opacity: 0 !important;
-}
-.sheen {
-  background-image: linear-gradient(rgba(255, 255, 255, 0.01), rgba(0, 0, 0, 0.1));
-}
-ui-sidebar {
-  padding: 1em;
-  color: #ffffff;
-}
-ui-sidebar li {
-  border-color: #ffffff;
-}
-</style>
-<polymer-element name="ui-sidebar" attributes="">
+<polymer-element name="ui-sidebar" attributes="" inverted="">
 <template>
   <style>.hide {
   display: none !important;
 }
 .flat {
-  background-image: linear-gradient(rgba(51, 51, 51, 0.01), rgba(51, 51, 51, 0.06) 80%, rgba(51, 51, 51, 0.04));
+  background-image: linear-gradient(rgba(51, 51, 51, 0.01), rgba(51, 51, 51, 0.02) 80%, rgba(51, 51, 51, 0.01));
 }
 .ultra-dark-tint {
   background-image: linear-gradient(rgba(51, 51, 51, 0.85), rgba(51, 51, 51, 0.91) 80%, rgba(51, 51, 51, 0.89));
@@ -18173,23 +18398,122 @@ container {
   overflow: visible;
 }
 box {
-  display: block;
   padding: 1em;
   margin-top: 0.5em;
   margin-right: 0;
   margin-bottom: 1em;
   margin-left: 0;
-  border: 1px solid rgba(51, 51, 51, 0.1);
-}
-border {
+  box-shadow: 0px 0px 0px 1px rgba(51, 51, 51, 0.1) inset;
+  -webkit-box-shadow: 0px 0px 0px 1px rgba(51, 51, 51, 0.1) inset;
   display: block;
   border: 1px solid rgba(51, 51, 51, 0.1);
+}
+border,
+.border {
+  display: block;
+  border: 1px solid rgba(51, 51, 51, 0.1);
+}
+[border] {
+  border: 1px solid rgba(51, 51, 51, 0.1);
+}
+panel,
+.panel {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  text-align: center;
+}
+panel p,
+.panel p,
+panel h1,
+.panel h1,
+panel h2,
+.panel h2,
+panel h3,
+.panel h3,
+panel h4,
+.panel h4,
+panel h5,
+.panel h5,
+panel h6,
+.panel h6,
+panel ul,
+.panel ul,
+panel ol,
+.panel ol,
+panel dl,
+.panel dl,
+panel blockquote,
+.panel blockquote {
+  margin: 0;
 }
 heading,
 .heading {
-  display: block;
-  background-color: rgba(51, 51, 51, 0.33);
-  background-image: linear-gradient(rgba(255, 255, 255, 0.61), rgba(255, 255, 255, 0.67) 80%, rgba(255, 255, 255, 0.65));
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: rgba(51, 51, 51, 0.1);
+  background-image: linear-gradient(rgba(51, 51, 51, 0.01), rgba(51, 51, 51, 0.02) 80%, rgba(51, 51, 51, 0.01));
+}
+heading p,
+.heading p,
+heading h1,
+.heading h1,
+heading h2,
+.heading h2,
+heading h3,
+.heading h3,
+heading h4,
+.heading h4,
+heading h5,
+.heading h5,
+heading h6,
+.heading h6,
+heading ul,
+.heading ul,
+heading ol,
+.heading ol,
+heading dl,
+.heading dl,
+heading blockquote,
+.heading blockquote {
+  margin: 0;
+}
+well,
+.well {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 1em;
+}
+well p,
+.well p,
+well h1,
+.well h1,
+well h2,
+.well h2,
+well h3,
+.well h3,
+well h4,
+.well h4,
+well h5,
+.well h5,
+well h6,
+.well h6,
+well ul,
+.well ul,
+well ol,
+.well ol,
+well dl,
+.well dl,
+well blockquote,
+.well blockquote {
+  margin: 0;
 }
 [fullscreen],
 [full],
@@ -18430,7 +18754,7 @@ heading,
   display: none !important;
 }
 .flat {
-  background-image: linear-gradient(rgba(51, 51, 51, 0.01), rgba(51, 51, 51, 0.06) 80%, rgba(51, 51, 51, 0.04));
+  background-image: linear-gradient(rgba(51, 51, 51, 0.01), rgba(51, 51, 51, 0.02) 80%, rgba(51, 51, 51, 0.01));
 }
 .ultra-dark-tint {
   background-image: linear-gradient(rgba(51, 51, 51, 0.85), rgba(51, 51, 51, 0.91) 80%, rgba(51, 51, 51, 0.89));
@@ -18538,7 +18862,7 @@ ui-toast {
   display: none !important;
 }
 .flat {
-  background-image: linear-gradient(rgba(51, 51, 51, 0.01), rgba(51, 51, 51, 0.06) 80%, rgba(51, 51, 51, 0.04));
+  background-image: linear-gradient(rgba(51, 51, 51, 0.01), rgba(51, 51, 51, 0.02) 80%, rgba(51, 51, 51, 0.01));
 }
 .ultra-dark-tint {
   background-image: linear-gradient(rgba(51, 51, 51, 0.85), rgba(51, 51, 51, 0.91) 80%, rgba(51, 51, 51, 0.89));
@@ -20286,7 +20610,7 @@ ui-toast {
   display: none !important;
 }
 .flat {
-  background-image: linear-gradient(rgba(51, 51, 51, 0.01), rgba(51, 51, 51, 0.06) 80%, rgba(51, 51, 51, 0.04));
+  background-image: linear-gradient(rgba(51, 51, 51, 0.01), rgba(51, 51, 51, 0.02) 80%, rgba(51, 51, 51, 0.01));
 }
 .ultra-dark-tint {
   background-image: linear-gradient(rgba(51, 51, 51, 0.85), rgba(51, 51, 51, 0.91) 80%, rgba(51, 51, 51, 0.89));
@@ -20401,8 +20725,7 @@ ui-toast {
   margin: 0;
   padding: 0.65em 0.65em;
   font-weight: 200;
-  background-color: rgba(51, 51, 51, 0.1);
-  background-image: linear-gradient(rgba(51, 51, 51, 0.01), rgba(51, 51, 51, 0.06) 80%, rgba(51, 51, 51, 0.04));
+  background-image: linear-gradient(rgba(51, 51, 51, 0.01), rgba(51, 51, 51, 0.02) 80%, rgba(51, 51, 51, 0.01));
   box-shadow: 0px 0px 0px 1px rgba(51, 51, 51, 0.1) inset;
   -webkit-box-shadow: 0px 0px 0px 1px rgba(51, 51, 51, 0.1) inset;
   transition: 0.2s ease-out;
@@ -20426,7 +20749,7 @@ ui-toast {
 :host([inverted]) #button {
   color: rgba(255, 255, 255, 0.33);
   background-color: #333333;
-  background-image: linear-gradient(rgba(51, 51, 51, 0.01), rgba(51, 51, 51, 0.06) 80%, rgba(51, 51, 51, 0.04));
+  background-image: linear-gradient(rgba(51, 51, 51, 0.01), rgba(51, 51, 51, 0.02) 80%, rgba(51, 51, 51, 0.01));
 }
 :host([inverted]) #button.enabled {
   color: #ffffff;
@@ -20503,7 +20826,7 @@ ui-toast {
   display: none !important;
 }
 .flat {
-  background-image: linear-gradient(rgba(51, 51, 51, 0.01), rgba(51, 51, 51, 0.06) 80%, rgba(51, 51, 51, 0.04));
+  background-image: linear-gradient(rgba(51, 51, 51, 0.01), rgba(51, 51, 51, 0.02) 80%, rgba(51, 51, 51, 0.01));
 }
 .ultra-dark-tint {
   background-image: linear-gradient(rgba(51, 51, 51, 0.85), rgba(51, 51, 51, 0.91) 80%, rgba(51, 51, 51, 0.89));
@@ -20621,8 +20944,7 @@ ui-toast {
   display: inline-block;
   width: 2.5em;
   height: 1em;
-  background-color: rgba(51, 51, 51, 0.1);
-  background-image: linear-gradient(rgba(51, 51, 51, 0.01), rgba(51, 51, 51, 0.06) 80%, rgba(51, 51, 51, 0.04));
+  background-image: linear-gradient(rgba(51, 51, 51, 0.01), rgba(51, 51, 51, 0.02) 80%, rgba(51, 51, 51, 0.01));
   box-shadow: 0px 0px 0px 1px rgba(51, 51, 51, 0.1) inset;
   -webkit-box-shadow: 0px 0px 0px 1px rgba(51, 51, 51, 0.1) inset;
   margin-right: 0.5em;
@@ -20731,7 +21053,7 @@ ui-toast {
   display: none !important;
 }
 .flat {
-  background-image: linear-gradient(rgba(51, 51, 51, 0.01), rgba(51, 51, 51, 0.06) 80%, rgba(51, 51, 51, 0.04));
+  background-image: linear-gradient(rgba(51, 51, 51, 0.01), rgba(51, 51, 51, 0.02) 80%, rgba(51, 51, 51, 0.01));
 }
 .ultra-dark-tint {
   background-image: linear-gradient(rgba(51, 51, 51, 0.85), rgba(51, 51, 51, 0.91) 80%, rgba(51, 51, 51, 0.89));
@@ -20849,8 +21171,7 @@ ui-toast {
   display: inline-block;
   width: 1em;
   height: 1em;
-  background-color: rgba(51, 51, 51, 0.1);
-  background-image: linear-gradient(rgba(51, 51, 51, 0.01), rgba(51, 51, 51, 0.06) 80%, rgba(51, 51, 51, 0.04));
+  background-image: linear-gradient(rgba(51, 51, 51, 0.01), rgba(51, 51, 51, 0.02) 80%, rgba(51, 51, 51, 0.01));
   box-shadow: 0px 0px 0px 1px rgba(51, 51, 51, 0.1) inset;
   -webkit-box-shadow: 0px 0px 0px 1px rgba(51, 51, 51, 0.1) inset;
   margin-right: 0.5em;
@@ -23736,7 +24057,7 @@ section[pressed] {
   display: none !important;
 }
 .flat {
-  background-image: linear-gradient(rgba(51, 51, 51, 0.01), rgba(51, 51, 51, 0.06) 80%, rgba(51, 51, 51, 0.04));
+  background-image: linear-gradient(rgba(51, 51, 51, 0.01), rgba(51, 51, 51, 0.02) 80%, rgba(51, 51, 51, 0.01));
 }
 .ultra-dark-tint {
   background-image: linear-gradient(rgba(51, 51, 51, 0.85), rgba(51, 51, 51, 0.91) 80%, rgba(51, 51, 51, 0.89));
@@ -25578,7 +25899,7 @@ textarea {
   display: none !important;
 }
 .flat {
-  background-image: linear-gradient(rgba(51, 51, 51, 0.01), rgba(51, 51, 51, 0.06) 80%, rgba(51, 51, 51, 0.04));
+  background-image: linear-gradient(rgba(51, 51, 51, 0.01), rgba(51, 51, 51, 0.02) 80%, rgba(51, 51, 51, 0.01));
 }
 .ultra-dark-tint {
   background-image: linear-gradient(rgba(51, 51, 51, 0.85), rgba(51, 51, 51, 0.91) 80%, rgba(51, 51, 51, 0.89));
@@ -25877,7 +26198,7 @@ textarea {
   display: none !important;
 }
 .flat {
-  background-image: linear-gradient(rgba(51, 51, 51, 0.01), rgba(51, 51, 51, 0.06) 80%, rgba(51, 51, 51, 0.04));
+  background-image: linear-gradient(rgba(51, 51, 51, 0.01), rgba(51, 51, 51, 0.02) 80%, rgba(51, 51, 51, 0.01));
 }
 .ultra-dark-tint {
   background-image: linear-gradient(rgba(51, 51, 51, 0.85), rgba(51, 51, 51, 0.91) 80%, rgba(51, 51, 51, 0.89));
@@ -33722,7 +34043,6 @@ body /deep/ .tile-25 {
   max-width: 50%;
   max-height: 50%;
   background-color: #ffffff;
-  padding: 1em;
   box-shadow: 0px 4px 1em rgba(51, 51, 51, 0.61);
   -webkit-box-shadow: 0px 4px 1em rgba(51, 51, 51, 0.61);
   opacity: 1.0;
@@ -37238,14 +37558,13 @@ html /deep/ [segment], html /deep/ segment {
 
     <h2>Navigation</h2>
     <box>
-      <section>
-              <border>
-        <style>
+              <style>
           ui-navigation {
-            height: 10em;
+            height: 32em;
+            width: 24em;
           }
         </style>
-        <ui-navigation>
+        <ui-navigation border="">
           <ui-view id="main" title="Menu">
           <ul>
             <li push-screen="#fruit"><h2>Fruit</h2></li>
@@ -37278,9 +37597,7 @@ html /deep/ [segment], html /deep/ segment {
             <h2>Great Choice!<info>&#x263B;</info></h2>
           </ui-view>
         </ui-navigation>
-      </border>
 
-      </section>
     </box>
 
     <h2>Loader Progress</h2>
@@ -37306,13 +37623,16 @@ html /deep/ [segment], html /deep/ segment {
     <h2>Modals</h2>
     <box>
       <ui-modal id="modal">
-      <h4>Pay Attention!</h4>
-      <hr>
-      <p>Click me and I will leave you alone</p>
-      </ui-modal>
-      <ui-progress id="loader"></ui-progress>
-      <ui-button label="Mode Me!" onclick="document.querySelector(&apos;#modal&apos;).show();">
-      </ui-button>
+  <heading>
+    <h4>Pay Attention!</h4>
+  </heading>
+  <well>
+    <p>Click me and I will leave you alone</p>
+  </well>
+</ui-modal>
+<ui-button label="Mode Me!" onclick="document.querySelector(&apos;#modal&apos;).show();">
+</ui-button>
+
     </box>
 
     <h2>Hotkeys</h2>
