@@ -20,20 +20,11 @@
       ui-toolbar {
         position: relative;
       }
-      .shady {
-        background-color: rgba(0, 0, 0, 0.2);
-      }
       .sidebar {
         padding: 0.33em;
       }
       section {
         margin: 1em;
-      }
-      box section {
-        position: relative;
-        margin: 0;
-        width: 100%;
-        min-height: 4em;
       }
       form {
         max-width: 30em;
@@ -184,14 +175,7 @@
 
     <h2>Resizers</h2>
     <box>
-      <section>
-        <ui-resizebox class="shady" left>
-        <div class="sidebar">Rock</div>
-        </ui-resizebox>
-        <ui-resizebox class="shady" right>
-        <div class="sidebar">Hard Place</div>
-        </ui-resizebox>
-      </section>
+      <link rel="import" href="./demo/ui-resizebox.html">
     </box>
 
     <h2>Navigation</h2>
