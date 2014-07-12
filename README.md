@@ -31,9 +31,9 @@ And a basic skeleton html page to use it:
     note, you can use a different platform and polymer if you
     wish
     -->
-    <script src="node_modules/ui-toolkit/build/platform.js"></script>
-    <link rel="import" href="node_modules/ui-toolkit/build/polymer.html">
-    <link rel="import" href="node_modules/ui-toolkit/build/ui-toolkit.html">
+    <script src="node_modules/polymer/platform.js"></script>
+    <link rel="import" href="node_modules/polymer/polymer.html">
+    <link rel="import" href="node_modules/build/ui-toolkit.html">
   </head>
 </html>
 ```
