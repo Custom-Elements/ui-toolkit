@@ -51,24 +51,12 @@
 
     <h2>Buttons</h2>
     <box>
-      <ui-button icon="fa-bomb" label="The Bomb!" onclick="console.log('boom!');">
-      </ui-button>
-      <ui-button icon="fa-bullhorn" label="No Yelling" enabled="false" onclick="console.log('aaaa!');">
-      </ui-button>
-      <ui-button inverted icon="fa-bomb" label="The Bomb!" onclick="console.log('boom!');">
-      </ui-button>
-      <ui-button inverted icon="fa-bullhorn" label="No Yelling" enabled="false" onclick="console.log('aaaa!');">
-      </ui-button>
+      <link rel="import" href="./demo/ui-button.html">
     </box>
 
     <h2>Switches</h2>
     <box>
-      <ui-switch>
-        Shiny Happy
-      </ui-switch>
-      <ui-switch checked="true">
-        Purple Plants
-      </ui-switch>
+      <link rel="import" href="./demo/ui-switch.html">
     </box>
 
     <h2>Checks</h2>
@@ -85,35 +73,18 @@
     </box>
 
     <h2>Flags</h2>
-    <box>
-      <ui-fast-picker>
-      <ui-fast-picker-item value="3"><i class="red solid flag"></i></ui-fast-picker-item>
-      <ui-fast-picker-item value="2"><i class="yellow solid flag"></i></ui-fast-picker-item>
-      <ui-fast-picker-item value="1"><i class="green solid flag"></i></ui-fast-picker-item>
-      <ui-fast-picker-item value="0"><i class="black solid flag"></i></ui-fast-picker-item>
-      </ui-fast-picker>
+    <box layout horizontal center justified>
+      <link rel="import" href="./demo/ui-fast-picker.html">
     </box>
 
-    <h2>Inputs and Typeaheads</h2>
+    <h2>Inputs</h2>
     <box>
-      <form>
-        <ui-input placeholder="Hi Mom" icon="fa-female">
-        </ui-input>
-        <ui-input placeholder="When?" icon="fa-calendar" type="date">
-        </ui-input>
-        <ui-input placeholder="Secret Code?" icon="fa-eye" type="password">
-        </ui-input>
-        <ui-typeahead icon="fa-search" placeholder="This is a typeahead" debounce="200">
-        <!-- dynamically templated items -->
-        <template id="typeahead-template" repeat="{{items}}">
-          <ui-typeahead-item>
-          <span><i class="fa {{icon}}"></i> {{ text }}</span>
-          </ui-typeahead-item>
-        </template>
-        </ui-typeahead>
-        <ui-input placeholder="Multiline madness" multiline="10">
-        </ui-input>
-      </form>
+      <link rel="import" href="./demo/ui-input.html">
+    </box>
+
+    <h2>Typeaheads</h2>
+    <box>
+      <link rel="import" href="./demo/ui-typeahead.html">
     </box>
 
     <h2>Sidebar</h2>
@@ -145,32 +116,12 @@
 
     <h2>Tooltips</h2>
     <box>
-      <ui-tooltip>
-        <p>
-          I am some seriously <i class="fa fa-paw"></i> content, hover over me.
-        </p>
-        <div tip>This tip is the <i class="fa fa-bomb"></i></div>
-      </ui-tooltip>
+      <link rel="import" href="./demo/ui-tooltip.html">
     </box>
 
     <h2>Toolbars</h2>
     <box>
-      <nav>
-        <ui-toolbar>
-          <ui-toolbar-button icon="fa-bars" onclick="console.log('burger!');">
-            <ui-hotkey key="alt+b"></ui-hotkey>
-          </ui-toolbar-button>
-          <ui-toolbar-button icon="fa-beer" toggle="true">
-          </ui-toolbar-button>
-          <ui-toolbar-button icon="fa-user" toggle="true" active="false">
-          </ui-toolbar-button>
-          <ui-toolbar-button icon="fa-bomb" enabled="false" onclick="console.log('boom!');">
-            <ui-hotkey key="control+b"></ui-hotkey>
-          </ui-toolbar-button>
-          <ui-toolbar-button icon="fa-gear" selected="true" onclick="this.selected = !this.selected;">
-          </ui-toolbar-button>
-        </ui-toolbar>
-      </nav>
+      <link rel="import" href="./demo/ui-toolbar.html">
     </box>
 
     <h2>Resizers</h2>
@@ -187,9 +138,11 @@
     <box>
       <p>Look up :)</p>
       <ui-progress id="loader"></ui-progress>
-      <ui-button label="Start" onclick="document.querySelector('#loader').start();">
+      <ui-button onclick="document.querySelector('#loader').start();">
+        Start
       </ui-button>
-      <ui-button label="Stop" onclick="document.querySelector('#loader').stop();">
+      <ui-button onclick="document.querySelector('#loader').stop();">
+        Stop
       </ui-button>
     </box>
 
@@ -198,7 +151,8 @@
       <ui-toast id="toast">
         You are indeed a fine human being!
       </ui-toast>
-      <ui-button label="Toast Me" onclick="document.querySelector('#toast').show();">
+      <ui-button onclick="document.querySelector('#toast').show();">
+        Toast Me!
       </ui-button>
     </box>
 
@@ -319,41 +273,6 @@
             tiles.pop();
         }
         setInterval(tileMe, 1000);
-        var items = []
-        var typeahead = document.querySelector('ui-typeahead');
-        var setData = function(prefix) {
-          var t = document.querySelector('#typeahead-template');
-          items = [
-            {
-            icon: 'fa-eye',
-            text: 'Hello ' + prefix,
-            detail: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. " },
-            {
-              icon: 'fa-car',
-              text: 'Goodbye ' + prefix,
-              detail: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt."
-            },
-            {
-              icon: 'fa-check',
-              text: 'Another ' + prefix,
-              detail: "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem."
-            },
-            {
-              icon: 'fa-plus',
-              text: 'The Final ' + prefix,
-              detail: "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? "
-            }
-          ];
-
-          if (!prefix )
-            items = []
-
-          t.model = { items: items };
-        };
-
-        typeahead.addEventListener('inputChange', function(e) {
-          setData(e.detail.value);
-        });
 
         shiftSlash.addEventListener('click', function(e) {
           console.log('Shift+/: ', e);

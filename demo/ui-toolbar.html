@@ -1,0 +1,51 @@
+      <ui-toolbar>
+        <ui-toolbar-button onclick="console.log('burger!');">
+          <icon bars></icon>
+        </ui-toolbar-button>
+        <ui-toolbar-toggle>
+          <front>
+            <icon beer></icon>
+          </front>
+          <back>
+            <icon ban></icon>
+          </back>
+        </ui-toolbar-toggle>
+        <ui-toolbar-toggle active="false">
+          <front>
+            <icon user></icon>
+          </front>
+          <back>
+            <icon user></icon>
+          </back>
+        </ui-toolbar-toggle>
+        <ui-toolbar-picker>
+          <selected>
+            <template>
+              <icon icon="{{icon}}"></icon><label>{{caption}}</label>
+            </template>
+          </selected>
+          <template id="options" repeat="{{options}}">
+            <ui-toolbar-picker-item>
+              <icon icon="{{icon}}"></icon><label>{{caption}}</label>
+            </ui-toolbar-picker-item>
+          </template>
+        </ui-toolbar-picker>
+      </ui-toolbar>
+    <script>
+      document.addEventListener('change', function(evt) {
+        console.log('value', evt.detail);
+      });
+      document.querySelector('#options').model = {options:
+        [
+          { icon: 'fax', caption: 'Fax?'},
+          { icon: 'phone', caption: 'Phone'},
+          { icon: 'envelope', caption: 'Snail'}
+        ]
+      };
+      setTimeout(function(){
+      document.querySelector('ui-toolbar-picker').value = {
+        icon: 'sun-o',
+        caption: 'Pick Me!'
+      }
+      });
+    </script>

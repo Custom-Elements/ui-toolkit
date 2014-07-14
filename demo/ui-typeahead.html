@@ -1,0 +1,83 @@
+      <ui-typeahead icon="fa-search" placeholder="This is a typeahead">
+        <icon search></icon>
+        <selected>
+        <template>
+          <ui-typeahead-item>
+            <span><icon icon="{{icon}}"></icon> {{ text }}-</span>
+          </ui-typeahead-item>
+        </template>
+        </selected>
+
+        <!-- dynamically templated items -->
+        <template id="typeahead-template" repeat="{{items}}">
+          <ui-typeahead-item>
+            <span><icon icon="{{icon}}"></icon> {{ text }}</span>
+          </ui-typeahead-item>
+        </template>
+
+      </ui-typeahead>
+
+
+      <template id="selected-item" bind="{{item}}">
+        <div>
+          <h3>
+            <icon icon="{{icon}}"></icon>&nbsp;{{text}}
+          </h3>
+          <p>
+            {{detail}}
+          </p>
+        </div>
+      </template>
+
+    <script>
+
+      document.addEventListener('polymer-ready', function() {
+
+        var items = []
+        var typeahead = document.querySelector('ui-typeahead');
+
+        var setData = function(prefix) {
+
+          var t = document.querySelector('#typeahead-template');
+
+          items = [
+            {
+              icon: 'eye',
+              text: 'Hello ' + prefix,
+              detail: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. " },
+            {
+              icon: 'car',
+              text: 'Goodbye ' + prefix,
+              detail: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt."
+            },
+            {
+              icon: 'check',
+              text: 'Another ' + prefix,
+              detail: "Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem."
+            },
+            {
+              icon: 'plus',
+              text: 'The Final ' + prefix,
+              detail: "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? "
+            }
+          ];
+
+          if (!prefix )
+            items = []
+
+          t.model = { items: items };
+
+          Platform.performMicrotaskCheckpoint();
+        };
+
+        typeahead.addEventListener('inputChange', function(e) {
+          setData(e.detail.value);
+        });
+
+        typeahead.addEventListener('change', function(e) {
+          document.querySelector('#selected-item').model = { item: e.detail };
+        });
+
+      });
+
+    </script>
