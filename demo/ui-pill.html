@@ -1,0 +1,43 @@
+      <div>
+        <p>Pill - standalone (no parent)</p>
+        <div>
+          <span id="standalone-value"></span>
+        </div>
+        <ui-pill id="standalone" value="1">
+          <icon paw></icon>Doge Food
+        </ui-pill>
+      </div>
+
+      <div>
+        <p>Data Bound pills</p>
+        <template id="items" repeat="{{items}}">
+          <ui-pill value="{{id}}">
+            {{title}}
+          </ui-pill>
+        </template>
+      </div>
+    <script>
+
+      document.addEventListener('polymer-ready', function() {
+        var customPill = document.querySelector('#items').model = {items: [
+          {
+            id: 1,
+            title: "Horse",
+
+          },
+          {
+            id: 2,
+            title: "Mini-horse"
+          },
+          {
+            id: 3,
+            title: "Mega-horse"
+          }
+        ]};
+        document.addEventListener("remove",function(e){
+          var idx = document.querySelector('#items').model.items.indexOf(e.target.templateInstance.model);
+          document.querySelector('#items').model.items.splice(idx, 1);
+          console.log(document.querySelector('#items').model.items);
+        });
+      })
+    </script>

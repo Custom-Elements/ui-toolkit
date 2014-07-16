@@ -1,7 +1,11 @@
-    <form>
+    <form container>
       <ui-input autofocus="true"></ui-input>
       <a href="javascript:document.querySelector('#one').focus()">Set Focus To Next One</a>
-      <ui-input onkeyup="console.log(this.value);" id="one">
+      <ui-input id="one">
+        <icon android></icon>
+        <template id="bindme" repeat="{{items}}">
+          <item>{{text}}</item>
+        </template>
       </ui-input>
       <ui-input placeholder="Hi Mom">
         <icon female></icon>
@@ -25,7 +29,7 @@
         <icon tasks></icon>
       </ui-input>
       <ui-input autocorrect="off" autocapitalize="none" placeholder="no auto corrrect, or capitalize"></ui-input>
-      <background inverted>
+      <background inverted id="darkholder">
         <ui-input inverted onkeyup="console.log(this.value);" value="Look in the dark">
         </ui-input>
         <ui-input inverted placeholder="Hi Mom">
@@ -38,3 +42,22 @@
         </ui-input>
       </background>
     </form>
+
+    <script>
+      //data bind to the items template for our android input
+      var items = [];
+      document.addEventListener('polymer-ready', function() {
+        document.querySelector('#bindme').model = {items: items};
+      })
+      //turn the text in our input into a display item, clear it out of the input
+      document.querySelector("#one").addEventListener("keydown", function(e) {
+        console.log(e.target)
+        if(e.keyCode == 13 && e.target.value){
+          items.push({text: e.target.value});
+          e.target.value = "";
+          //eat this key so the input doesn't see it
+          e.stopPropagation();
+          e.preventDefault();
+        }
+      });
+    </script>

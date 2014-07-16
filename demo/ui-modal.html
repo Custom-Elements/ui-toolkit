@@ -1,11 +1,22 @@
-<ui-modal id="modal">
-  <heading>
-    <h4>Pay Attention!</h4>
-  </heading>
-  <well>
-    <p>Click me and I will leave you alone</p>
-  </well>
-</ui-modal>
-<ui-button onclick="document.querySelector('#modal').show();">
-Mode Me!
-</ui-button>
+    <a id="dialog">Click for a dialog</a>
+      <ui-modal>
+        <header>
+          <h4>Clicking To Dismiss</h4>
+        </header>
+        <p>
+          Yes, this is just content to put in folks face, and by default if
+          a click bubbles through it -- bye!
+        </p>
+        <footer>
+          <a>OK</a>
+          <a>Cancel</a>
+        </footer>
+      </ui-modal>
+    <script>
+      document.addEventListener('polymer-ready', function() {
+        //poke your element here
+      })
+      document.querySelector("#dialog").addEventListener('click', function() {
+        document.querySelector('ui-modal').show()
+      })
+    </script>
