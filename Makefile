@@ -5,5 +5,5 @@ build:
 	polymer-build --exclude-polymer src/ build/
 	polymer-build ./ ~/tmp demo.html
 
-test:
+test: build
 	polymer-build watch . src/ build/

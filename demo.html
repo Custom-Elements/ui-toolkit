@@ -184,6 +184,8 @@
       <hr/>
       <p><code>&lt;p&gt;</code>All paragraphs are wrapped in p tags. Additionally, p elements can be wrapped with a blockquote element if the p element is indeed a quote. Historically, blockquote has been used purely to force indents, but this is now achieved using CSS. Reserve blockquote for quotes.</p>
       <hr/>
+      <h1><code>&lt;h1&gt;</code><a>Link Heading</a></h1>
+      <hr/>
       <ul>
         <li><code>&lt;a&gt;</code> - <a href="#">This is a text link</a></li>
         <li><code>&lt;strong&gt;</code> - <strong>Strong is used to indicate strong importance</strong></li>
@@ -290,6 +292,7 @@
           console.log('Shift+/: ', e);
           alert('Shift+/ pressed!');
         });
+        document.querySelector('ui-sidebar').hide();
       });
     </script>
     </container>
