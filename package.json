@@ -5,6 +5,8 @@
     "bower": "~1.3.5",
     "polymer-build": "",
     "ui-code": "git://github.com/custom-elements/ui-code",
+    "ui-markdown": "git://github.com/custom-elements/ui-markdown",
+    "ui-toc": "git://github.com/custom-elements/ui-toc",
     "ui-pill": "git://github.com/custom-elements/ui-pill",
     "ui-sparkline": "git://github.com/custom-elements/ui-sparkline",
     "ui-navigation": "git://github.com/custom-elements/ui-navigation",
