@@ -2,8 +2,8 @@
 
 build:
 	bower install
-	polymer-build --exclude-polymer src/ build/
+	polymer-build --exclude-polymer --compress src/ build/
 	polymer-build ./ ~/tmp demo.html
 
-test: build
+test:
 	polymer-build watch . src/ build/
