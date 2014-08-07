@@ -1,9 +1,13 @@
 .PHONY: build test
 
+POLYMER_BUILD="./node_modules/.bin/polymer-build"
+BOWER="./node_modules/.bin/bower"
+
 build:
-	bower install
-	polymer-build --exclude-polymer --compress src/ build/
-	polymer-build ./ ~/tmp demo.html
+	${BOWER} install
+	${POLYMER_BUILD} --exclude-polymer --compress src/ build/
+	${POLYMER_BUILD} --exclude-polymer src/ build_debug/
+	${POLYMER_BUILD} ./ ~/tmp demo.html
 
 test:
-	polymer-build watch . src/ build/
+	${POLYMER_BUILD} watch . src/ build/
