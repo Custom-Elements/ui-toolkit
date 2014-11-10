@@ -50,7 +50,7 @@ document.addEventListener('polymer-ready', function() {
   var items = []
   var typeahead = document.querySelector('ui-typeahead');
 
-  var setData = function(prefix) {
+  var setTypeaheadData = function(prefix) {
 
     items = [
       {
@@ -82,13 +82,20 @@ document.addEventListener('polymer-ready', function() {
 
   };
 
-  document.addEventListener('inputChange', function(e) {
-    setData(e.detail.value);
+  document.addEventListener('inputchange', function(e) {
+    setTypeaheadData(e.detail.value);
   });
 
   document.querySelector('#single').addEventListener('change', function(e) {
     document.querySelector('#selected-item').model = { item: e.detail };
   });
+
+  //adventures in data binding
+  document.querySelector('#multiple').value = window.things = [
+    {icon: 'paw', text: 'cat'},
+    {icon: 'paw', text: 'dog'},
+    {icon: 'paw', text: 'pig'}
+  ];
 
 });
 
