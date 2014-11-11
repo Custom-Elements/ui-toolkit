@@ -776,22 +776,16 @@ th:first-child {
 .bottom-border {
   border-bottom: 1px solid rgba(69, 69, 69, 0.1);
 }
-.bottom-inverted-border {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.61);
-}
 .focused-border {
-  box-shadow: 0px 0px 1px 0px #e6e6e6 inset;
-  -webkit-box-shadow: 0px 0px 1px 0px #e6e6e6 inset;
+  box-shadow: 0px 0px 1px 0px #cccccc inset;
+  -webkit-box-shadow: 0px 0px 1px 0px #cccccc inset;
 }
 .bottom-focused-border {
-  border-bottom: 1px solid #e6e6e6;
-}
-.bottom-inverted-focused-border {
-  border-bottom: 1px solid #ffffff;
+  border-bottom: 1px solid #cccccc;
 }
 .focused-highlight {
-  box-shadow: 0px 0px 2px -1px #e6e6e6 inset;
-  -webkit-box-shadow: 0px 0px 2px -1px #e6e6e6 inset;
+  box-shadow: 0px 0px 2px -1px #cccccc inset;
+  -webkit-box-shadow: 0px 0px 2px -1px #cccccc inset;
   background-color: rgba(69, 69, 69, 0.1);
 }
 .active-border {
@@ -3970,13 +3964,13 @@ stack > :nth-child(2),
   -webkit-backface-visibility: hidden;
   transform-origin: top;
   -webkit-transform-origin: top;
-  transform: rotateX(90deg);
-  -webkit-transform: rotateX(90deg);
+  transform: scale(0.85, 0.85);
+  -webkit-transform: scale(0.85, 0.85);
   opacity: 0;
 }
 :host([active]) #page-content {
-  transform: rotateX(0deg);
-  -webkit-transform: rotateX(0deg);
+  transform: scale(1, 1);
+  -webkit-transform: scale(1, 1);
   opacity: 1;
 }
 </style>
@@ -4264,9 +4258,7 @@ stack > :nth-child(2),
   padding: 0;
 }
 </style>
-  <div id="page-frame" flex="" auto="" center-center="" horizontal="" layout="">
-    <content></content>
-  </div>
+  <content></content>
 </template>
 <script built="/Users/wballard/git/custom-elements/ui-toolkit/node_modules/ui-pages/src/ui-pages.litcoffee">(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 Polymer('ui-pages', {
@@ -4382,22 +4374,16 @@ Polymer('ui-pages', {
 .bottom-border {
   border-bottom: 1px solid rgba(69, 69, 69, 0.1);
 }
-.bottom-inverted-border {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.61);
-}
 .focused-border {
-  box-shadow: 0px 0px 1px 0px #e6e6e6 inset;
-  -webkit-box-shadow: 0px 0px 1px 0px #e6e6e6 inset;
+  box-shadow: 0px 0px 1px 0px #cccccc inset;
+  -webkit-box-shadow: 0px 0px 1px 0px #cccccc inset;
 }
 .bottom-focused-border {
-  border-bottom: 1px solid #e6e6e6;
-}
-.bottom-inverted-focused-border {
-  border-bottom: 1px solid #ffffff;
+  border-bottom: 1px solid #cccccc;
 }
 .focused-highlight {
-  box-shadow: 0px 0px 2px -1px #e6e6e6 inset;
-  -webkit-box-shadow: 0px 0px 2px -1px #e6e6e6 inset;
+  box-shadow: 0px 0px 2px -1px #cccccc inset;
+  -webkit-box-shadow: 0px 0px 2px -1px #cccccc inset;
   background-color: rgba(69, 69, 69, 0.1);
 }
 .active-border {
@@ -4709,22 +4695,16 @@ Polymer('ui-tab', {
 .bottom-border {
   border-bottom: 1px solid rgba(69, 69, 69, 0.1);
 }
-.bottom-inverted-border {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.61);
-}
 .focused-border {
-  box-shadow: 0px 0px 1px 0px #e6e6e6 inset;
-  -webkit-box-shadow: 0px 0px 1px 0px #e6e6e6 inset;
+  box-shadow: 0px 0px 1px 0px #cccccc inset;
+  -webkit-box-shadow: 0px 0px 1px 0px #cccccc inset;
 }
 .bottom-focused-border {
-  border-bottom: 1px solid #e6e6e6;
-}
-.bottom-inverted-focused-border {
-  border-bottom: 1px solid #ffffff;
+  border-bottom: 1px solid #cccccc;
 }
 .focused-highlight {
-  box-shadow: 0px 0px 2px -1px #e6e6e6 inset;
-  -webkit-box-shadow: 0px 0px 2px -1px #e6e6e6 inset;
+  box-shadow: 0px 0px 2px -1px #cccccc inset;
+  -webkit-box-shadow: 0px 0px 2px -1px #cccccc inset;
   background-color: rgba(69, 69, 69, 0.1);
 }
 .active-border {
@@ -28837,22 +28817,16 @@ Polymer('ui-markdown', {
 .bottom-border {
   border-bottom: 1px solid rgba(69, 69, 69, 0.1);
 }
-.bottom-inverted-border {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.61);
-}
 .focused-border {
-  box-shadow: 0px 0px 1px 0px #e6e6e6 inset;
-  -webkit-box-shadow: 0px 0px 1px 0px #e6e6e6 inset;
+  box-shadow: 0px 0px 1px 0px #cccccc inset;
+  -webkit-box-shadow: 0px 0px 1px 0px #cccccc inset;
 }
 .bottom-focused-border {
-  border-bottom: 1px solid #e6e6e6;
-}
-.bottom-inverted-focused-border {
-  border-bottom: 1px solid #ffffff;
+  border-bottom: 1px solid #cccccc;
 }
 .focused-highlight {
-  box-shadow: 0px 0px 2px -1px #e6e6e6 inset;
-  -webkit-box-shadow: 0px 0px 2px -1px #e6e6e6 inset;
+  box-shadow: 0px 0px 2px -1px #cccccc inset;
+  -webkit-box-shadow: 0px 0px 2px -1px #cccccc inset;
   background-color: rgba(69, 69, 69, 0.1);
 }
 .active-border {
@@ -40188,22 +40162,16 @@ module.exports = '<svg\n' +
 .bottom-border {
   border-bottom: 1px solid rgba(69, 69, 69, 0.1);
 }
-.bottom-inverted-border {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.61);
-}
 .focused-border {
-  box-shadow: 0px 0px 1px 0px #e6e6e6 inset;
-  -webkit-box-shadow: 0px 0px 1px 0px #e6e6e6 inset;
+  box-shadow: 0px 0px 1px 0px #cccccc inset;
+  -webkit-box-shadow: 0px 0px 1px 0px #cccccc inset;
 }
 .bottom-focused-border {
-  border-bottom: 1px solid #e6e6e6;
-}
-.bottom-inverted-focused-border {
-  border-bottom: 1px solid #ffffff;
+  border-bottom: 1px solid #cccccc;
 }
 .focused-highlight {
-  box-shadow: 0px 0px 2px -1px #e6e6e6 inset;
-  -webkit-box-shadow: 0px 0px 2px -1px #e6e6e6 inset;
+  box-shadow: 0px 0px 2px -1px #cccccc inset;
+  -webkit-box-shadow: 0px 0px 2px -1px #cccccc inset;
   background-color: rgba(69, 69, 69, 0.1);
 }
 .active-border {
@@ -40468,22 +40436,16 @@ Polymer('ui-view', {
 .bottom-border {
   border-bottom: 1px solid rgba(69, 69, 69, 0.1);
 }
-.bottom-inverted-border {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.61);
-}
 .focused-border {
-  box-shadow: 0px 0px 1px 0px #e6e6e6 inset;
-  -webkit-box-shadow: 0px 0px 1px 0px #e6e6e6 inset;
+  box-shadow: 0px 0px 1px 0px #cccccc inset;
+  -webkit-box-shadow: 0px 0px 1px 0px #cccccc inset;
 }
 .bottom-focused-border {
-  border-bottom: 1px solid #e6e6e6;
-}
-.bottom-inverted-focused-border {
-  border-bottom: 1px solid #ffffff;
+  border-bottom: 1px solid #cccccc;
 }
 .focused-highlight {
-  box-shadow: 0px 0px 2px -1px #e6e6e6 inset;
-  -webkit-box-shadow: 0px 0px 2px -1px #e6e6e6 inset;
+  box-shadow: 0px 0px 2px -1px #cccccc inset;
+  -webkit-box-shadow: 0px 0px 2px -1px #cccccc inset;
   background-color: rgba(69, 69, 69, 0.1);
 }
 .active-border {
@@ -41068,22 +41030,16 @@ Polymer('ui-navigation', {
 .bottom-border {
   border-bottom: 1px solid rgba(69, 69, 69, 0.1);
 }
-.bottom-inverted-border {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.61);
-}
 .focused-border {
-  box-shadow: 0px 0px 1px 0px #e6e6e6 inset;
-  -webkit-box-shadow: 0px 0px 1px 0px #e6e6e6 inset;
+  box-shadow: 0px 0px 1px 0px #cccccc inset;
+  -webkit-box-shadow: 0px 0px 1px 0px #cccccc inset;
 }
 .bottom-focused-border {
-  border-bottom: 1px solid #e6e6e6;
-}
-.bottom-inverted-focused-border {
-  border-bottom: 1px solid #ffffff;
+  border-bottom: 1px solid #cccccc;
 }
 .focused-highlight {
-  box-shadow: 0px 0px 2px -1px #e6e6e6 inset;
-  -webkit-box-shadow: 0px 0px 2px -1px #e6e6e6 inset;
+  box-shadow: 0px 0px 2px -1px #cccccc inset;
+  -webkit-box-shadow: 0px 0px 2px -1px #cccccc inset;
   background-color: rgba(69, 69, 69, 0.1);
 }
 .active-border {
@@ -41715,22 +41671,16 @@ Polymer('ui-toast', {
 .bottom-border {
   border-bottom: 1px solid rgba(69, 69, 69, 0.1);
 }
-.bottom-inverted-border {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.61);
-}
 .focused-border {
-  box-shadow: 0px 0px 1px 0px #e6e6e6 inset;
-  -webkit-box-shadow: 0px 0px 1px 0px #e6e6e6 inset;
+  box-shadow: 0px 0px 1px 0px #cccccc inset;
+  -webkit-box-shadow: 0px 0px 1px 0px #cccccc inset;
 }
 .bottom-focused-border {
-  border-bottom: 1px solid #e6e6e6;
-}
-.bottom-inverted-focused-border {
-  border-bottom: 1px solid #ffffff;
+  border-bottom: 1px solid #cccccc;
 }
 .focused-highlight {
-  box-shadow: 0px 0px 2px -1px #e6e6e6 inset;
-  -webkit-box-shadow: 0px 0px 2px -1px #e6e6e6 inset;
+  box-shadow: 0px 0px 2px -1px #cccccc inset;
+  -webkit-box-shadow: 0px 0px 2px -1px #cccccc inset;
   background-color: rgba(69, 69, 69, 0.1);
 }
 .active-border {
@@ -42022,22 +41972,16 @@ Polymer('ui-button', {
 .bottom-border {
   border-bottom: 1px solid rgba(69, 69, 69, 0.1);
 }
-.bottom-inverted-border {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.61);
-}
 .focused-border {
-  box-shadow: 0px 0px 1px 0px #e6e6e6 inset;
-  -webkit-box-shadow: 0px 0px 1px 0px #e6e6e6 inset;
+  box-shadow: 0px 0px 1px 0px #cccccc inset;
+  -webkit-box-shadow: 0px 0px 1px 0px #cccccc inset;
 }
 .bottom-focused-border {
-  border-bottom: 1px solid #e6e6e6;
-}
-.bottom-inverted-focused-border {
-  border-bottom: 1px solid #ffffff;
+  border-bottom: 1px solid #cccccc;
 }
 .focused-highlight {
-  box-shadow: 0px 0px 2px -1px #e6e6e6 inset;
-  -webkit-box-shadow: 0px 0px 2px -1px #e6e6e6 inset;
+  box-shadow: 0px 0px 2px -1px #cccccc inset;
+  -webkit-box-shadow: 0px 0px 2px -1px #cccccc inset;
   background-color: rgba(69, 69, 69, 0.1);
 }
 .active-border {
@@ -42106,8 +42050,8 @@ border {
   opacity: 0;
 }
 :host([focused]) #switch {
-  box-shadow: 0px 0px 1px 0px #e6e6e6 inset;
-  -webkit-box-shadow: 0px 0px 1px 0px #e6e6e6 inset;
+  box-shadow: 0px 0px 1px 0px #cccccc inset;
+  -webkit-box-shadow: 0px 0px 1px 0px #cccccc inset;
 }
 </style>
   <section on-click="{{onSwitchClick}}">
@@ -42210,22 +42154,16 @@ Polymer('ui-switch', {
 .bottom-border {
   border-bottom: 1px solid rgba(69, 69, 69, 0.1);
 }
-.bottom-inverted-border {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.61);
-}
 .focused-border {
-  box-shadow: 0px 0px 1px 0px #e6e6e6 inset;
-  -webkit-box-shadow: 0px 0px 1px 0px #e6e6e6 inset;
+  box-shadow: 0px 0px 1px 0px #cccccc inset;
+  -webkit-box-shadow: 0px 0px 1px 0px #cccccc inset;
 }
 .bottom-focused-border {
-  border-bottom: 1px solid #e6e6e6;
-}
-.bottom-inverted-focused-border {
-  border-bottom: 1px solid #ffffff;
+  border-bottom: 1px solid #cccccc;
 }
 .focused-highlight {
-  box-shadow: 0px 0px 2px -1px #e6e6e6 inset;
-  -webkit-box-shadow: 0px 0px 2px -1px #e6e6e6 inset;
+  box-shadow: 0px 0px 2px -1px #cccccc inset;
+  -webkit-box-shadow: 0px 0px 2px -1px #cccccc inset;
   background-color: rgba(69, 69, 69, 0.1);
 }
 .active-border {
@@ -42287,8 +42225,8 @@ border {
   opacity: 0;
 }
 :host([focused]) #checkframe {
-  box-shadow: 0px 0px 1px 0px #e6e6e6 inset;
-  -webkit-box-shadow: 0px 0px 1px 0px #e6e6e6 inset;
+  box-shadow: 0px 0px 1px 0px #cccccc inset;
+  -webkit-box-shadow: 0px 0px 1px 0px #cccccc inset;
 }
 </style>
   <section on-click="{{onCheckClick}}">
@@ -42551,22 +42489,16 @@ Polymer('ui-hotkey', {
 .bottom-border {
   border-bottom: 1px solid rgba(69, 69, 69, 0.1);
 }
-.bottom-inverted-border {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.61);
-}
 .focused-border {
-  box-shadow: 0px 0px 1px 0px #e6e6e6 inset;
-  -webkit-box-shadow: 0px 0px 1px 0px #e6e6e6 inset;
+  box-shadow: 0px 0px 1px 0px #cccccc inset;
+  -webkit-box-shadow: 0px 0px 1px 0px #cccccc inset;
 }
 .bottom-focused-border {
-  border-bottom: 1px solid #e6e6e6;
-}
-.bottom-inverted-focused-border {
-  border-bottom: 1px solid #ffffff;
+  border-bottom: 1px solid #cccccc;
 }
 .focused-highlight {
-  box-shadow: 0px 0px 2px -1px #e6e6e6 inset;
-  -webkit-box-shadow: 0px 0px 2px -1px #e6e6e6 inset;
+  box-shadow: 0px 0px 2px -1px #cccccc inset;
+  -webkit-box-shadow: 0px 0px 2px -1px #cccccc inset;
   background-color: rgba(69, 69, 69, 0.1);
 }
 .active-border {
@@ -49720,22 +49652,16 @@ Polymer('ui-fast-picker', {
 .bottom-border {
   border-bottom: 1px solid rgba(69, 69, 69, 0.1);
 }
-.bottom-inverted-border {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.61);
-}
 .focused-border {
-  box-shadow: 0px 0px 1px 0px #e6e6e6 inset;
-  -webkit-box-shadow: 0px 0px 1px 0px #e6e6e6 inset;
+  box-shadow: 0px 0px 1px 0px #cccccc inset;
+  -webkit-box-shadow: 0px 0px 1px 0px #cccccc inset;
 }
 .bottom-focused-border {
-  border-bottom: 1px solid #e6e6e6;
-}
-.bottom-inverted-focused-border {
-  border-bottom: 1px solid #ffffff;
+  border-bottom: 1px solid #cccccc;
 }
 .focused-highlight {
-  box-shadow: 0px 0px 2px -1px #e6e6e6 inset;
-  -webkit-box-shadow: 0px 0px 2px -1px #e6e6e6 inset;
+  box-shadow: 0px 0px 2px -1px #cccccc inset;
+  -webkit-box-shadow: 0px 0px 2px -1px #cccccc inset;
   background-color: rgba(69, 69, 69, 0.1);
 }
 .active-border {
@@ -49888,32 +49814,20 @@ stack > :nth-child(2),
 }
 :host {
   box-sizing: border-box;
-  display: inline-block;
+  display: inline-flex;
+  justify-content: flex-start;
   position: relative;
   width: 100%;
   background-color: transparent;
   font-size: 1em;
-  color: rgba(69, 69, 69, 0.85);
+  margin-bottom: 1em;
+  color: #454545;
   transition: 0.2s cubic-bezier(0.4, 0, 1, 1);
   -webkit-transition: 0.2s cubic-bezier(0.4, 0, 1, 1);
-}
-:host #disabler {
-  box-sizing: border-box;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  transition: 0.2s cubic-bezier(0.4, 0, 1, 1);
-  -webkit-transition: 0.2s cubic-bezier(0.4, 0, 1, 1);
-  transform: rotateX(180deg);
-  -webkit-transform: rotateX(180deg);
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
 }
 :host ::content icon {
   display: inline-block;
-  margin-right: 0.25em;
+  margin-right: 1em;
   line-height: inherit;
 }
 :host ::content value {
@@ -49922,27 +49836,39 @@ stack > :nth-child(2),
   padding: 0em .25em;
   overflow: hidden;
 }
+:host ::content value icon {
+  margin-right: 0;
+}
 :host #field {
   box-sizing: border-box;
+  flex: 1;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-  align-items: center;
   margin: 0;
   padding: 0.15em 0.15em;
   transition: 0.2s cubic-bezier(0.4, 0, 1, 1);
   -webkit-transition: 0.2s cubic-bezier(0.4, 0, 1, 1);
+}
+:host #field.focused input,
+:host #field.focused textarea {
+  border-bottom: 1px solid #cccccc;
+}
+:host #field #input {
   border-bottom: 1px solid rgba(69, 69, 69, 0.1);
+  margin: 0;
+  padding: 0;
+  padding-bottom: 0.5em;
+  box-sizing: border-box;
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
 }
-:host #field.focused {
+:host #field #input input,
+:host #field #input textarea {
   color: #454545;
-  border-bottom: 1px solid #e6e6e6;
-}
-:host #field.disabled {
-  color: rgba(69, 69, 69, 0.33);
-}
-:host #field input,
-:host #field textarea {
   min-width: 25%;
   box-sizing: border-box;
   flex: 1;
@@ -49953,40 +49879,12 @@ stack > :nth-child(2),
   border: none;
   margin: 0;
   padding: 0;
-  color: rgba(69, 69, 69, 0.85);
   transition: 0.2s cubic-bezier(0.4, 0, 1, 1);
   -webkit-transition: 0.2s cubic-bezier(0.4, 0, 1, 1);
 }
-:host #field input:focus,
-:host #field textarea:focus {
-  color: #454545;
-}
-:host([inverted]) {
-  color: rgba(255, 255, 255, 0.85);
-}
-:host([inverted]) #field {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.61);
-}
-:host([inverted]) #field.focused {
-  color: #ffffff;
-  border-bottom: 1px solid #ffffff;
-}
-:host([inverted]) #field.disabled {
-  color: rgba(255, 255, 255, 0.33);
-}
-:host([inverted]) #field input,
-:host([inverted]) #field textarea {
-  color: rgba(255, 255, 255, 0.85);
-}
-:host([inverted]) #field input:focus,
-:host([inverted]) #field textarea:focus {
-  color: #ffffff;
-}
-:host([disabled]) #disabler {
-  transform: rotateX(0deg);
-  -webkit-transform: rotateX(0deg);
-  background-color: rgba(69, 69, 69, 0.1);
-  background-image: linear-gradient(rgba(69, 69, 69, 0.01), rgba(69, 69, 69, 0.02) 80%, rgba(69, 69, 69, 0.01));
+:host([disabled]) #field input,
+:host([disabled]) #field textarea {
+  color: rgba(69, 69, 69, 0.33);
 }
 input,
 textarea {
@@ -49994,20 +49892,21 @@ textarea {
   font-weight: inherit;
 }
 </style>
-  <section id="disabler"></section>
   <section id="field" on-keydown="{{keydown}}" class="{{ {disabled: disabled} | tokenList }}">
 
     <content select="icon"></content>
 
     <content select="value"></content>
 
-    <template if="{{multiline}}">
-      <textarea id="input" value="{{value}}" disabled?="{{disabled}}" placeholder="{{placeholder}}" aria-labelledby="placeholder" aria-invalid="{{invalid}}" on-change="{{change}}" on-focus="{{inputFocus}}" on-blur="{{blur}}" on-keyup="keyup" on-cut="cut" on-paste="paste" on-drop="drop" autocorrect="{{autocorrect}}" autocapitalize="{{autocapitalize}}" autocomplete="{{autocomplete}}" autofocus?="{{autofocus}}"></textarea>
-    </template>
-    <template if="{{!multiline}}">
-      <input type="{{type}}" id="input" value="{{value}}" disabled?="{{disabled}}" placeholder="{{placeholder}}" autocorrect="{{autocorrect}}" autocapitalize="{{autocapitalize}}" autocomplete="{{autocomplete}}" aria-labelledby="placeholder" aria-invalid="{{invalid}}" on-change="{{change}}" on-focus="{{inputFocus}}" on-blur="{{blur}}" on-keyup="keyup" autofocus?="{{autofocus}}">
-    </template>
-  </section>
+    <section id="input">
+        <template if="{{multiline}}">
+          <textarea id="input" value="{{value}}" disabled?="{{disabled}}" placeholder="{{placeholder}}" aria-labelledby="placeholder" aria-invalid="{{invalid}}" on-change="{{change}}" on-focus="{{inputFocus}}" on-blur="{{blur}}" on-keyup="keyup" on-cut="cut" on-paste="paste" on-drop="drop" autocorrect="{{autocorrect}}" autocapitalize="{{autocapitalize}}" autocomplete="{{autocomplete}}" autofocus?="{{autofocus}}"></textarea>
+        </template>
+        <template if="{{!multiline}}">
+          <input type="{{type}}" id="input" value="{{value}}" disabled?="{{disabled}}" placeholder="{{placeholder}}" autocorrect="{{autocorrect}}" autocapitalize="{{autocapitalize}}" autocomplete="{{autocomplete}}" aria-labelledby="placeholder" aria-invalid="{{invalid}}" on-change="{{change}}" on-focus="{{inputFocus}}" on-blur="{{blur}}" on-keyup="keyup" autofocus?="{{autofocus}}">
+        </template>
+      </section>
+    </section>
 </template>
 <script built="/Users/wballard/git/custom-elements/ui-toolkit/node_modules/ui-input/src/ui-input.litcoffee">(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 Polymer('ui-input', {
@@ -50026,7 +49925,7 @@ Polymer('ui-input', {
     textarea = this.shadowRoot.querySelector('textarea');
     return setTimeout(function() {
       textarea.style.height = 'auto';
-      return textarea.style.height = "" + textarea.scrollHeight + "px";
+      return textarea.style.height = "" + (textarea.scrollHeight + 2) + "px";
     });
   },
   bubble: function(evt) {
@@ -50430,7 +50329,7 @@ Polymer('ui-overlay', {
   display: flex;
   white-space: nowrap;
   font-size: 0.85rem;
-  border: 1px solid #e6e6e6;
+  border: 1px solid #cccccc;
   color: #454545;
   font-weight: 200;
   background-color: #ffffff;
@@ -50479,28 +50378,28 @@ Polymer('ui-overlay', {
 #tooltip.right.down:before {
   top: -0.4em;
   left: 0.4em;
-  border-left: 1px solid #e6e6e6;
-  border-top: 1px solid #e6e6e6;
+  border-left: 1px solid #cccccc;
+  border-top: 1px solid #cccccc;
 }
 #tooltip.left.down:before {
   top: -0.4em;
   right: 0.4em;
-  border-left: 1px solid #e6e6e6;
-  border-top: 1px solid #e6e6e6;
+  border-left: 1px solid #cccccc;
+  border-top: 1px solid #cccccc;
 }
 #tooltip.right.up:before {
   bottom: -0.4em;
   left: 0.4em;
-  border-right: 1px solid #e6e6e6;
-  border-bottom: 1px solid #e6e6e6;
+  border-right: 1px solid #cccccc;
+  border-bottom: 1px solid #cccccc;
   box-shadow: 1px 1px 1px rgba(69, 69, 69, 0.1);
   -webkit-box-shadow: 1px 1px 1px rgba(69, 69, 69, 0.1);
 }
 #tooltip.left.up:before {
   bottom: -0.4em;
   right: 0.4em;
-  border-right: 1px solid #e6e6e6;
-  border-bottom: 1px solid #e6e6e6;
+  border-right: 1px solid #cccccc;
+  border-bottom: 1px solid #cccccc;
   box-shadow: 1px 1px 1px rgba(69, 69, 69, 0.1);
   -webkit-box-shadow: 1px 1px 1px rgba(69, 69, 69, 0.1);
 }
@@ -50602,22 +50501,16 @@ Polymer('ui-tooltip', {
 .bottom-border {
   border-bottom: 1px solid rgba(69, 69, 69, 0.1);
 }
-.bottom-inverted-border {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.61);
-}
 .focused-border {
-  box-shadow: 0px 0px 1px 0px #e6e6e6 inset;
-  -webkit-box-shadow: 0px 0px 1px 0px #e6e6e6 inset;
+  box-shadow: 0px 0px 1px 0px #cccccc inset;
+  -webkit-box-shadow: 0px 0px 1px 0px #cccccc inset;
 }
 .bottom-focused-border {
-  border-bottom: 1px solid #e6e6e6;
-}
-.bottom-inverted-focused-border {
-  border-bottom: 1px solid #ffffff;
+  border-bottom: 1px solid #cccccc;
 }
 .focused-highlight {
-  box-shadow: 0px 0px 2px -1px #e6e6e6 inset;
-  -webkit-box-shadow: 0px 0px 2px -1px #e6e6e6 inset;
+  box-shadow: 0px 0px 2px -1px #cccccc inset;
+  -webkit-box-shadow: 0px 0px 2px -1px #cccccc inset;
   background-color: rgba(69, 69, 69, 0.1);
 }
 .active-border {
@@ -50639,8 +50532,8 @@ border {
   height: 100%;
 }
 :host([focused]) #display {
-  box-shadow: 0px 0px 2px -1px #e6e6e6 inset;
-  -webkit-box-shadow: 0px 0px 2px -1px #e6e6e6 inset;
+  box-shadow: 0px 0px 2px -1px #cccccc inset;
+  -webkit-box-shadow: 0px 0px 2px -1px #cccccc inset;
   background-color: rgba(69, 69, 69, 0.1);
 }
 </style>
@@ -50765,22 +50658,16 @@ ui-typeahead[selected] ui-typeahead-item[selected]::before {
 .bottom-border {
   border-bottom: 1px solid rgba(69, 69, 69, 0.1);
 }
-.bottom-inverted-border {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.61);
-}
 .focused-border {
-  box-shadow: 0px 0px 1px 0px #e6e6e6 inset;
-  -webkit-box-shadow: 0px 0px 1px 0px #e6e6e6 inset;
+  box-shadow: 0px 0px 1px 0px #cccccc inset;
+  -webkit-box-shadow: 0px 0px 1px 0px #cccccc inset;
 }
 .bottom-focused-border {
-  border-bottom: 1px solid #e6e6e6;
-}
-.bottom-inverted-focused-border {
-  border-bottom: 1px solid #ffffff;
+  border-bottom: 1px solid #cccccc;
 }
 .focused-highlight {
-  box-shadow: 0px 0px 2px -1px #e6e6e6 inset;
-  -webkit-box-shadow: 0px 0px 2px -1px #e6e6e6 inset;
+  box-shadow: 0px 0px 2px -1px #cccccc inset;
+  -webkit-box-shadow: 0px 0px 2px -1px #cccccc inset;
   background-color: rgba(69, 69, 69, 0.1);
 }
 .active-border {
@@ -57895,22 +57782,16 @@ Polymer('ui-typeahead', {
 .bottom-border {
   border-bottom: 1px solid rgba(69, 69, 69, 0.1);
 }
-.bottom-inverted-border {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.61);
-}
 .focused-border {
-  box-shadow: 0px 0px 1px 0px #e6e6e6 inset;
-  -webkit-box-shadow: 0px 0px 1px 0px #e6e6e6 inset;
+  box-shadow: 0px 0px 1px 0px #cccccc inset;
+  -webkit-box-shadow: 0px 0px 1px 0px #cccccc inset;
 }
 .bottom-focused-border {
-  border-bottom: 1px solid #e6e6e6;
-}
-.bottom-inverted-focused-border {
-  border-bottom: 1px solid #ffffff;
+  border-bottom: 1px solid #cccccc;
 }
 .focused-highlight {
-  box-shadow: 0px 0px 2px -1px #e6e6e6 inset;
-  -webkit-box-shadow: 0px 0px 2px -1px #e6e6e6 inset;
+  box-shadow: 0px 0px 2px -1px #cccccc inset;
+  -webkit-box-shadow: 0px 0px 2px -1px #cccccc inset;
   background-color: rgba(69, 69, 69, 0.1);
 }
 .active-border {
@@ -58269,22 +58150,16 @@ Polymer('ui-toolbar-button', {
 .bottom-border {
   border-bottom: 1px solid rgba(69, 69, 69, 0.1);
 }
-.bottom-inverted-border {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.61);
-}
 .focused-border {
-  box-shadow: 0px 0px 1px 0px #e6e6e6 inset;
-  -webkit-box-shadow: 0px 0px 1px 0px #e6e6e6 inset;
+  box-shadow: 0px 0px 1px 0px #cccccc inset;
+  -webkit-box-shadow: 0px 0px 1px 0px #cccccc inset;
 }
 .bottom-focused-border {
-  border-bottom: 1px solid #e6e6e6;
-}
-.bottom-inverted-focused-border {
-  border-bottom: 1px solid #ffffff;
+  border-bottom: 1px solid #cccccc;
 }
 .focused-highlight {
-  box-shadow: 0px 0px 2px -1px #e6e6e6 inset;
-  -webkit-box-shadow: 0px 0px 2px -1px #e6e6e6 inset;
+  box-shadow: 0px 0px 2px -1px #cccccc inset;
+  -webkit-box-shadow: 0px 0px 2px -1px #cccccc inset;
   background-color: rgba(69, 69, 69, 0.1);
 }
 .active-border {
@@ -58755,22 +58630,16 @@ Polymer('ui-toolbar-picker-item', {
 .bottom-border {
   border-bottom: 1px solid rgba(69, 69, 69, 0.1);
 }
-.bottom-inverted-border {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.61);
-}
 .focused-border {
-  box-shadow: 0px 0px 1px 0px #e6e6e6 inset;
-  -webkit-box-shadow: 0px 0px 1px 0px #e6e6e6 inset;
+  box-shadow: 0px 0px 1px 0px #cccccc inset;
+  -webkit-box-shadow: 0px 0px 1px 0px #cccccc inset;
 }
 .bottom-focused-border {
-  border-bottom: 1px solid #e6e6e6;
-}
-.bottom-inverted-focused-border {
-  border-bottom: 1px solid #ffffff;
+  border-bottom: 1px solid #cccccc;
 }
 .focused-highlight {
-  box-shadow: 0px 0px 2px -1px #e6e6e6 inset;
-  -webkit-box-shadow: 0px 0px 2px -1px #e6e6e6 inset;
+  box-shadow: 0px 0px 2px -1px #cccccc inset;
+  -webkit-box-shadow: 0px 0px 2px -1px #cccccc inset;
   background-color: rgba(69, 69, 69, 0.1);
 }
 .active-border {
@@ -67493,69 +67362,54 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <h2>Inputs</h2>
     <box>
-          <form container="">
-      <ui-input autofocus="true"></ui-input>
-      <a href="javascript:document.querySelector(&apos;#one&apos;).focus()">Set Focus To Next One</a>
-      <ui-input id="one">
-        <icon android=""></icon>
-        <template id="bindme" repeat="{{items}}">
-          <item>{{text}}</item>
-        </template>
-      </ui-input>
-      <ui-input placeholder="Hi Mom">
-        <icon female=""></icon>
-      </ui-input>
-      <ui-input placeholder="When?" type="date">
-        <icon calendar=""></icon>
-      </ui-input>
-      <ui-input placeholder="Secret Code?" type="password">
-        <icon eye=""></icon>
-      </ui-input>
-      <ui-input placeholder="Bin" type="number">
-        <icon tag=""></icon>
-      </ui-input>
-      <ui-input placeholder="Contact" type="tel">
-        <icon phone=""></icon>
-      </ui-input>
-      <ui-input placeholder="Not Editable" disabled>
-        <icon warning=""></icon>
-      </ui-input>
-      <ui-input multiline="10">
-        <icon tasks=""></icon>
-      </ui-input>
-      <ui-input autocorrect="off" autocapitalize="none" placeholder="no auto corrrect, or capitalize"></ui-input>
-      <background inverted="" id="darkholder">
-        <ui-input inverted="" onkeyup="console.log(this.value);" value="Look in the dark">
-        </ui-input>
-        <ui-input inverted="" placeholder="Hi Mom">
-          <icon female=""></icon>
-        </ui-input>
-        <ui-input inverted="" disabled placeholder="Not Editable">
-          <icon warning=""></icon>
-        </ui-input>
-        <ui-input inverted="" multiline="10">
-        </ui-input>
-      </background>
-    </form>
+      <form container="">
+  <ui-input autofocus="true" id="one">
+    <icon android=""></icon>
+    <template id="bindme" repeat="{{items}}">
+      <value>{{text}}</value>
+    </template>
+  </ui-input>
+  <ui-input placeholder="Hi Mom">
+    <icon female=""></icon>
+  </ui-input>
+  <ui-input placeholder="When?" type="date">
+    <icon calendar=""></icon>
+  </ui-input>
+  <ui-input placeholder="Secret Code?" type="password">
+    <icon eye=""></icon>
+  </ui-input>
+  <ui-input placeholder="Bin" type="number">
+    <icon tag=""></icon>
+  </ui-input>
+  <ui-input placeholder="Contact" type="tel">
+    <icon phone=""></icon>
+  </ui-input>
+  <ui-input placeholder="Not Editable" disabled>
+    <icon warning=""></icon>
+  </ui-input>
+  <ui-input multiline="10">
+    <icon tasks=""></icon>
+  </ui-input>
+</form>
 
-    <script>
-      //data bind to the items template for our android input
-      var items = [];
-      document.addEventListener('polymer-ready', function() {
-        document.querySelector('#bindme').model = {items: items};
-      })
-      //turn the text in our input into a display item, clear it out of the input
-      document.querySelector("#one").addEventListener("keydown", function(e) {
-        console.log(e.target)
-        if(e.keyCode == 13 && e.target.value){
-          items.push({text: e.target.value});
-          e.target.value = "";
-          //eat this key so the input doesn't see it
-          e.stopPropagation();
-          e.preventDefault();
-        }
-      });
-    </script>
+<script>
+  //data bind to the items template for our android input
+  var items = [];
+  document.addEventListener('polymer-ready', function() {
+    document.querySelector('#bindme').model = {items: items};
+  })
+  //turn the text in our input into a display item, clear it out of the input
+  document.querySelector("#one").addEventListener("keydown", function(e) {
+    console.log(e.target)
+    if(e.keyCode == 13 && e.target.value){
+      items.push({text: e.target.value});
+      e.target.value = "";
+      //eat this key so the input doesn't see it
+      e.stopPropagation();
+      e.preventDefault();
+    }
+  });
+</script>
 
     </box>
 
