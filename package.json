@@ -36,6 +36,7 @@
   "license": "ISC",
   "scripts": {
     "postinstall": "bower install",
+    "start": "polymer-serve .",
     "test": "polymer-serve ."
   }
 }
