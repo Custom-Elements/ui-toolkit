@@ -3,24 +3,9 @@
 Polymer elements packed together for high speed reference, saves you
 build time.
 
-[The Demo](http://custom-elements.github.io/ui-toolkit/)
+[The Demo](https://services.glgresearch.com/ui-toolkit/demo.html)
 
 ##TL;DR:
-
-```shell
-npm install --save ui-toolkit
-```
-
-Now you can import all the custom elements from
-`'node_modules/ui-toolkit/build/ui-toolkit.html'`. Prebuilt, less fuss.
-
-Getting a fresh set of elements is just:
-
-```shell
-npm update --save ui-toolkit
-```
-
-And a basic skeleton html page to use it:
 
 ```html
 <!doctype html>
@@ -28,17 +13,16 @@ And a basic skeleton html page to use it:
 <html>
   <head>
     <!--
-    note, you can use a different platform and polymer if you
-    wish
+    Use this polymer, but if you already have one -- you can skip it!
     -->
-    <script src="node_modules/polymer/platform.js"></script>
-    <link rel="import" href="node_modules/polymer/polymer.html">
-    <link rel="import" href="node_modules/build/ui-toolkit.html">
+    <link rel="import" href="https://services.glgresearch.com/ui-toolkit/polymer.html">
+    <!--
+    These are the widgets.
+    -->
+    <link rel="import" href="https://services.glgresearch.com/ui-toolkit/ui-toolkit.html">
   </head>
+  <body>
+    <ui-button>Hit me!</ui-button>
+  </body>
 </html>
 ```
-
-
-#Gallery
-
-Widgets in action!

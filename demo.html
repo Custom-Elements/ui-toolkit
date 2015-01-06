@@ -6,6 +6,15 @@
     <script src="http://localhost:35729/livereload.js"></script>
     <link rel="import" href="node_modules/polymer/polymer.html">
     <link rel="import" href="src/ui-toolkit.html">
+    <script>
+      function inline(e) {
+        var holder = document.createElement('div');
+        holder.innerHTML = e.path[0].import.body.innerHTML;
+        holder.children.array().forEach(function(child) {
+          e.path[0].parentNode.appendChild(child);
+        })
+      }
+    </script>
     <style>
       body {
         font-family: "Helvetica Neue", "Helvetica", Arial;
@@ -50,44 +59,38 @@
 
     <h2>Buttons</h2>
     <box>
-      <link rel="import" href="./demo/ui-button.html">
+      <link rel="import" href="./demo/ui-button.html" onload="inline(event)">
     </box>
 
     <h2>Switches</h2>
     <box>
-      <link rel="import" href="./demo/ui-switch.html">
+      <link rel="import" href="./demo/ui-switch.html" onload="inline(event)">
     </box>
 
     <h2>Checks</h2>
     <box>
-      <link rel="import" href="./demo/ui-check.html">
+      <link rel="import" href="./demo/ui-check.html" onload="inline(event)">
     </box>
 
     <h2>Flags</h2>
     <box layout horizontal center justified>
-      <link rel="import" href="./demo/ui-fast-picker.html">
+      <link rel="import" href="./demo/ui-fast-picker.html" onload="inline(event)">
     </box>
 
     <h2>Tabs</h2>
     <box layout horizontal center justified>
-      <link rel="import" href="./demo/ui-tab.html">
+      <link rel="import" href="./demo/ui-tab.html" onload="inline(event)">
     </box>
 
     <h2>Inputs</h2>
     <box>
-      <link rel="import" href="./demo/ui-input.html">
+      <link rel="import" href="./demo/ui-input.html" onload="inline(event)">
     </box>
 
     <h2>Typeaheads</h2>
     <box>
-      <link rel="import" href="./demo/ui-typeahead.html">
+      <link rel="import" href="./demo/ui-typeahead.html" onload="inline(event)">
     </box>
-
-    <h2>Pages</h2>
-    <box layout horizontal center justified>
-      <link rel="import" href="./demo/ui-pages.html">
-    </box>
-
     <h2>Sidebar</h2>
     <box>
       <p>Hit the hamburger in the upper left.</p>
@@ -108,27 +111,27 @@
 
     <h2>Sparklines</h2>
     <box>
-      <link rel="import" href="./demo/ui-sparkline.html">
+      <link rel="import" href="./demo/ui-sparkline.html" onload="inline(event)">
     </box>
 
     <h2>Tooltips</h2>
     <box>
-      <link rel="import" href="./demo/ui-tooltip.html">
+      <link rel="import" href="./demo/ui-tooltip.html" onload="inline(event)">
     </box>
 
     <h2>Toolbars</h2>
     <box>
-      <link rel="import" href="./demo/ui-toolbar.html">
+      <link rel="import" href="./demo/ui-toolbar.html" onload="inline(event)">
     </box>
 
     <h2>Resizers</h2>
     <box>
-      <link rel="import" href="./demo/ui-resizebox.html">
+      <link rel="import" href="./demo/ui-resizebox.html" onload="inline(event)">
     </box>
 
     <h2>Navigation</h2>
     <box>
-      <link rel="import" href="./demo/ui-navigation.html">
+      <link rel="import" href="./demo/ui-navigation.html" onload="inline(event)">
     </box>
 
     <h2>Loader Progress</h2>
@@ -156,7 +159,7 @@
 
     <h2>Modals</h2>
     <box>
-      <link rel="import" href="./demo/ui-modal.html">
+      <link rel="import" href="./demo/ui-modal.html" onload="inline(event)">
     </box>
 
     <h2>Hotkeys</h2>
@@ -244,17 +247,17 @@
 
     <h2>Pills</h2>
     <box>
-      <link rel="import" href="./demo/ui-pill.html">
+      <link rel="import" href="./demo/ui-pill.html" onload="inline(event)">
     </box>
 
     <h2>Code</h2>
     <box>
-      <link rel="import" href="./demo/ui-code.html">
+      <link rel="import" href="./demo/ui-code.html" onload="inline(event)">
     </box>
 
     <h2>Markdown</h2>
     <box>
-      <link rel="import" href="./demo/ui-markdown.html">
+      <link rel="import" href="./demo/ui-markdown.html" onload="inline(event)">
     </box>
 
     <h2>Tiler</h2>
@@ -268,8 +271,7 @@
       </section>
     </box>
 
-    <link rel="import" href="./demo/standard_attributes.md">
-
+    <link rel="import" href="./demo/standard_attributes.md" onload="inline(event)">
     <script>
       document.addEventListener('polymer-ready', function() {
         console.log("Hello from ui-toolkit. We %c\u2764%c you!", "color: red; font-size: large", "color: black; font-size: normal;");
@@ -295,6 +297,25 @@
         });
         document.querySelector('ui-sidebar').hide();
       });
+    </script>
+    <script>
+    document.querySelector("#dialog").addEventListener('click', function() {
+      document.querySelector('ui-modal').show()
+    })
+    </script>
+    <script>
+    document.querySelector('#options').model = {options: [
+      { icon: 'fax', caption: 'Fax?'},
+      { icon: 'phone', caption: 'Phone'},
+      { icon: 'envelope', caption: 'Snail'}
+      ]
+    };
+    setTimeout(function(){
+      document.querySelector('ui-toolbar-picker').value = {
+        icon: 'sun-o',
+        caption: 'Pick Me!'
+      }
+    });
     </script>
     </container>
   </body>

@@ -31,18 +31,3 @@
           </template>
         </ui-toolbar-picker>
       </ui-toolbar>
-    <script>
-      document.querySelector('#options').model = {options:
-        [
-          { icon: 'fax', caption: 'Fax?'},
-          { icon: 'phone', caption: 'Phone'},
-          { icon: 'envelope', caption: 'Snail'}
-        ]
-      };
-      setTimeout(function(){
-      document.querySelector('ui-toolbar-picker').value = {
-        icon: 'sun-o',
-        caption: 'Pick Me!'
-      }
-      });
-    </script>
