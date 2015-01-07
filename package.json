@@ -39,5 +39,8 @@
     "start": "polymer-serve .",
     "test": "polymer-serve ."
   },
-  "engines" : { "npm" : ">= 2.0.0" } 
+  "engines": { 
+    "npm" : ">= 2.0.0",
+    "node": ">=0.10.30"
+  }
 }
