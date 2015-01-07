@@ -36,10 +36,10 @@
   "license": "ISC",
   "scripts": {
     "postinstall": "bower install",
-    "start": "polymer-serve .",
+    "start": "polymer-serve --cache .",
     "test": "polymer-serve ."
   },
-  "engines": { 
+  "engines": {
     "npm" : ">= 2.0.0",
     "node": ">=0.10.30"
   }
