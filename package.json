@@ -30,7 +30,8 @@
     "ui-styles": "git://github.com/custom-elements/ui-styles",
     "ui-toolbar": "git://github.com/custom-elements/ui-toolbar",
     "ui-tooltip": "git://github.com/custom-elements/ui-tooltip",
-    "ui-typeahead": "git://github.com/custom-elements/ui-typeahead"
+    "ui-typeahead": "git://github.com/custom-elements/ui-typeahead",
+    "client-interest-match": "git://github.com/glg/client-interest-match#revised"
   },
   "repository": "git://github.com/custom-elements/ui-toolkit",
   "license": "ISC",
