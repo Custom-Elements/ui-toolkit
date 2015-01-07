@@ -38,5 +38,6 @@
     "postinstall": "bower install",
     "start": "polymer-serve .",
     "test": "polymer-serve ."
-  }
+  },
+  "engines" : { "npm" : ">= 2.0.0" } 
 }
