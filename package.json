@@ -34,7 +34,8 @@
     "glg-stats": "git://github.com/custom-elements/glg-stats",
     "glg-doit": "git+ssh://git@github.com/custom-elements/glg-doit",
     "client-interest-match": "git+ssh://git@github.com/glg/client-interest-match#revised",
-    "glg-taxonomy": "git://github.com/custom-elements/glg-taxonomy"
+    "glg-taxonomy": "git://github.com/custom-elements/glg-taxonomy",
+    "ui-filtered-grid": "git://github.com/custom-elements/ui-filtered-grid"
   },
   "repository": "git://github.com/custom-elements/ui-toolkit",
   "license": "ISC",
