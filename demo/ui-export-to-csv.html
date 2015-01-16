@@ -1,0 +1,23 @@
+<div>
+	<ui-export-to-csv></ui-export-to-csv>
+</div>
+<script>
+	document.addEventListener('polymer-ready', function() {
+		var toCsv = document.querySelector('ui-export-to-csv')
+
+		var data = [];
+
+		for (var i = 0; i < 1000; i++) {
+
+			var keys = [ 'a', 'b', 'c', 'd', 'e', 'f' ];
+			var row = keys.reduce(function(acc,key,j) {
+			  acc[key] = key+i;
+			  return acc;
+			},{})
+
+			data.push(row);
+		}
+
+		toCsv.data = data;
+	});
+</script>
