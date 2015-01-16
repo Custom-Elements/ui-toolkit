@@ -33,6 +33,7 @@
     "ui-typeahead": "git://github.com/custom-elements/ui-typeahead",
     "glg-stats": "git://github.com/custom-elements/glg-stats",
     "glg-doit": "git+ssh://git@github.com/custom-elements/glg-doit",
+    "client-interest-match": "git+ssh://git@github.com/glg/client-interest-match#revised",
     "glg-taxonomy": "git://github.com/custom-elements/glg-taxonomy",
     "ui-grid": "git://github.com/custom-elements/ui-grid",
     "ui-filtered-grid": "git://github.com/custom-elements/ui-filtered-grid",
