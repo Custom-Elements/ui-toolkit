@@ -1,6 +1,6 @@
 {
   "name": "ui-toolkit",
-  "version": "0.0.57",
+  "version": "0.0.58",
   "dependencies": {
     "bower": "~1.3.5",
     "polymer": "git://github.com/custom-elements/polymer",
