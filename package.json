@@ -1,6 +1,6 @@
 {
   "name": "ui-toolkit",
-  "version": "0.0.56",
+  "version": "0.0.58",
   "dependencies": {
     "bower": "~1.3.5",
     "polymer": "git://github.com/custom-elements/polymer",
@@ -32,7 +32,7 @@
     "ui-tooltip": "git://github.com/custom-elements/ui-tooltip",
     "ui-typeahead": "git://github.com/custom-elements/ui-typeahead",
     "client-interest-match": "git+ssh://git@github.com/glg/client-interest-match#revised",
-    "glg-taxonomy": "git://github.com/custom-elements/glg-taxonomy",
+    "glg-taxonomy": "git://github.com/custom-elements/glg-taxonomy#flat_sql",
     "glg-stats": "git://github.com/custom-elements/glg-stats",
     "glg-doit": "git+ssh://git@github.com/custom-elements/glg-doit",
     "glg-tag-cm": "git://github.com/custom-elements/glg-tag-cm",
