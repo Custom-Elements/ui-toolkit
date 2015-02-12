@@ -30,6 +30,7 @@
     "ui-styles": "git://github.com/custom-elements/ui-styles",
     "ui-toolbar": "git://github.com/custom-elements/ui-toolbar",
     "ui-tooltip": "git://github.com/custom-elements/ui-tooltip",
+    "ui-confirmation-questions": "git://github.com/custom-elements/ui-confirmation-questions",
     "ui-typeahead": "git://github.com/custom-elements/ui-typeahead",
     "glg-taxonomy": "git://github.com/custom-elements/glg-taxonomy#flat_sql",
     "glg-stats": "git://github.com/custom-elements/glg-stats",
