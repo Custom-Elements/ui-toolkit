@@ -12,7 +12,7 @@ it and bump the version number.  The server will on-the-fly transpile
 any coffeescript or less files into javascript and css for you.
 
 Then you can simply reference the custom element's html file
-directly like so.
+directly as shown below.
 
 ```javascript
 <link rel="import" href="https://services.glgresearch.com/ui-toolkit/node_modules/glg-nectar/src/glg-nectar.html">
