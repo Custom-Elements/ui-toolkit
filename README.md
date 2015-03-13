@@ -3,6 +3,21 @@
 Polymer elements packed together for high speed reference, saves you
 build time.
 
+##Individual Components
+
+You can pull in the whole ui-toolkit if you'd like, as shown in the
+demo, or you can pull in individual components as needed.  Just be sure
+that the component you're looking for is in the `package.json` else add
+it and bump the version number.  The server will on-the-fly transpile
+any coffeescript or less files into javascript and css for you.
+
+Then you can simply reference the custom element's html file
+directly like so.
+
+```javascript
+<link rel="import" href="https://services.glgresearch.com/ui-toolkit/node_modules/glg-nectar/src/glg-nectar.html">
+```
+
 [The Demo](https://services.glgresearch.com/ui-toolkit/demo.html)
 
 ##TL;DR:
