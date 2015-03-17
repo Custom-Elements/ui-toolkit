@@ -8,12 +8,20 @@ build time.
 You can pull in the whole ui-toolkit if you'd like, as shown in the
 demo, or you can pull in individual components as needed.  Just be sure
 that the component you're looking for is in the `package.json` else add
-it and bump the version number.  The server will on-the-fly transpile
-any coffeescript or less files into javascript and css for you.
+it and bump the version number.  You can peg the component at
+a particular version by appending `#tag_name`.
 
-Then you can simply reference the custom element's html file
-directly as shown below.
+Example:
+```json
+"dependencies": {
+  "glg-nectar": "git://github.com/custom-elements/glg-nectar#2.0.2"
+}
+```
 
+The server will on-the-fly transpile any coffeescript or less files into javascript and css for you.
+Then you can simply reference the custom element's html file directly as shown below.
+
+Example:
 ```javascript
 <link rel="import" href="https://services.glgresearch.com/ui-toolkit/node_modules/glg-nectar/src/glg-nectar.html">
 ```
