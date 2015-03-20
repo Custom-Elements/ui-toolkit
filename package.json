@@ -35,7 +35,7 @@
     "glg-nectar": "git://github.com/custom-elements/glg-nectar#2.0.2",
     "glg-current-user": "git://github.com/custom-elements/glg-current-user",
     "glg-add-to-project": "git://github.com/custom-elements/glg-add-to-project#0.3.0",
-    "glg-taxonomy": "git://github.com/custom-elements/glg-taxonomy#flat_sql",
+    "glg-taxonomy": "git://github.com/custom-elements/glg-taxonomy#0.2.0",
     "glg-stats": "git://github.com/custom-elements/glg-stats",
     "glg-doit": "git+ssh://git@github.com/custom-elements/glg-doit",
     "glg-tag-cm": "git://github.com/custom-elements/glg-tag-cm",
