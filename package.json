@@ -34,7 +34,7 @@
     "ui-typeahead": "git://github.com/custom-elements/ui-typeahead",
     "glg-nectar": "git://github.com/custom-elements/glg-nectar#2.0.2",
     "glg-current-user": "git://github.com/custom-elements/glg-current-user",
-    "glg-add-to-project": "git://github.com/custom-elements/glg-add-to-project#0.3.0",
+    "glg-add-to-project": "git://github.com/custom-elements/glg-add-to-project#0.3.1",
     "glg-taxonomy": "git://github.com/custom-elements/glg-taxonomy#0.2.0",
     "glg-stats": "git://github.com/custom-elements/glg-stats",
     "glg-doit": "git+ssh://git@github.com/custom-elements/glg-doit",
