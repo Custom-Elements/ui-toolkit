@@ -6,7 +6,7 @@ build time.
 ##Individual Components
 
 You can pull in the whole ui-toolkit if you'd like, as shown in the
-demo, or you can pull in individual components as needed.  Just be sure
+[demo](http://services.glgresearch.com/ui-toolkit/demo.html), or you can pull in individual components as needed.  Just be sure
 that the component you're looking for is in the `package.json` else add
 it and bump the version number.  You can peg the component at
 a particular version by appending `#tag_name`.
