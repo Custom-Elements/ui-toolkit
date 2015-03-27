@@ -4,7 +4,7 @@
   "dependencies": {
     "bower": "~1.3.5",
     "polymer": "git://github.com/custom-elements/polymer",
-    "polymer-serve": "git://github.com/custom-elements/polymer-serve",
+    "polymer-serve": "^0.0.30",
     "ui-pages": "git://github.com/custom-elements/ui-pages",
     "ui-tab": "git://github.com/custom-elements/ui-tab",
     "ui-code": "git://github.com/custom-elements/ui-code",
@@ -19,7 +19,7 @@
     "ui-switch": "git://github.com/custom-elements/ui-switch",
     "ui-check": "git://github.com/custom-elements/ui-check",
     "ui-fast-picker": "git://github.com/custom-elements/ui-fast-picker",
-    "ui-fonts": "git://github.com/custom-elements/ui-fonts",
+    "ui-fonts": "^0.0.1",
     "ui-grid-tiler": "git://github.com/custom-elements/ui-grid-tiler",
     "ui-hotkey": "git://github.com/custom-elements/ui-hotkey",
     "ui-input": "git://github.com/custom-elements/ui-input",
@@ -37,7 +37,6 @@
     "glg-add-to-project": "git://github.com/custom-elements/glg-add-to-project#0.3.6",
     "glg-taxonomy": "git://github.com/custom-elements/glg-taxonomy#0.2.0",
     "glg-stats": "git://github.com/custom-elements/glg-stats",
-    "glg-doit": "git+ssh://git@github.com/custom-elements/glg-doit",
     "glg-tag-cm": "git://github.com/custom-elements/glg-tag-cm",
     "glg-tag-project": "git://github.com/custom-elements/glg-tag-project",
     "glg-token-service": "git://github.com/custom-elements/glg-token-service",
@@ -54,7 +53,7 @@
     "test": "polymer-serve ."
   },
   "engines": {
-    "npm" : "2.5.1",
-    "node": "0.10.30"
+    "npm" : "2.7.4",
+    "node": "0.12.1"
   }
 }
