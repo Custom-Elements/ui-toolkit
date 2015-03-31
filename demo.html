@@ -274,37 +274,16 @@
       <link rel="import" href="./demo/ui-export-to-csv.html" onload="inline(event)">
     </box>
 
-    <h2>Tiler</h2>
+    <h2>GLG Current User</h2>
     <box>
-      <section class="redboxholder">
-        <ui-grid-tiler selector=".redbox">
-        <template id="tiles" repeat="{{tiles}}">
-          <section class="redbox">{{id}}</section>
-        </template>
-        </ui-grid-tiler>
-      </section>
+      <link rel="import" href="./demo/glg-current-user.html" onload="inline(event)">
     </box>
 
     <link rel="import" href="./demo/standard_attributes.md" onload="inline(event)">
     <script>
       document.addEventListener('polymer-ready', function() {
         console.log("Hello from ui-toolkit. We %c\u2764%c you!", "color: red; font-size: large", "color: black; font-size: normal;");
-        var ct = 0
-        document.querySelector('#tiles').model = {tiles: []};
         var shiftSlash = document.querySelector('#shiftslash');
-        var tiles = document.querySelector('#tiles').model.tiles;
-        var tileMe = function() {
-          if (tiles.length > 15)
-            tiles.grow = false;
-          else if (tiles.length == 0)
-            tiles.grow = true;
-          if (tiles.grow)
-            tiles.push({id: ct++});
-          else
-            tiles.pop();
-        }
-        setInterval(tileMe, 1000);
-
         shiftSlash.addEventListener('click', function(e) {
           console.log('Shift+/: ', e);
           alert('Shift+/ pressed!');

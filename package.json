@@ -2,7 +2,6 @@
   "name": "ui-toolkit",
   "version": "0.0.59",
   "dependencies": {
-    "bower": "~1.3.5",
     "polymer": "git://github.com/custom-elements/polymer",
     "polymer-serve": "^0.0.30",
     "ui-pages": "git://github.com/custom-elements/ui-pages",
@@ -20,7 +19,6 @@
     "ui-check": "git://github.com/custom-elements/ui-check",
     "ui-fast-picker": "git://github.com/custom-elements/ui-fast-picker",
     "ui-fonts": "^0.0.1",
-    "ui-grid-tiler": "git://github.com/custom-elements/ui-grid-tiler",
     "ui-hotkey": "git://github.com/custom-elements/ui-hotkey",
     "ui-input": "git://github.com/custom-elements/ui-input",
     "ui-modal": "git://github.com/custom-elements/ui-modal",
@@ -48,12 +46,11 @@
   "repository": "git://github.com/custom-elements/ui-toolkit",
   "license": "ISC",
   "scripts": {
-    "postinstall": "bower install",
     "start": "polymer-serve --cache .",
     "test": "polymer-serve ."
   },
   "engines": {
-    "npm" : "2.5.1",
-    "node": "0.12.1"
+    "npm" : "1.4.28",
+    "node": "0.10.36"
   }
 }
