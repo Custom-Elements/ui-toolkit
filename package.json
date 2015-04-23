@@ -50,6 +50,6 @@
     "test": "polymer-serve ."
   },
   "engines": {
-    "node": "0.12.0"
+    "node": "0.12.2"
   }
 }
