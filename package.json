@@ -50,7 +50,7 @@
     "test": "polymer-serve ."
   },
   "engines": {
-    "npm" : "1.4.28",
-    "node": "0.10.36"
+    "npm" : "2.5.1",
+    "node": "0.12.2"
   }
 }
