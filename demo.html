@@ -288,6 +288,37 @@
     <box>
       <glg-tag-cm cmid="603070" src="https://services.glgresearch.com/8D2270A3-epiquery"></glg-tag-cm>
     </box>
+    
+    <h2>UI Stats - Chart</h2>
+    <box>
+      <ui-stats-chart name="Annual CM Application Breakdown by Week" limit="30" groupBy="week" width="54.5em"
+        src="https://query.glgroup.com/councilApplicant/getStats.mustache" type="area"
+        cols="[{'id':'date', 'type':'date'}, {'id':'applied'}, {'id':'accepted'}, {'id':'paid'}]">
+      </ui-stats-chart>
+
+      <ui-stats-chart name="2 Dimensional Array, Typed"
+        data="[ ['2015-03-01', 12], ['2015-04-01', 14], ['2015-05-01', 9], ['2015-06-01', 44], ['2015-07-01', 16], ['2015-08-01', 18] ]"
+        cols="[{'type':'date'}, {'type':'number'}]">
+      </ui-stats-chart>
+
+      <ui-stats-chart name="Object Array (Columns)" type="column"
+        data="[ {'color':'blue', 'count':3}, {'color':'white', 'count':11}, {'color':'yellow', 'count':2}, {'color':'red', 'count':5} ]"
+        cols="[{'id':'color', 'type':'string'}, {'id':'count'}]">
+      </ui-stats-chart>
+    </box>
+
+    <h2>UI Stats - Number</h2>    
+    <box>
+      <ui-stats-number name="CM Applications Last 7 Days" src="https://query.glgroup.com/councilApplicant/getStats.mustache"
+       property="applied" limit="7" function="sum">
+      </ui-stats-number>
+
+      <ui-stats-number name="Money In The Bank" units="$" value="101.25">
+      </ui-stats-number>
+
+      <ui-stats-number name="Money Saved" data="[95, 100]">
+      </ui-stats-number>
+    </box>
 
     <link rel="import" href="./demo/standard_attributes.md" onload="inline(event)">
     <script>
