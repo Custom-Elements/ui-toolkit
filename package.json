@@ -42,8 +42,7 @@
     "ui-export-to-csv": "git://github.com/custom-elements/ui-export-to-csv",
     "glg-cm-badger": "git://github.com/custom-elements/glg-cm-badger",
     "glg-compliance-blinky": "git://github.com/custom-elements/glg-compliance-blinky",
-    "glg-add-to-project": "git://github.com/custom-elements/glg-add-to-project#0.3.7",
-    "ui-stats": "git://github.com/custom-elements/ui-stats"
+    "glg-add-to-project": "git://github.com/custom-elements/glg-add-to-project#0.3.7"
   },
   "repository": "git://github.com/custom-elements/ui-toolkit",
   "license": "ISC",
