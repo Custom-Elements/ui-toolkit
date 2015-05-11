@@ -37,6 +37,7 @@
     "glg-tag-cm": "git://github.com/custom-elements/glg-tag-cm",
     "glg-tag-project": "git://github.com/custom-elements/glg-tag-project",
     "glg-token-service": "git://github.com/custom-elements/glg-token-service",
+    "glg-twilio-uptime": "git://github.com/custom-elements/glg-twilio-uptime",
     "ui-grid": "git://github.com/custom-elements/ui-grid",
     "ui-filtered-grid": "git://github.com/custom-elements/ui-filtered-grid",
     "ui-export-to-csv": "git://github.com/custom-elements/ui-export-to-csv",
