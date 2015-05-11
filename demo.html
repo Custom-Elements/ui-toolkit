@@ -288,7 +288,7 @@
     <box>
       <glg-tag-cm cmid="603070" src="https://services.glgresearch.com/8D2270A3-epiquery"></glg-tag-cm>
     </box>
-    
+
     <h2>UI Stats - Chart</h2>
     <box>
       <ui-stats-chart name="Annual CM Application Breakdown by Week" limit="30" groupBy="week" width="54.5em"
@@ -307,7 +307,7 @@
       </ui-stats-chart>
     </box>
 
-    <h2>UI Stats - Number</h2>    
+    <h2>UI Stats - Number</h2>
     <box>
       <ui-stats-number name="CM Applications Last 7 Days" src="https://query.glgroup.com/councilApplicant/getStats.mustache"
        property="applied" limit="7" function="sum">
@@ -323,6 +323,14 @@
     <h2>GLG Compliance Indicator</h2>
     <box>
       <glg-compliance-blinky cmId="527313" projectId="1994800"></glg-compliance-blinky>
+    </box>
+
+    <h2>Busy indicator</h2>
+    <box>
+      <p style="font-size: 10em">
+        <ui-busy></ui-busy>
+      </p>
+
     </box>
 
     <link rel="import" href="./demo/standard_attributes.md" onload="inline(event)">
