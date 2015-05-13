@@ -3,7 +3,7 @@
   "version": "0.0.70",
   "dependencies": {
     "polymer": "git://github.com/custom-elements/polymer",
-    "polymer-serve": "^0.0.30",
+    "polymer-serve": "^0.0.33",
     "ui-pages": "git://github.com/custom-elements/ui-pages",
     "ui-tab": "git://github.com/custom-elements/ui-tab",
     "ui-code": "git://github.com/custom-elements/ui-code",
