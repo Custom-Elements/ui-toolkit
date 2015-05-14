@@ -1,6 +1,6 @@
 {
   "name": "ui-toolkit",
-  "version": "0.0.71",
+  "version": "0.0.72",
   "dependencies": {
     "polymer": "git://github.com/custom-elements/polymer",
     "polymer-serve": "^0.0.33",
@@ -43,7 +43,7 @@
     "glg-cm-badger": "git://github.com/custom-elements/glg-cm-badger",
     "glg-compliance-blinky": "git://github.com/custom-elements/glg-compliance-blinky",
     "glg-add-to-project": "git://github.com/custom-elements/glg-add-to-project#0.3.7",
-    "glg-hummingbird": "git://github.com/custom-elements/glg-hummingbird#0.1.0",
+    "glg-hummingbird": "git://github.com/custom-elements/glg-hummingbird#0.1.1",
     "ui-stats": "git://github.com/custom-elements/ui-stats"
   },
   "repository": "git://github.com/custom-elements/ui-toolkit",
