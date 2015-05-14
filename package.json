@@ -25,7 +25,7 @@
     "ui-overlay": "git://github.com/custom-elements/ui-overlay",
     "ui-progress": "git://github.com/custom-elements/ui-progress",
     "ui-resizebox": "git://github.com/custom-elements/ui-resizebox",
-    "ui-styles": "git://github.com/custom-elements/ui-styles#new-colors",
+    "ui-styles": "git://github.com/custom-elements/ui-styles",
     "ui-toolbar": "git://github.com/custom-elements/ui-toolbar",
     "ui-tooltip": "git://github.com/custom-elements/ui-tooltip",
     "ui-confirmation-questions": "git://github.com/custom-elements/ui-confirmation-questions",
