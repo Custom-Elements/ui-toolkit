@@ -45,7 +45,8 @@
     "glg-compliance-blinky": "git://github.com/custom-elements/glg-compliance-blinky",
     "glg-add-to-project": "git://github.com/custom-elements/glg-add-to-project",
     "ui-stats": "git://github.com/custom-elements/ui-stats",
-    "ui-busy": "git://github.com/custom-elements/ui-busy"
+    "ui-busy": "git://github.com/custom-elements/ui-busy",
+    "glg-logging-widget": "git://github.com/custom-elements/glg-logging-widget"
   },
   "repository": "git://github.com/custom-elements/ui-toolkit",
   "license": "ISC",
