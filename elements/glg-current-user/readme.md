@@ -34,12 +34,13 @@ See [src/glg-current-user.litcoffee](src/glg-current-user.litcoffee) for more de
 ```html
   <template is="dom-bind">
     <paper-input label="Enter a username" value="{{username}}"></paper-input>
-    <glg-current-user username="{{username}}" user="{{user}}" id="simple"></glg-current-user>
-    <template is="dom-if" if="{{user}}">
-      <span>
-        Welcome <b>{{user.firstName}}</b> from <span>{{user.city}}</span>!
-      </span>
-    </template>
+    <glg-current-user username="{{username}}" user="{{user}}" id="simple">
+      <template is="dom-if" if="{{user}}">
+        <span>
+          Welcome <b>{{user.firstName}}</b> from <span>{{user.city}}</span>!
+        </span>
+      </template>
+    </glg-current-user>
   </template>
 ```
 
