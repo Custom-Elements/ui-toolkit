@@ -1,0 +1,92 @@
+<!doctype html>
+
+<html>
+  <head>
+    <title>glg-current-user</title>
+    <script src="../../bower_components/webcomponentsjs/webcomponents.min.js"></script>
+
+    <link rel="import" href="../../bower_components/polymer/polymer.html">
+    <link rel="import" href="../../bower_components/marked-element/marked-element.html">
+    <link rel="import" href="../../bower_components/paper-input/paper-input.html">
+    <link rel="import" href="./src/glg-current-user.html">
+
+    <style>
+      body {
+        font-family: "Helvetica Neue", "Helvetica", Arial;
+      }
+
+      small {
+        font-size: 50%;
+      }
+
+      h3 {
+        margin-bottom: 0;
+      }
+
+      paper-input {
+        width: 200px;
+      }
+    </style>
+
+  </head>
+
+  <body unresolved>
+    <div id="holder">
+
+    <template is="dom-bind">
+      <paper-input label="Enter a username" value="{{username}}"></paper-input>
+      <glg-current-user username="{{username}}" user="{{user}}" id="simple"></glg-current-user>
+      <template is="dom-if" if="{{user}}">
+        <span>
+          Welcome <b>{{user.firstName}}</b> from <span>{{user.city}}</span>!
+        </span>
+      </template>
+    </template>
+
+
+<!--       <h3>Avatars!</h3>
+      <glg-avatar username="mhuggins"></glg-avatar>
+      <glg-avatar username="wballard"></glg-avatar>
+      <glg-avatar username="mhuggins"></glg-avatar>
+
+      <h3><code>currentuser</code> property</h3>
+      <small>This demo probably won't work on localhost since it's looking
+        for cookies to determine who you are!</small>
+      <glg-current-user id="drhayesElem"></glg-current-user>
+      <pre id="drhayesResults"></pre>
+
+      <h3><code>user</code> event - mhuggins</h3>
+      <glg-current-user id="currentElem" username="mhuggins"></glg-current-user>
+      <pre id="currentResults"></pre>
+ -->
+    </div>
+
+    <script>
+      document.addEventListener('WebComponentsReady', function() {
+
+        document.querySelector("#simple").addEventListener('user-changed', function(event) {
+          console.log(event.detail.value);
+        })
+
+        // // Read the currentuser property when ready.
+        // var drhayesElem = document.getElementById('drhayesElem');
+        // var drhayesResults = document.getElementById('drhayesResults');
+        // Object.observe(drhayesElem, function(changes) {
+        //   changes.forEach(function(c) {
+        //     if (c.name === 'currentuser') {
+        //       drhayesResults.innerHTML = JSON.stringify(drhayesElem.currentuser, null, 2);
+        //     }
+        //   });
+        // });
+
+        // // Subscribe to 'user' event.
+        // var currentElem = document.getElementById('currentElem');
+        // currentElem.addEventListener('user', function(e) {
+        //   console.log(e);
+        //   var currentResults = document.getElementById('currentResults');
+        //   currentResults.innerHTML = JSON.stringify(e.detail, null, 2);
+        // });
+      });
+    </script>
+  </body>
+</html>

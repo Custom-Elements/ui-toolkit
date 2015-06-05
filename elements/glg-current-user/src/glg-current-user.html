@@ -1,0 +1,30 @@
+<link rel="import" href="../../../bower_components/iron-ajax/iron-ajax.html"></link>
+
+<dom-module id="glg-current-user">
+  <template>
+
+    <style>
+    :host {
+      display: flex;
+    }
+    </style>
+
+    <iron-ajax
+      auto
+      id="userdetails"
+      handle-as="json"
+      with-credentials="true"
+      on-response="handleUser"
+      url="[[url]]"
+      params="[[qs]]"></iron-ajax>
+
+    <div>
+      <content></content>
+    </div>
+
+  </template>
+</dom-module>
+
+<script src="./glg-current-user.litcoffee"></script>
+
+
