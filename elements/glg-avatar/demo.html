@@ -5,11 +5,10 @@
     <title>glg-current-user</title>
     <script src="../../bower_components/webcomponentsjs/webcomponents.min.js"></script>
 
-    <link rel="import" href="../../bower_components/polymer/polymer.html">
     <link rel="import" href="../../bower_components/paper-styles/paper-styles.html">
     <link rel="import" href="../../bower_components/paper-input/paper-input.html">
-    <link rel="import" href="./src/glg-current-user.html">
-    <link rel="import" href="./src/glg-avatar.html">
+    <link rel="import" href="../../bower_components/paper-item/paper-icon-item.html">
+    <link rel="import" href="./glg-avatar.html">
 
     <style>
       body {
@@ -27,6 +26,29 @@
       paper-input {
         width: 200px;
       }
+
+      .avatar {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        overflow: hidden;
+        background: #ccc;
+      }
+
+      .blue {
+        background-color: var(--paper-light-blue-300);
+      }
+      .red {
+        background-color: var(--paper-red-300);
+      }
+      .orange {
+        background-color: var(--paper-amber-300);
+      }
+      .green {
+        background-color: var(--paper-green-300);
+      }
+
     </style>
 
   </head>
@@ -38,29 +60,14 @@
 
       <paper-input label="Enter a username" value="{{username}}"></paper-input>
 
-        <glg-current-user username="{{username}}" user="{{user}}" id="simple">
-          <template is="dom-if" if="{{user}}">
-            <h3>Basic Usage</h3>
-            <span>
-              Welcome <b>{{user.firstName}}</b> from <span>{{user.city}}</span>!
-            </span>
-          </template>
-        </glg-current-user>
+      <glg-avatar username="{{username}}">
+      </glg-avatar>
 
-
-        <glg-avatar username="{{username}}">
-        </glg-avatar>
-
-      </template>
+      <paper-icon-item>
+        <div class="avatar blue" item-icon></div> asljfsal
+      </paper-icon-item>
 
     </template>
 
-    <script>
-      document.addEventListener('WebComponentsReady', function() {
-        document.querySelector("#simple").addEventListener('user-changed', function(event) {
-          console.log(event.detail.value);
-        })
-      });
-    </script>
   </body>
 </html>
