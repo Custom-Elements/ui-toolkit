@@ -3,7 +3,7 @@
 Renders the body content if, and only if, there is a current authenticated user present. The current user is
 exposed to the context. Reads the local authentication cookie, and only works internally.
 
-See [./glg-current-user.litcoffee](./glg-current-user.litcoffee) for more details.
+See [src/glg-current-user.litcoffee](src/glg-current-user.litcoffee) for more details.
 
 
 ## Available Properties
@@ -46,4 +46,8 @@ See [./glg-current-user.litcoffee](./glg-current-user.litcoffee) for more detail
 
 ### Debugging
 
+Both `glg-user` and `glg-current-user` have debug properties.
+
 Assign to `window.debugUserName` to force the `glg-current-user` username.
+Assign to `window.glgUserCache[USERNAMEHERE]` to force the `glg-user`
+`currentuser` property.
