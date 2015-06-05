@@ -1,3 +1,4 @@
+browserify = require 'browserify'
 gulp = require 'gulp'
 less = require 'gulp-less'
 rename = require 'gulp-rename'
@@ -5,9 +6,11 @@ vulcanize = require 'gulp-vulcanize'
 replace = require 'gulp-replace'
 concat = require 'gulp-concat'
 coffee = require 'gulp-coffee'
+globby = require 'globby'
 gutil = require 'gulp-util'
 sourcemaps = require 'gulp-sourcemaps'
 rm = require 'gulp-rm'
+source = require 'vinyl-source-stream'
 connect = require 'gulp-connect'
 
 src ='./elements'
@@ -21,6 +24,14 @@ gulp.task 'litcoffee', ->
     .pipe rename extname: '.js'
     .pipe gulp.dest dest
 
+gulp.task 'browserify', ['rename-litcoffee'], ->
+  globby ['./static/**/*.js'], (err, entries) ->
+    entries.forEach (entry) ->
+      browserify({ entries: [entry], debug: true })
+        .bundle()
+        .pipe(source(entry))
+        .pipe(gulp.dest('./'))
+
 gulp.task 'rename-litcoffee', ['litcoffee'], ->
   gulp.src "#{src}/**/*.html"
     .pipe replace('.litcoffee', '.js')
@@ -31,8 +42,8 @@ gulp.task 'rename-package-paths', ->
     .pipe replace('./elements', "..")
     .pipe gulp.dest "#{dest}/packages"
 
-gulp.task 'vulcanize', ['rename-litcoffee','rename-package-paths'], ->
-  gulp.src "#{dest}/packages/*.html"
+gulp.task 'vulcanize', ['browserify','rename-package-paths'], ->
+  gulp.src ["#{dest}/packages/*.html", "#{dest}/**/demo.html"]
     .pipe vulcanize({ dest: dest, strip: true, inline: true })
     .pipe gulp.dest dest
 
