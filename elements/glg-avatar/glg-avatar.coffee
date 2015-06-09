@@ -46,8 +46,6 @@ Polymer
       computed: '_initials(user)'
       value: ''
 
-  _getColorClass: (color) -> "avatar #{color}"
-
   _color: ->
     @colors[Math.floor(Math.random()*@colors.length)]
 

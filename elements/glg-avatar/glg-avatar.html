@@ -1,44 +1,49 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
-
-<link rel="import" href="../glg-current-user/glg-current-user.html" />
 <link rel="import" href="../../bower_components/paper-styles/paper-styles.html">
-<link rel="import" href="../../bower_components/paper-item/paper-item.html">
+<link rel="import" href="../glg-current-user/glg-current-user.html" />
 
 <dom-module id="glg-avatar">
+  <style>
+
+    :host {
+      display: inline-flex;
+    }
+
+    avatar {
+      display: inline-flex;
+      align-content: center;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      overflow: hidden;
+      min-height: 40px;
+      min-width: 40px;
+    }
+
+    .blue {
+      background-color: var(--paper-light-blue-300);
+    }
+    .red {
+      background-color: var(--paper-red-300);
+    }
+    .amber {
+      background-color: var(--paper-amber-300);
+    }
+    .green {
+      background-color: var(--paper-green-300);
+    }
+
+  </style>
+
   <template>
-    <style is="custom-style">
-      /deep/ .avatar {
-        width: 40px;
-        height: 40px;
-        display: inline-flex;
-        align-content: center;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        overflow: hidden;
-      }
-
-      /deep/ .blue {
-        background-color: var(--paper-light-blue-300);
-      }
-      /deep/ .red {
-        background-color: var(--paper-red-300);
-      }
-      /deep/ .amber {
-        background-color: var(--paper-amber-300);
-      }
-      /deep/ .green {
-        background-color: var(--paper-green-300);
-      }
-    </style>
-
     <glg-current-user username="{{username}}" user="{{user}}">
     </glg-current-user>
 
     <template is="dom-if" if="{{user}}">
-      <div class$="{{_getColorClass(color)}}">[[initials]]</div>
+      <avatar class$="{{color}}">
+        <span>[[initials]]</span>
+      </avatar>
     </template>
-
 
   </template>
 </dom-module>
