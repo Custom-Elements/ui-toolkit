@@ -1,4 +1,4 @@
-<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../polymer/polymer.html">
 <link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html"></link>
 
 <dom-module id="glg-current-user">
@@ -11,11 +11,10 @@
     </style>
 
     <iron-ajax
-      auto
-      id="userdetails"
+      id="xhr"
       handle-as="json"
       with-credentials="true"
-      on-response="handleUser"
+      on-response="_handleUser"
       url="[[url]]"
       params="[[qs]]"></iron-ajax>
 
@@ -24,6 +23,4 @@
   </template>
 </dom-module>
 
-<script src="./glg-current-user.litcoffee"></script>
-
-
+<script src="./glg-current-user.coffee"></script>

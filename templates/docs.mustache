@@ -1,0 +1,82 @@
+<!doctype html>
+
+{{=|| ||=}}
+
+<html>
+  <head>
+    <title>ui-toolkit documentation</title>
+    <script src="../../bower_components/webcomponentsjs/webcomponents.min.js"></script>
+
+    ||#links||
+    <link rel="import" href="||{url}||">
+    ||/links||
+
+    <link rel="import" href="../../bower_components/iron-component-page/iron-component-page.html">
+    <link rel="import" href="../../bower_components/iron-selector/iron-selector.html">
+    <link rel="import" href="../../bower_components/paper-drawer-panel/paper-drawer-panel.html">
+    <link rel="import" href="../../bower_components/paper-styles/paper-styles.html">
+    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+
+    <style>
+      body {
+        font-family: Roboto,Noto,'Helvetica Neue',Helvetica,Arial,sans-serif;
+      }
+    </style>
+
+    <style is="custom-style">
+      :root {
+        --paper-toolbar-background: white;
+        --paper-toolbar-color: var(--paper-grey-900);
+      }
+
+      paper-item.paper-item-0 {
+        font-size: 14px;
+        padding: 4px 16px;
+        min-height: 0px;
+      }
+
+      [drawer] {
+        box-shadow: 0 0 8px rgba(0,0,0,0.4);
+      }
+
+      [drawer] h4 {
+        padding: 4px 16px;
+        margin-top:0;
+        height: 48px;
+        line-height: 48px;
+        background-color: var(--paper-blue-grey-50);
+      }
+    </style>
+  </head>
+  <body>
+
+    <template is="dom-bind">
+      <paper-drawer-panel>
+
+        <div drawer>
+
+          <paper-toolbar>
+            <div><b>GLG</b> / Custom-Elements</div>
+          </paper-toolbar>
+
+          <h4>Catalog</h4>
+
+          <iron-selector attr-for-selected="href" selected="{{selectedElement}}">
+          ||#links||
+            <paper-item href="||{url}||">
+              ||element||
+            </paper-item>
+          ||/links||
+          </iron-selector>
+
+        </div>
+
+        <div main>
+          <iron-component-page src="{{selectedElement}}"></iron-component-page>
+        </div>
+
+      </paper-drawer-panel>
+    </template>
+
+  </body>
+</html>
