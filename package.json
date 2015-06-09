@@ -15,7 +15,7 @@
   "repository": "git://github.com/custom-elements/ui-toolkit",
   "license": "ISC",
   "scripts": {
-    "test": "polymer-serve .",
+    "test": "gulp docs; polymer-serve .",
     "postinstall": "bower install"
   },
   "engines": {

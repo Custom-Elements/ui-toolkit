@@ -29,22 +29,22 @@
         --paper-toolbar-color: var(--paper-grey-900);
       }
 
-      paper-item.paper-item-0 {
-        font-size: 14px;
-        padding: 4px 16px;
-        min-height: 0px;
-      }
-
       [drawer] {
         box-shadow: 0 0 8px rgba(0,0,0,0.4);
       }
 
-      [drawer] h4 {
+      paper-item.paper-item-0 {
+        font-size: 14px;
         padding: 4px 16px;
-        margin-top:0;
-        height: 48px;
-        line-height: 48px;
+        min-height: 0px;
+        border-top: 1px solid transparent;
+        border-bottom: 1px solid transparent;
+      }
+
+      paper-item.iron-selected {
         background-color: var(--paper-blue-grey-50);
+        border-top: 1px solid var(--paper-blue-grey-100);
+        border-bottom: 1px solid var(--paper-blue-grey-100);
       }
     </style>
   </head>
@@ -59,8 +59,6 @@
             <div><b>GLG</b> / Custom-Elements</div>
           </paper-toolbar>
 
-          <h4>Catalog</h4>
-
           <iron-selector attr-for-selected="href" selected="{{selectedElement}}">
           ||#links||
             <paper-item href="||{url}||">
@@ -72,7 +70,9 @@
         </div>
 
         <div main>
-          <iron-component-page src="{{selectedElement}}"></iron-component-page>
+          <template is="dom-if" if="{{selectedElement}}">
+            <iron-component-page src="{{selectedElement}}"></iron-component-page>
+          </template>
         </div>
 
       </paper-drawer-panel>

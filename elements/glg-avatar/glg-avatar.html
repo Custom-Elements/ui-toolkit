@@ -4,24 +4,43 @@
 <link rel="import" href="../../bower_components/paper-styles/paper-styles.html">
 <link rel="import" href="../../bower_components/paper-item/paper-item.html">
 
-<dom-modules id="glg-avatar">
+<dom-module id="glg-avatar">
   <template>
-    <style>
-      :host {
+    <style is="custom-style">
+      /deep/ .avatar {
+        width: 40px;
+        height: 40px;
         display: inline-flex;
+        align-content: center;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        overflow: hidden;
+      }
+
+      /deep/ .blue {
+        background-color: var(--paper-light-blue-300);
+      }
+      /deep/ .red {
+        background-color: var(--paper-red-300);
+      }
+      /deep/ .amber {
+        background-color: var(--paper-amber-300);
+      }
+      /deep/ .green {
+        background-color: var(--paper-green-300);
       }
     </style>
 
     <glg-current-user username="{{username}}" user="{{user}}">
-      <template if="{{user}}">
-      <paper-icon-item>
-        sdkfhaskjfhas
-      </paper-icon-item>
-      </template>
     </glg-current-user>
+
+    <template is="dom-if" if="{{user}}">
+      <div class$="{{_getColorClass(color)}}">[[initials]]</div>
+    </template>
 
 
   </template>
 </dom-module>
 
-<script src="./glg-avatar.litcoffee"></script>
+<script src="./glg-avatar.coffee"></script>

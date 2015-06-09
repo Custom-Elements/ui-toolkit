@@ -15,7 +15,7 @@ QueryString = require 'querystring'
         </template>
       </glg-current-user>
 
-  @demo demo/index.html
+  @demo glg-current-user/demo/index.html
 ###
 
 Polymer
@@ -29,8 +29,8 @@ Polymer
 
   properties:
     ###
-      Epiquery url used to get user details.  See the template for the available properties
-      exposed on the {User} object
+      Epiquery url used to get user details.  See the [template](https://github.com/glg/epiquery-templates/blob/prod/glgCurrentUser/getUserByLogin.mustache) for the available properties
+      exposed on the `User` object.
     ###
     url:
       type: String
@@ -47,8 +47,10 @@ Polymer
     ###
     username:
       type: String
-      value: ''
+      value: ->
+        if window.debugUserName then window.debugUserName else ''
       observer: '_usernameChanged'
+      notify: true
     ###
       Property to bind to get the current user.
     ###
@@ -94,10 +96,7 @@ Polymer
     , 200
 
   attached: ->
-    if window.debugUserName
-      @username = window.debugUserName
-    else
-      @getCurrentUser()
+    @getCurrentUser()
 
   created: ->
     window.glgUserCache = window.glgUserCache or {}
