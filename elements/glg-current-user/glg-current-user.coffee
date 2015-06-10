@@ -49,30 +49,27 @@ Polymer
       type: String
       value: ->
         if window.debugUserName then window.debugUserName else ''
+
+        userParams = ''
+        userParams = if (Cookies.get 'glgroot')? then QueryString.parse Cookies.get 'glgroot' else Cookies.get 'starphleet_user'
+        userParams = Cookies.get('glgSAM') if not userParams
+
+        if userParams?.hasOwnProperty['username']
+          bits = userParams['username'].split '\\'
+          userParams = if bits.length is 2 then bits[1] else bits[0]
+
+        console.log('username', userParams)
+
+        return userParams
       observer: '_usernameChanged'
       notify: true
+      reflect: true
     ###
       Property to bind to get the current user.
     ###
     user:
       type: Object
       notify: true
-
-  ###
-    Attempts to read the current username from internal GLG cookies and fetch
-    that user's details.
-  ###
-  getCurrentUser: ->
-    userParams = if (Cookies.get 'glgroot')? then QueryString.parse Cookies.get 'glgroot' else Cookies.get 'starphleet_user'
-
-    if not userParams
-      userParams = Cookies.get 'glgSAM'
-    if userParams
-      if userParams['username']?
-        bits = userParams['username'].split '\\'
-        @username = if bits.length is 2 then bits[1] else bits[0]
-      else
-        @username = userParams
 
   _domainifyUsername: (name) ->
     if name.toLowerCase().indexOf('glgroup') is -1
@@ -87,16 +84,14 @@ Polymer
     { login: @_domainifyUsername(name) }
 
   _usernameChanged: (name) ->
+    console.log 'change', @username
     @user = window.glgUserCache[name] if window.glgUserCache[name]
-
-    return if name == ''
-
     @debounce 'fetch', =>
       @$.xhr.generateRequest()
     , 200
 
-  attached: ->
-    @getCurrentUser()
-
   created: ->
     window.glgUserCache = window.glgUserCache or {}
+
+  attached: ->
+    console.log(@username)

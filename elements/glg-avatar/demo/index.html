@@ -6,12 +6,14 @@
     <script src="../../../bower_components/webcomponentsjs/webcomponents.min.js"></script>
     <link rel="import" href="../glg-avatar.html">
     <link rel="import" href="../../../bower_components/paper-input/paper-input.html">
+    <link rel="import" href="../../../bower_components/paper-item/paper-item-body.html">
     <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
 
-    <style>
+    <style is="custom-style">
       body {
         font-family: Roboto,Noto,'Helvetica Neue',Helvetica,Arial,sans-serif;
-        margin: 0 27px;
+        margin: 27px;
+        background-color: var(--paper-blue-grey-50);
       }
 
       paper-input {
@@ -23,8 +25,29 @@
 
   <body>
     <template is="dom-bind">
-      <paper-input label="Enter a username" value="{{username}}"></paper-input>
-      <glg-avatar username="{{username}}"></glg-avatar>
+      <glg-avatar username="jloiola"></glg-avatar>
+
+      <glg-avatar username="etorres"></glg-avatar>
+
+      <glg-avatar username="dgoldberg">
+        <i>No content</i>
+      </glg-avatar>
+
+      <glg-avatar user="{{user}}">
+
+          <paper-item-body two-line flex>
+            <span>
+              <span>{{user.firstName}}</span>
+              <span>{{user.lastName}}</span>
+            </span>
+            <div secondary>From <span>{{user.city}}</span></div>
+          </paper-item-body>
+
+      </glg-avatar>
+
+      <glg-avatar username="{{username}}">
+        <paper-input label="Enter a username" value="{{username}}"></paper-input>
+      </glg-avatar>
     </template>
   </body>
 </html>
