@@ -16,7 +16,7 @@
   "license": "ISC",
   "scripts": {
     "test": "gulp docs; polymer-serve .",
-    "start": "polymer-serve --precache .",
+    "start": "polymer-serve .",
     "postinstall": "bower install"
   },
   "engines": {
