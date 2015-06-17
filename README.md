@@ -9,6 +9,10 @@ Porting
   - ui-tooltip [Ref](http://www.google.com/design/spec/components/tooltips.html#tooltips-tooltips-desktop-)
   - ui-pill [Ref](https://www.google.com/design/spec/components/chips.html#)
   - ui-typeahead [Ref](https://www.google.com/design/spec/components/text-fields.html#text-fields-auto-complete-text-field)
+  - ui-stats
+  - ui-sparkline
+  - ui-fast-picker
+  - ui-fontawesome
 
 The following components are going to be deprecated and replaced:
 
@@ -32,20 +36,16 @@ Not actively porting:
   - ui-foursquare
   - ui-progressive-form
   - ui-attention
-  - ui-stats
   - ui-grid
   - ui-filtered-grid
   - ui-toc
   - ui-resizebox
   - ui-overlay
   - ui-modal
-  - ui-fast-picker
   - ui-view
   - ui-fonts
-  - ui-fontawesome
   - ui-switch
   - ui-navigation
-  - ui-sparkline
   - ui-code
   - ui-pages
   - ui-form
