@@ -3,6 +3,8 @@
 <link rel="import" href="../../bower_components/paper-ripple/paper-ripple.html">
 <link rel="import" href="../../bower_components/paper-styles/paper-styles.html">
 <link rel="import" href="../../bower_components/paper-behaviors/paper-button-behavior.html">
+<link rel="import" href="../../bower_components/neon-animation/neon-animations.html">
+<link rel="import" href="../../bower_components/neon-animation/neon-animation-runner-behavior.html">
 
 <dom-module id="glg-pill">
 
@@ -162,7 +164,7 @@
 
     <paper-material class$="[[_computeContentClass(receivedFocusFromKeyboard)]]" elevation="[[_elevation]]" animated>
       <content></content>
-      <iron-icon icon="cancel"></iron-icon><close>
+      <iron-icon icon="cancel" on-click="_handleClose"></iron-icon><close>
     </paper-material>
 
   </template>

@@ -10,7 +10,12 @@ Polymer(
 
   behaviors: [
     Polymer.PaperButtonBehavior
+    Polymer.NeonAnimationRunnerBehavior
   ]
+
+  listeners: {
+    'neon-animation-finish': '_onNeonAnimationFinish'
+  }
 
   properties:
     ###
@@ -21,6 +26,12 @@ Polymer(
       reflectToAttribute: true
       value: false
       observer: '_calculateElevation'
+
+    animationConfig:
+      value: ->
+        exit:
+          name: 'fade-out-animation'
+          node: @
 
   _calculateElevation: () ->
     if (!@raised)
@@ -33,4 +44,11 @@ Polymer(
     if (receivedFocusFromKeyboard)
       className += ' keyboard-focus'
     return className
+
+  _handleClose: ->
+    @playAnimation 'exit'
+
+  _onNeonAnimationFinish: ->
+    @remove()
+
 )
