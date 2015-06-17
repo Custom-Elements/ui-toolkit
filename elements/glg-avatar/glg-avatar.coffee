@@ -6,7 +6,7 @@
         <glg-avatar username="{{username}}"></glg-avatar>
       </template>
 
-  @demo glg-avatar/demo/index.html
+  @demo elements/glg-avatar/demo/index.html
 ###
 
 Polymer

@@ -1,0 +1,172 @@
+<link rel="import" href="../../polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-material/paper-material.html">
+<link rel="import" href="../../bower_components/paper-ripple/paper-ripple.html">
+<link rel="import" href="../../bower_components/paper-styles/paper-styles.html">
+<link rel="import" href="../../bower_components/paper-behaviors/paper-button-behavior.html">
+
+<dom-module id="glg-pill">
+
+  <style>
+   :host {
+      display: inline-block;
+      position: relative;
+      box-sizing: border-box;
+      min-width: 5.14em;
+      margin: 0 0.29em;
+      background: transparent;
+      text-align: center;
+      font: inherit;
+      text-transform: uppercase;
+      outline: none;
+      border-radius: 3px;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      -webkit-user-select: none;
+      user-select: none;
+      cursor: pointer;
+      z-index: 0;
+
+      @apply(--paper-button);
+    }
+
+    .keyboard-focus {
+      font-weight: bold;
+    }
+
+    :host([disabled]) {
+      background: #eaeaea;
+      color: #a8a8a8;
+      cursor: auto;
+      pointer-events: none;
+
+      @apply(--paper-button-disabled);
+    }
+
+    :host([noink]) paper-ripple {
+      display: none;
+    }
+
+    paper-material {
+      border-radius: inherit;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .content > ::content * {
+      text-transform: inherit;
+    }
+
+    .content {
+      padding: 0.7em 0.57em
+    }
+
+    iron-icon[icon=cancel] {
+      --iron-icon-width:1em;
+      --iron-icon-height:1em;
+      margin-left:.57em;
+    }
+
+    :host([closeable]) iron-icon[icon=cancel] {
+      display: inline-flex;
+    }
+
+    :host iron-icon[icon=cancel] {
+      display: none;
+    }
+
+    :host([blue]) {
+      --paper-button-flat-focus-color: var(--paper-blue-50);
+      background-color: var(--paper-blue-300);
+    }
+
+    :host([red]) {
+      --paper-button-flat-focus-color: var(--paper-red-50);
+      background-color: var(--paper-red-300);
+    }
+
+    :host([pink]) {
+      --paper-button-flat-focus-color: var(--paper-pink-50);
+      background-color: var(--paper-pink-300);
+    }
+    :host([purple]) {
+      --paper-button-flat-focus-color: var(--paper-purple-50);
+      background-color: var(--paper-purple-300);
+    }
+    :host([indigo]) {
+      --paper-button-flat-focus-color: var(--paper-indigo-50);
+      background-color: var(--paper-indigo-300);
+    }
+    :host([deep-purple]) {
+      --paper-button-flat-focus-color: var(--paper-deep-purple-50);
+      background-color: var(--paper-deep-purple-300);
+    }
+    :host([light-blue]) {
+      --paper-button-flat-focus-color: var(--paper-light-blue-50);
+      background-color: var(--paper-light-blue-300);
+    }
+    :host([cyan]) {
+      --paper-button-flat-focus-color: var(--paper-cyan-50);
+      background-color: var(--paper-cyan-300);
+    }
+    :host([teal]) {
+      --paper-button-flat-focus-color: var(--paper-teal-50);
+      background-color: var(--paper-teal-300);
+    }
+    :host([green]) {
+      --paper-button-flat-focus-color: var(--paper-green-50);
+      background-color: var(--paper-green-300);
+    }
+    :host([light-green]) {
+      --paper-button-flat-focus-color: var(--paper-light-green-50);
+      background-color: var(--paper-light-green-300);
+    }
+    :host([lime]) {
+      --paper-button-flat-focus-color: var(--paper-lime-50);
+      background-color: var(--paper-lime-300);
+    }
+    :host([yellow]) {
+      --paper-button-flat-focus-color: var(--paper-yellow-50);
+      background-color: var(--paper-yellow-300);
+    }
+    :host([amber]) {
+      --paper-button-flat-focus-color: var(--paper-amber-50);
+      background-color: var(--paper-amber-300);
+    }
+    :host([orange]) {
+      --paper-button-flat-focus-color: var(--paper-orange-50);
+      background-color: var(--paper-orange-300);
+    }
+    :host([deep-orange]) {
+      --paper-button-flat-focus-color: var(--paper-deep-orange-50);
+      background-color: var(--paper-deep-orange-300);
+    }
+    :host([brown]) {
+      --paper-button-flat-focus-color: var(--paper-brown-50);
+      background-color: var(--paper-brown-300);
+    }
+    :host([grey]) {
+      --paper-button-flat-focus-color: var(--paper-grey-50);
+      background-color: var(--paper-grey-300);
+    }
+    :host([blue-grey]) {
+      --paper-button-flat-focus-color: var(--paper-blue-grey-50);
+      background-color: var(--paper-blue-grey-300);
+    }
+
+  </style>
+
+  <template>
+
+    <paper-ripple></paper-ripple>
+
+    <paper-material class$="[[_computeContentClass(receivedFocusFromKeyboard)]]" elevation="[[_elevation]]" animated>
+      <content></content>
+      <iron-icon icon="cancel"></iron-icon><close>
+    </paper-material>
+
+  </template>
+
+</dom-module>
+
+<script src="./glg-pill.coffee"></script>

@@ -15,7 +15,7 @@ QueryString = require 'querystring'
         </template>
       </glg-current-user>
 
-  @demo glg-current-user/demo/index.html
+  @demo elements/glg-current-user/demo/index.html
 ###
 
 Polymer
