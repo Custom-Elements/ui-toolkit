@@ -31,6 +31,7 @@
     "ui-confirmation-questions": "git://github.com/custom-elements/ui-confirmation-questions",
     "ui-typeahead": "git://github.com/custom-elements/ui-typeahead",
     "glg-nectar": "git://github.com/custom-elements/glg-nectar#2.0.3",
+    "glg-name-match": "git://github.com/custom-elements/glg-name-match#1.0.0",
     "glg-current-user": "git://github.com/custom-elements/glg-current-user#0.0.2",
     "glg-taxonomy": "git://github.com/custom-elements/glg-taxonomy#0.2.0",
     "glg-stats": "git://github.com/custom-elements/glg-stats",
