@@ -1,0 +1,35 @@
+<style>
+  /*
+  Fill up the entire parent screen, this is useful to pop on
+  <body fullscreen>
+  ...
+  </body>
+  */
+  fullscreen, [fullscreen]{
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    padding: 0;
+  }
+
+  /*
+  Fill up a gap with a flex 1.
+  */
+  fill, [fill] {
+    display: flex;
+    flex: 1;
+  }
+
+  /*
+  Centered inside a flex.
+  */
+  centered, [centered] {
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+  }
+</style>

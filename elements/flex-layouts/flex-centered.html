@@ -1,0 +1,38 @@
+<link rel="import" href="../../polymer/polymer.html">
+
+<dom-module id="flex-centered">
+  <style>
+    :host {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    row {
+      display: flex;
+      flex-direction: row;
+      flex: 1;
+    }
+    column {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    [display] {
+      position: relative;
+    }
+    [display] ::content {
+    }
+  </style>
+
+  <template>
+   <row></row>
+   <row>
+     <column></column>
+     <column display><content></content></column>
+     <column></column>
+   </row>
+   <row></row>
+  </template>
+</dom-module>
+
+<script src="./flex-centered.coffee"></script>
