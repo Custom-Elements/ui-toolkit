@@ -6,7 +6,8 @@
     "browserify": "^10.2.3",
     "coffee-script": "^1.9.3",
     "cookies-js": "^1.2.1",
-    "polymer-serve": "^0.0.34"
+    "polymer-serve": "^0.0.34",
+    "moment": "^2.10.3"
   },
   "repository": "git://github.com/custom-elements/ui-toolkit",
   "license": "ISC",
