@@ -46,7 +46,6 @@ Polymer
 
   attached: ->
     @$.tooltip.setAttribute 'hidden', ''
-    document.querySelector('body').appendChild @$.tooltip
 
   _onshowTip: ->
     if @showtip
@@ -59,6 +58,8 @@ Polymer
   _onNeonAnimationFinish: ->
     if not @showtip
       @$.tooltip.setAttribute 'hidden', ''
+      @$.tooltip.style.cssText = ''
+      Polymer.dom(@root).appendChild @$.tooltip
 
   _onMouseEnter: ->
     @showtip = true
@@ -91,3 +92,10 @@ Polymer
       @$.tooltip.setAttribute 'down', ''
     else
       @$.tooltip.setAttribute 'up', ''
+    tip = @$.tooltip.getBoundingClientRect()
+    style = @$.tooltip.style
+    style.position = 'fixed'
+    style.top = "#{tip.top}px"
+    style.left = "#{tip.left}px"
+    @$.tooltip.style.cssText = window.getComputedStyle(@$.tooltip).cssText
+    document.querySelector('body').appendChild @$.tooltip
