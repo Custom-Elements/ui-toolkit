@@ -80,15 +80,16 @@
       <div>Friday</div>
       <div>Saturday</div>
     </div>    
-      <template is="dom-repeat" items="{{CalPositions}}" as="calPos">
-        <div class$="{{getDayClasses(calPos, month)}}">
-          <p class="daynum">{{getRealDay(calPos, month)}}</p>
-          <template is="dom-repeat" items$="{{getMeetings(week, day, month)}}" as="meeting">
-            <div>{{meeting.title}}</div>
-          </template>
-        </div>
-      </template>
-    </template>
-  </dom-module>
+    <template is="dom-repeat" items="{{CalPositions}}" as="calPos">
+      <div class$="{{getDayClasses(calPos, month)}}">
+        <p class="daynum">{{getRealDay(calPos, month)}}</p>
+        <template is="dom-repeat" items$="{{getMeetings(week, day, month)}}" as="meeting">
+          <div>{{meeting.title}}</div>
+        </template>
+      </div>
+    </div>
+  </template>
+</template>
+</dom-module>
 
-  <script src="./glg-calendar.coffee"></script>
+<script src="./glg-calendar.coffee"></script>
