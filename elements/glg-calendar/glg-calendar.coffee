@@ -26,7 +26,7 @@ Polymer(
     @monthString = @date.format("MMMM")
 
     @CalPositions = [0..41]
-    # @meetings = [{Date: '2015-02-08 09:30:26', title: 'blah' }]
+    @meetings = [{Date: '2015-07-08 09:30:26', title: 'blah' }]
 
   minusMonth: ->
     @moveMonth(-1)
@@ -43,8 +43,6 @@ Polymer(
     @month = @date.month()
     @monthString = @date.format("MMMM")
 
-  getCalPosArray: () ->
-
   getStartOfMonth: ->
     @date.startOf("month")
 
@@ -54,8 +52,9 @@ Polymer(
   getRealDay: (calPos, month) ->
     pos = @realDays[calPos].daynum
 
-  getMeetings: (week, dayPos, month) ->
-    return _.filter @meetings, (m) => moment(m.Date).format('MM/DD/YYYY') == @date.day(getRealDay(week, day, month)).format('MM/DD/YYYY')
+  getMeetings: (calPos) ->
+    return _.filter @meetings, (m) => 
+      moment(m.Date).format('MM/DD/YYYY') == @date.date(@getRealDay(calPos)).format('MM/DD/YYYY') if (@getRealDay(calPos))
 
   getRealDays: ->
     realDays = []

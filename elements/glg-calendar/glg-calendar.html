@@ -1,95 +1,95 @@
 <link rel="import" href="../../polymer/polymer.html">
 
 <dom-module id="glg-calendar">
-<style type="text/css">
-:host {
-  flex-wrap: norap;
-  align-items: center;
-  font-size: 1.4em;
-}
-.dayLabels {
-  width: 100%;
-}
-.dayLabels div {
-  width: 6.4em;
-  margin: auto;
-  text-align: center;
-  font-size: .75em;
-  display: inline-block;
-}
-.navigation {
-  width: 35.28em;
-  background-color: #e76563;
-}
-.navigation h4 {
-  margin: auto;
-  width: 7em;
-  color: #FFF;
-  font-weight: 200;
-  text-align: center;
-  display: inline;
-  padding-top: 1em;
-  padding-bottom: 1em;
+  <style type="text/css">
+    :host {
+      flex-wrap: norap;
+      align-items: center;
+      font-size: 1.4em;
+    }
+    .dayLabels {
+      width: 100%;
+    }
+    .dayLabels div {
+      width: 6.4em;
+      margin: auto;
+      text-align: center;
+      font-size: .75em;
+      display: inline-block;
+    }
+    .navigation {
+      width: 35.28em;
+      background-color: #e76563;
+    }
+    .navigation h4 {
+      margin: auto;
+      width: 7em;
+      color: #FFF;
+      font-weight: 200;
+      text-align: center;
+      display: inline;
+      padding-top: 1em;
+      padding-bottom: 1em;
 
-}
-.container {
-  width: 35.38em;
-}
-.day {
-  position: relative;
-  width: 5em;
-  height: 5em;
-  border: 1px solid #777;
-  border-right: 0;
-  border-bottom: 0;
-  float: left;
-}
-.daynum {
-  padding-left: .25em;
-  margin-top: .25em;  
-}
-.minusleft {
-  border-left: 0;
-}
-.plus-bottom {
-  border-bottom: 1px solid #777;
-}
-.currentDay {
-  background-color: #F2F2F2;
-}
-.fakeday {
-  background: #B9B9B9;
-}
-.fakeday p {
-  visibility: hidden;
-}
-</style>
-<template> 
-  <div class="navigation">
-    <button id="minusMonth">-</button>
-    <center><h4>{{monthString}}</h4> <h4>{{year}}</h4></center>
-    <button id="plusMonth">+</button>
-  </div>  
-  <div class="container">
-    <div class="dayLabels">
-      <div>Sunday</div>
-      <div>Monday</div>
-      <div>Tuesday</div>
-      <div>Wednesday</div>
-      <div>Thursday</div>
-      <div>Friday</div>
-      <div>Saturday</div>
-    </div>    
-    <template is="dom-repeat" items="{{CalPositions}}" as="calPos">
-      <div class$="{{getDayClasses(calPos, month)}}">
-        <p class="daynum">{{getRealDay(calPos, month)}}</p>
-        <template is="dom-repeat" items$="{{getMeetings(week, day, month)}}" as="meeting">
-          <div>{{meeting.title}}</div>
-        </template>
+    }
+    .container {
+      width: 35.38em;
+    }
+    .day {
+      position: relative;
+      width: 5em;
+      height: 5em;
+      border: 1px solid #777;
+      border-right: 0;
+      border-bottom: 0;
+      float: left;
+    }
+    .daynum {
+      padding-left: .25em;
+      margin-top: .25em;  
+    }
+    .minusleft {
+      border-left: 0;
+    }
+    .plus-bottom {
+      border-bottom: 1px solid #777;
+    }
+    .currentDay {
+      background-color: #F2F2F2;
+    }
+    .fakeday {
+      background: #B9B9B9;
+    }
+    .fakeday p {
+      visibility: hidden;
+    }
+  </style>
+  <template> 
+    <div class="navigation">
+      <button id="minusMonth">-</button>
+      <center><h4>{{monthString}}</h4> <h4>{{year}}</h4></center>
+      <button id="plusMonth">+</button>
+    </div>  
+    <div class="container">
+      <div class="dayLabels">
+        <div>Sunday</div>
+        <div>Monday</div>
+        <div>Tuesday</div>
+        <div>Wednesday</div>
+        <div>Thursday</div>
+        <div>Friday</div>
+        <div>Saturday</div>
+      </div>    
+      <template is="dom-repeat" items="{{CalPositions}}" as="calPos">
+        <div class$="{{getDayClasses(calPos, month)}}">
+          <p class="daynum">{{getRealDay(calPos, month)}}</p>
+          <template is="dom-repeat" items$="{{getMeetings(week, day, month)}}" as="meeting">
+            <div>{{meeting.title}}</div>
+          </template>
+        </div>
       </div>
-    </div>
+    </template>
   </template>
-</template>
 </dom-module>
 
 <script src="./glg-calendar.coffee"></script>
