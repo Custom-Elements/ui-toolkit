@@ -79,9 +79,10 @@ Polymer(
     day = @realDays[calPos]
     active = if !(day.active) then " fakeday" else ""
     current = if (day.daynum == moment().date() and @year == moment().year() and @month == moment().month()) then " currentDay" else ""
+    minusleft = if(calPos % 7 == 0) then " minusleft" else ""
     bottom = if(_.indexOf(@getWeekPos(5), calPos) > -1) then " plus-bottom" else ""
 
-    "day#{active}#{current}#{bottom}"
+    "day#{active}#{current}#{minusleft}#{bottom}"
 
 
 )
