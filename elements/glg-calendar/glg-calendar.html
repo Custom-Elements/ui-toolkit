@@ -57,7 +57,7 @@
 .day .minusleft {
   border-left: 0;
 }
-.day .plus-bottom {
+.plus-bottom {
   border-bottom: 1px solid #777;
 }
 .currentDay {
@@ -72,7 +72,9 @@
 </style>
 <template> 
   <div class="navigation">
+    <button id="minusMonth">-</button>
     <center><h4>{{monthString}}</h4> <h4>{{year}}</h4></center>
+    <button id="plusMonth">+</button>
   </div>  
   <div class="container">
     <div class="dayLabels">
@@ -84,11 +86,11 @@
       <div>Friday</div>
       <div>Saturday</div>
     </div>    
-    <template is="dom-repeat" items="{{weekArr}}" as="week">
+    <template id="weeks" is="dom-repeat" items="{{weekArr}}" as="week">
       <div class="week">
         <template is="dom-repeat" items="{{dayArr}}" as="day">
-          <div class$="{{getDayClasses(week, day)}}">
-            <p>{{getRealDay(week, day)}}</p>
+          <div class$="{{getDayClasses(week, day, month)}}">
+            <p>{{getRealDay(week, day, month)}}</p>
           </div>
         </template>
         <div>

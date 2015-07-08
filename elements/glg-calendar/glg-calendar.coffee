@@ -9,21 +9,37 @@ moment = require('moment')
 
 Polymer(
   is: 'glg-calendar',
-    
+  
+  listeners: {
+    'minusMonth.tap': 'minusMonth',
+    'plusMonth.tap': 'plusMonth'
+  },  
+
   ready: ->
     @date = moment()
     @month = @date.month()
     @year = @date.year()
     @firstofmonth = @getWeekDay(1)
-    @lastofmonth = @getWeekDay(moment().daysInMonth())
+    @lastofmonth = @getWeekDay(@date.daysInMonth())
     @realDays = @getMonthArray()
     @monthString = @date.format("MMMM")
     @weekArr = [0,1,2,3,4,5]
     @dayArr = [0,1,2,3,4,5,6]
 
+  minusMonth: ->
+    @moveMonth(-1)
+
+  plusMonth: ->
+    @moveMonth(1)
+
   moveMonth: (num) ->
-    alert("hi")
-    @date = @date.add("month", -1)
+    @date = @date.month(@date.month() + num)
+    @month = @date.month()
+    @year = @date.year()
+    @firstofmonth = @getWeekDay(1)
+    @lastofmonth = @getWeekDay(@date.daysInMonth())
+    @realDays = @getMonthArray()
+    @monthString = @date.format("MMMM")
 
   getStartOfMonth: ->
     @date.startOf("month")
@@ -31,7 +47,7 @@ Polymer(
   getWeekDay: (day) ->
     @getStartOfMonth().date(day).format("d")
 
-  getRealDay: (weekPos, dayPos) ->
+  getRealDay: (weekPos, dayPos, month) ->
     pos = @realDays[(weekPos * 7) + dayPos].daynum
 
   getMonthArray: ->
@@ -45,12 +61,13 @@ Polymer(
       realDays.push {daynum, active}
     realDays
 
-  getDayClasses: (weekPos, dayPos) ->
+  getDayClasses: (weekPos, dayPos, month) ->
     day = @realDays[(weekPos * 7) + dayPos]
     active = if !(day.active) then " fakeday" else ""
-    current = if (day.daynum == moment().date() and @month = moment().month()) then " currentDay" else ""
+    current = if (day.daynum == moment().date() and @year == moment().year() and @month == moment().month()) then " currentDay" else ""
+    bottom = if(weekPos == 5) then " plus-bottom" else ""
 
-    "day#{active}#{current}"
+    "day#{active}#{current}#{bottom}"
 
 
 )
