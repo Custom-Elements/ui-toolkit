@@ -64,8 +64,14 @@ Polymer(
     pos = @realDays[calPos].daynum
 
   getMeetings: (calPos, meetings, month) ->
-    return _.filter meetings, (m) => 
+    return _.take((_.filter meetings, (m) => 
+      moment(m.Date).format('MM/DD/YYYY') == @date.date(@getRealDay(calPos)).format('MM/DD/YYYY') if (@getRealDay(calPos))),4)
+
+  getMeetingsLength: (calPos, meetings, month) ->
+    dayMeetings = _.filter meetings, (m) => 
       moment(m.Date).format('MM/DD/YYYY') == @date.date(@getRealDay(calPos)).format('MM/DD/YYYY') if (@getRealDay(calPos))
+    dayMeetingCount = if (dayMeetings.length-4 > 0) then dayMeetings.length-4 else 0 
+
 
   getRealDays: ->
     realDays = []
