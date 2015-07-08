@@ -11,10 +11,21 @@ _ = require('lodash')
 Polymer(
   is: 'glg-calendar',
   
+  properties: {
+    meetings: {
+      type: Array,
+      value: () -> return []
+    }
+  },
+
   listeners: {
     'minusMonth.tap': 'minusMonth',
     'plusMonth.tap': 'plusMonth'
   },  
+  observers: [
+    'meetingsChanged(meetings)'
+  ],  
+
 
   ready: ->
     @date = moment()
@@ -24,9 +35,9 @@ Polymer(
     @lastofmonth = @getWeekDay(@date.daysInMonth())
     @realDays = @getRealDays()
     @monthString = @date.format("MMMM")
-
     @CalPositions = [0..41]
-    @meetings = [{Date: '2015-07-08 09:30:26', title: 'blah' }]
+
+  meetingsChanged: () ->
 
   minusMonth: ->
     @moveMonth(-1)
@@ -52,9 +63,15 @@ Polymer(
   getRealDay: (calPos, month) ->
     pos = @realDays[calPos].daynum
 
-  getMeetings: (calPos, month) ->
-    return _.filter @meetings, (m) => 
+  getMeetings: (calPos, meetings, month) ->
+    return _.take((_.filter meetings, (m) => 
+      moment(m.Date).format('MM/DD/YYYY') == @date.date(@getRealDay(calPos)).format('MM/DD/YYYY') if (@getRealDay(calPos))),4)
+
+  getMeetingsLength: (calPos, meetings, month) ->
+    dayMeetings = _.filter meetings, (m) => 
       moment(m.Date).format('MM/DD/YYYY') == @date.date(@getRealDay(calPos)).format('MM/DD/YYYY') if (@getRealDay(calPos))
+    dayMeetingCount = if (dayMeetings.length-4 > 0) then dayMeetings.length-4 else 0 
+
 
   getRealDays: ->
     realDays = []
@@ -71,7 +88,7 @@ Polymer(
     weekDays = []
     for i in [(num * 7)..((num + 1) * 7 - 1)]
       weekDays.push i
-    weekDays  
+    weekDays
 
   getDayClasses: (calPos, month) ->
     day = @realDays[calPos]
