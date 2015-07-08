@@ -11,10 +11,21 @@ _ = require('lodash')
 Polymer(
   is: 'glg-calendar',
   
+  properties: {
+    meetings: {
+      type: Array,
+      value: () -> return []
+    }
+  },
+
   listeners: {
     'minusMonth.tap': 'minusMonth',
     'plusMonth.tap': 'plusMonth'
   },  
+  observers: [
+    'meetingsChanged(meetings)'
+  ],  
+
 
   ready: ->
     @date = moment()
@@ -24,9 +35,9 @@ Polymer(
     @lastofmonth = @getWeekDay(@date.daysInMonth())
     @realDays = @getRealDays()
     @monthString = @date.format("MMMM")
-
     @CalPositions = [0..41]
-    @meetings = [{Date: '2015-07-08 09:30:26', title: 'blah' }]
+
+  meetingsChanged: () ->
 
   minusMonth: ->
     @moveMonth(-1)
@@ -52,8 +63,8 @@ Polymer(
   getRealDay: (calPos, month) ->
     pos = @realDays[calPos].daynum
 
-  getMeetings: (calPos, month) ->
-    return _.filter @meetings, (m) => 
+  getMeetings: (calPos, meetings, month) ->
+    return _.filter meetings, (m) => 
       moment(m.Date).format('MM/DD/YYYY') == @date.date(@getRealDay(calPos)).format('MM/DD/YYYY') if (@getRealDay(calPos))
 
   getRealDays: ->
