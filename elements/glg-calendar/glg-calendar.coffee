@@ -82,7 +82,7 @@ Polymer(
     weekDays = []
     for i in [(num * 7)..((num + 1) * 7 - 1)]
       weekDays.push i
-    weekDays  
+    weekDays
 
   getDayClasses: (calPos, month) ->
     day = @realDays[calPos]

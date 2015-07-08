@@ -1,4 +1,5 @@
 <link rel="import" href="../../polymer/polymer.html">
+<link rel="stylesheet" type="text/css" href="css/fonts.css">
 
 <dom-module id="glg-calendar">
   <style type="text/css">
@@ -7,11 +8,14 @@
       align-items: center;
       font-size: 1.4em;
     }
+    * {
+      font-family: 'font_35';
+    }
     .dayLabels {
       width: 100%;
     }
     .dayLabels div {
-      width: 6.4em;
+      width: 6.55em;
       margin: auto;
       text-align: center;
       font-size: .75em;
@@ -39,7 +43,7 @@
       position: relative;
       width: 5em;
       height: 5em;
-      border: 1px solid #777;
+      border: 1px solid #8C8C8C;
       border-right: 0;
       border-bottom: 0;
       float: left;
@@ -47,15 +51,20 @@
     .daynum {
       padding-left: .25em;
       margin-top: .25em;  
+      color: #8C8C8C;
     }
     .minusleft {
       border-left: 0;
     }
     .plus-bottom {
-      border-bottom: 1px solid #777;
+      border-bottom: 1px solid #8C8C8C;
     }
     .currentDay {
       background-color: #F2F2F2;
+    }
+    .currentDay p {
+      color: #000;
+      font-weight: 800;
     }
     .fakeday {
       background: #B9B9B9;
@@ -63,12 +72,28 @@
     .fakeday p {
       visibility: hidden;
     }
+    #minusMonth, #plusMonth {
+      color: #000;
+      background-color: #FFF;
+    }
+    .minusDiv {
+      transform: rotate(90deg);
+      transform-origin: 11px 12px;
+      -webkit-transform: rotate(90deg);
+      -webkit-transform: 11px 12px;
+    }
+    .plusDiv {
+      transform: rotate(270deg);
+      transform-origin: 11px 12px;
+      -webkit-transform: rotate(270deg);
+      -webkit-transform: 11px 12px;      
+    }
   </style>
   <template> 
     <div class="navigation">
-      <button id="minusMonth">-</button>
+      <div id="minusMonth" class="minusDiv"><span class="icon-dropdownarrow"></span></div>
       <center><h4>{{monthString}}</h4> <h4>{{year}}</h4></center>
-      <button id="plusMonth">+</button>
+      <div class="plusDiv"><span id="plusMonth" class="icon-dropdownarrow"></span></div>
     </div>  
     <div class="container">
       <div class="dayLabels">
