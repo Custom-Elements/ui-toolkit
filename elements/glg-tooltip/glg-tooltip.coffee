@@ -46,6 +46,7 @@ Polymer
 
   attached: ->
     @$.tooltip.setAttribute 'hidden', ''
+    document.querySelector('body').appendChild @$.tooltip
 
   _onshowTip: ->
     if @showtip
