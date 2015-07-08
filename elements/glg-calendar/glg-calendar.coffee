@@ -52,7 +52,7 @@ Polymer(
   getRealDay: (calPos, month) ->
     pos = @realDays[calPos].daynum
 
-  getMeetings: (calPos) ->
+  getMeetings: (calPos, month) ->
     return _.filter @meetings, (m) => 
       moment(m.Date).format('MM/DD/YYYY') == @date.date(@getRealDay(calPos)).format('MM/DD/YYYY') if (@getRealDay(calPos))
 
