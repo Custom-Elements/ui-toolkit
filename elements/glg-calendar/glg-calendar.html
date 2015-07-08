@@ -44,8 +44,9 @@
   border-bottom: 0;
   float: left;
 }
-.day p {
+.daynum {
   padding-left: .25em;
+  margin-top: .25em;  
 }
 .minusleft {
   border-left: 0;
@@ -81,7 +82,7 @@
     </div>    
       <template is="dom-repeat" items="{{CalPositions}}" as="calPos">
         <div class$="{{getDayClasses(calPos, month)}}">
-          <p>{{getRealDay(calPos, month)}}</p>
+          <p class="daynum">{{getRealDay(calPos, month)}}</p>
           <template is="dom-repeat" items$="{{getMeetings(week, day, month)}}" as="meeting">
             <div>{{meeting.title}}</div>
           </template>
