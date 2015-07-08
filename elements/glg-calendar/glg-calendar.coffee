@@ -6,6 +6,7 @@
 ###
 
 moment = require('moment')
+_ = require('lodash')
 
 Polymer(
   is: 'glg-calendar',
@@ -21,10 +22,11 @@ Polymer(
     @year = @date.year()
     @firstofmonth = @getWeekDay(1)
     @lastofmonth = @getWeekDay(@date.daysInMonth())
-    @realDays = @getMonthArray()
+    @realDays = @getRealDays()
     @monthString = @date.format("MMMM")
-    @weekArr = [0,1,2,3,4,5]
-    @dayArr = [0,1,2,3,4,5,6]
+
+    @CalPositions = [0..41]
+    # @meetings = [{Date: '2015-02-08 09:30:26', title: 'blah' }]
 
   minusMonth: ->
     @moveMonth(-1)
@@ -33,13 +35,16 @@ Polymer(
     @moveMonth(1)
 
   moveMonth: (num) ->
-    @date = @date.month(@date.month() + num)
+    @date = @date.add(num, 'M')
     @month = @date.month()
     @year = @date.year()
     @firstofmonth = @getWeekDay(1)
     @lastofmonth = @getWeekDay(@date.daysInMonth())
-    @realDays = @getMonthArray()
+    
+    @realDays = @getRealDays()
     @monthString = @date.format("MMMM")
+
+  getCalPosArray: () ->
 
   getStartOfMonth: ->
     @date.startOf("month")
@@ -47,10 +52,13 @@ Polymer(
   getWeekDay: (day) ->
     @getStartOfMonth().date(day).format("d")
 
-  getRealDay: (weekPos, dayPos, month) ->
-    pos = @realDays[(weekPos * 7) + dayPos].daynum
+  getRealDay: (calPos, month) ->
+    pos = @realDays[calPos].daynum
 
-  getMonthArray: ->
+  getMeetings: (week, dayPos, month) ->
+    return _.filter @meetings, (m) => moment(m.Date).format('MM/DD/YYYY') == @date.day(getRealDay(week, day, month)).format('MM/DD/YYYY')
+
+  getRealDays: ->
     realDays = []
     daynum = 0
     for i in [0..41]
@@ -61,11 +69,17 @@ Polymer(
       realDays.push {daynum, active}
     realDays
 
-  getDayClasses: (weekPos, dayPos, month) ->
-    day = @realDays[(weekPos * 7) + dayPos]
+  getWeekPos: (num) ->
+    weekDays = []
+    for i in [(num * 7)..((num + 1) * 7 - 1)]
+      weekDays.push i
+    weekDays  
+
+  getDayClasses: (calPos, month) ->
+    day = @realDays[calPos]
     active = if !(day.active) then " fakeday" else ""
     current = if (day.daynum == moment().date() and @year == moment().year() and @month == moment().month()) then " currentDay" else ""
-    bottom = if(weekPos == 5) then " plus-bottom" else ""
+    bottom = if(_.indexOf(@getWeekPos(5), calPos) > -1) then " plus-bottom" else ""
 
     "day#{active}#{current}#{bottom}"
 

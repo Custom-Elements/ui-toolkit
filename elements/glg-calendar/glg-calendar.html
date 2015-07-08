@@ -33,7 +33,7 @@
 
 }
 .container {
-  width: 35.28em;
+  width: 35.38em;
 }
 .week {
   display: inline;
@@ -86,16 +86,14 @@
       <div>Friday</div>
       <div>Saturday</div>
     </div>    
-    <template id="weeks" is="dom-repeat" items="{{weekArr}}" as="week">
-      <div class="week">
-        <template is="dom-repeat" items="{{dayArr}}" as="day">
-          <div class$="{{getDayClasses(week, day, month)}}">
-            <p>{{getRealDay(week, day, month)}}</p>
-          </div>
-        </template>
-        <div>
-        </template>
-      </div>
+      <template is="dom-repeat" items="{{CalPositions}}" as="calPos">
+        <div class$="{{getDayClasses(calPos, month)}}">
+          <p>{{getRealDay(calPos, month)}}</p>
+          <template is="dom-repeat" items$="{{getMeetings(week, day, month)}}" as="meeting">
+            <div>{{meeting.title}}</div>
+          </template>
+        </div>
+      </template>
     </template>
   </dom-module>
 
