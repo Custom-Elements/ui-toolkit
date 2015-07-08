@@ -36,12 +36,11 @@ Polymer(
 
   moveMonth: (num) ->
     @date = @date.add(num, 'M')
-    @month = @date.month()
     @year = @date.year()
     @firstofmonth = @getWeekDay(1)
     @lastofmonth = @getWeekDay(@date.daysInMonth())
-    
     @realDays = @getRealDays()
+    @month = @date.month()
     @monthString = @date.format("MMMM")
 
   getCalPosArray: () ->
