@@ -25,18 +25,18 @@ Polymer
     'mouseenter': '_onMouseEnter'
     'mouseleave': '_onMouseLeave'
 
-  animationConfig:
-    value: ->
-      show:
-        name: 'fade-in-animation'
-        node: @
-      hide:
-        name: 'fade-out-animation'
-        node: @
 
   properties:
+    animationConfig:
+      value: ->
+        show:
+          name: 'scale-up-animation'
+          node: @$.tooltip
+        hide:
+          name: 'fade-out-animation'
+          node: @$.tooltip
     ###
-     If true, the button should be styled with a shadow.
+     Show the tooltip. Or not. Your call.
     ###
     showtip:
       type: Boolean
@@ -44,14 +44,20 @@ Polymer
       value: false
       observer: '_onshowTip'
 
+  attached: ->
+    @$.tooltip.setAttribute 'hidden', ''
+
   _onshowTip: ->
     if @showtip
+      @$.tooltip.removeAttribute 'hidden'
       @_position()
       @playAnimation 'show'
     else
       @playAnimation 'hide'
 
   _onNeonAnimationFinish: ->
+    if not @showtip
+      @$.tooltip.setAttribute 'hidden', ''
 
   _onMouseEnter: ->
     @showtip = true
@@ -60,7 +66,8 @@ Polymer
     @showtip = false
 
   _position: ->
-    tip = @getBoundingClientRect()
+    all = @getBoundingClientRect()
+    tip = @$.tooltip.getBoundingClientRect()
     body = document.querySelector('body').getBoundingClientRect()
     xStep = document.documentElement.clientWidth / 3
     yStep = document.documentElement.clientHeight / 3
@@ -73,6 +80,12 @@ Polymer
 
     @$.tooltip.removeAttribute 'up'
     @$.tooltip.removeAttribute 'down'
+    @$.tooltip.removeAttribute 'left'
+    @$.tooltip.removeAttribute 'right'
+    if tip.top < xStep*2
+      @$.tooltip.setAttribute 'right', ''
+    else
+      @$.tooltip.setAttribute 'left', ''
     if tip.top < yStep*2
       @$.tooltip.setAttribute 'down', ''
     else

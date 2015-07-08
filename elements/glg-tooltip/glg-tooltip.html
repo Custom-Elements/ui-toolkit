@@ -23,7 +23,7 @@
       font-size: 0.7em;
       line-height: 1;
       padding: 0.6em;
-      right: -50%;
+      left: -50%;
     }
     [down] {
       top: calc(100%);
@@ -33,11 +33,17 @@
       bottom: calc(100%);
       margin-bottom: 0.5em;
     }
+    [left] {
+      right: 25%;
+    }
+    [right] {
+      left: 25%;
+    }
   </style>
 
   <template>
-    <div id="tooltip" hidden$="{{!showtip}}">
-      <content select="tip"></content>
+    <div id="tooltip">
+      <content select="[tip]"></content>
     </div>
     <content></content>
   </template>
