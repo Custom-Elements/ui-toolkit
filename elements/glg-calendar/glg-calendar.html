@@ -11,19 +11,21 @@
 
       .glg-calendar {
         font-family: 'font_35';
-        font-size: 1.4em;  
+        font-size: 1.2em;  
         width: 35.4em;
       }
 
       .dayLabels div {
-        width: 6.55em;
+        width: 6.45em;
         margin: auto;
+        margin-bottom: .5em;
         text-align: center;
         font-size: .75em;
         display: inline-block;
       }
       .navigation {
-        width: 35.28em;
+        width: 42em;
+        margin-left: 0.8em;
         background-color: #e76563;
       }
       .navigation h4 {
@@ -34,10 +36,10 @@
         text-align: center;
         display: inline;
         padding-top: 1em;
-        padding-bottom: 1em;
+        padding-bottom: 2em;
       }
       .container {
-        width: 35.38em;
+        width: 45em;
       }
       .day {
         position: relative;
@@ -129,13 +131,16 @@
         padding-left: .1em;
         font-weight: 800;
       }
+      .iconFont {
+        font-family: 'goco';
+      }
     </style>
 
     <div class="glg-calendar">
       <div class="navigation">
-        <div class="minusDiv"><span id="minusMonth" class="icon-dropdownarrow"></span></div>
+        <div class="minusDiv"><span id="minusMonth" class="icon-dropdownarrow iconFont"></span></div>
         <center><h4>{{monthString}}</h4> <h4>{{year}}</h4></center>
-        <div class="plusDiv"><span id="plusMonth" class="icon-dropdownarrow"></span></div>
+        <div class="plusDiv"><span id="plusMonth" class="icon-dropdownarrow iconFont"></span></div>
       </div>  
       <div class="container">
         <div class="dayLabels">
