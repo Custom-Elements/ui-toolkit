@@ -9,12 +9,9 @@
         align-items: center;
       }
 
-      glg-calendar {
+      .glg-calendar {
         font-family: 'font_35';
         font-size: 1.4em;  
-      }
-
-      .glg-calendar{
         width: 35.4em;
       }
 
@@ -38,7 +35,6 @@
         display: inline;
         padding-top: 1em;
         padding-bottom: 1em;
-
       }
       .container {
         width: 35.38em;
@@ -135,30 +131,32 @@
       }
     </style>
 
-    <div class="navigation">
-      <div class="minusDiv"><span id="minusMonth" class="icon-dropdownarrow"></span></div>
-      <center><h4>{{monthString}}</h4> <h4>{{year}}</h4></center>
-      <div class="plusDiv"><span id="plusMonth" class="icon-dropdownarrow"></span></div>
-    </div>  
-    <div class="container">
-      <div class="dayLabels">
-        <div>Sunday</div>
-        <div>Monday</div>
-        <div>Tuesday</div>
-        <div>Wednesday</div>
-        <div>Thursday</div>
-        <div>Friday</div>
-        <div>Saturday</div>
-      </div>    
-      <template is="dom-repeat" items="{{CalPositions}}" as="calPos">
-        <div class$="{{getDayClasses(calPos, month)}}">
-          <p class="daynum">{{getRealDay(calPos, month)}}</p>
-          <template is="dom-repeat" items$="{{getMeetings(calPos, meetings, month)}}" as="meeting">
-            <div class="meeting">{{meeting.title}}</div>
-          </template>
-          <template is="dom-if" if="{{getMeetingsLength(calPos, meetings, month)}}">
-            <div class="meeting-overflow">+<span>{{getMeetingsLength(calPos, meetings, month)}}</span></div>
-          </template>
+    <div class="glg-calendar">
+      <div class="navigation">
+        <div class="minusDiv"><span id="minusMonth" class="icon-dropdownarrow"></span></div>
+        <center><h4>{{monthString}}</h4> <h4>{{year}}</h4></center>
+        <div class="plusDiv"><span id="plusMonth" class="icon-dropdownarrow"></span></div>
+      </div>  
+      <div class="container">
+        <div class="dayLabels">
+          <div>Sunday</div>
+          <div>Monday</div>
+          <div>Tuesday</div>
+          <div>Wednesday</div>
+          <div>Thursday</div>
+          <div>Friday</div>
+          <div>Saturday</div>
+        </div>    
+        <template is="dom-repeat" items="{{CalPositions}}" as="calPos">
+          <div class$="{{getDayClasses(calPos, month)}}">
+            <p class="daynum">{{getRealDay(calPos, month)}}</p>
+            <template is="dom-repeat" items$="{{getMeetings(calPos, meetings, month)}}" as="meeting">
+              <div class="meeting">{{meeting.title}}</div>
+            </template>
+            <template is="dom-if" if="{{getMeetingsLength(calPos, meetings, month)}}">
+              <div class="meeting-overflow">+<span>{{getMeetingsLength(calPos, meetings, month)}}</span></div>
+            </template>
+          </div>
         </div>
       </template>
     </div>
