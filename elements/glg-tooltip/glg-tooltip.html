@@ -44,10 +44,10 @@
   </style>
 
   <template>
-    <div id="tooltip">
+    <div id="tooltip" hidden>
       <content select="[tip]"></content>
     </div>
-    <content></content>
+    <content select=":not([tip])"></content>
   </template>
 
 </dom-module>

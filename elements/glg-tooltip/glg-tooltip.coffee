@@ -3,10 +3,13 @@
   it around an element you want to tip on hover, and include an additional
   section for the tip content.
 
+  Any content you like can be the toolitp, just mark it with the attribute
+  `tip`.
+
   ```html
   <glg-tooltip>
     <iron-icon icon="menu"></icon-icon>
-    <tip>This is a tooltip!</tip>
+    <span tip>This is a tooltip!</span>
   </glg-tooltip>
   ```
 
@@ -25,31 +28,42 @@ Polymer
     'mouseenter': '_onMouseEnter'
     'mouseleave': '_onMouseLeave'
 
-
   properties:
+    ###
+      This configures a `show` and `hide` animation using `Polymer.NeonAnimationRunnerBehavior`.
+    ###
     animationConfig:
       value: ->
         show:
           name: 'scale-up-animation'
-          node: @$.tooltip
+          node: @tipHolder
         hide:
           name: 'fade-out-animation'
-          node: @$.tooltip
+          node: @tipHolder
     ###
      Show the tooltip. Or not. Your call.
     ###
     showtip:
       type: Boolean
       reflectToAttribute: true
-      value: false
       observer: '_onshowTip'
 
+  ###
+    When creating, we need an element at root of the page to allow the
+    tooltip to hover over anything.
+  ###
+  created: ->
+    @tipHolder = document.createElement 'section'
+
   attached: ->
-    @$.tooltip.setAttribute 'hidden', ''
+    document.querySelector('body').appendChild @tipHolder
+
+  detached: ->
+    @tipHolder.remove()
 
   _onshowTip: ->
     if @showtip
-      @$.tooltip.removeAttribute 'hidden'
+      @tipHolder.removeAttribute 'hidden'
       @_position()
       @playAnimation 'show'
     else
@@ -57,9 +71,7 @@ Polymer
 
   _onNeonAnimationFinish: ->
     if not @showtip
-      @$.tooltip.setAttribute 'hidden', ''
-      @$.tooltip.style.cssText = ''
-      Polymer.dom(@root).appendChild @$.tooltip
+      @tipHolder.setAttribute 'hidden', ''
 
   _onMouseEnter: ->
     @showtip = true
@@ -67,35 +79,31 @@ Polymer
   _onMouseLeave: ->
     @showtip = false
 
+  ###
+    Tooltips appear relative to the wrapped element based on screen position
+    with a simple 9 square blocking system to figure if an element is mostly
+    in the upper left, or lower right, and then push the tooltip in the
+    opposite direction to make sure it can be seen.
+
+    And -- the tooltip is positioned fixed into the containing page so that it
+    really floats above the wrapped element, this way it works even if you
+    end up bumping an over the edge of a `overflow: hidden;`.
+  ###
   _position: ->
     all = @getBoundingClientRect()
-    tip = @$.tooltip.getBoundingClientRect()
     body = document.querySelector('body').getBoundingClientRect()
     xStep = document.documentElement.clientWidth / 3
     yStep = document.documentElement.clientHeight / 3
 
-    if @hasAttribute 'xposition'
-      @$.tooltip.style.left = @getAttribute('xposition') + 'px'
-
-    if @hasAttribute 'yposition'
-      @$.tooltip.style.top = @getAttribute('yposition') + 'px'
-
-    @$.tooltip.removeAttribute 'up'
-    @$.tooltip.removeAttribute 'down'
-    @$.tooltip.removeAttribute 'left'
-    @$.tooltip.removeAttribute 'right'
-    if tip.top < xStep*2
-      @$.tooltip.setAttribute 'right', ''
+    @tipHolder.style.cssText = window.getComputedStyle(@$.tooltip).cssText
+    @tipHolder.style.display = 'inline-flex'
+    @tipHolder.style.position = 'fixed'
+    if all.top < xStep*2
+      @tipHolder.style.left = "#{all.left + (all.right - all.left) / 2}px"
     else
-      @$.tooltip.setAttribute 'left', ''
-    if tip.top < yStep*2
-      @$.tooltip.setAttribute 'down', ''
+      @tipHolder.style.right = "#{all.right - (all.right - all.left) / 2}px"
+    if all.top < yStep*2
+      @tipHolder.style.top = "calc(#{all.bottom}px + 1em)"
     else
-      @$.tooltip.setAttribute 'up', ''
-    tip = @$.tooltip.getBoundingClientRect()
-    style = @$.tooltip.style
-    style.position = 'fixed'
-    style.top = "#{tip.top}px"
-    style.left = "#{tip.left}px"
-    @$.tooltip.style.cssText = window.getComputedStyle(@$.tooltip).cssText
-    document.querySelector('body').appendChild @$.tooltip
+      @tipHolder.style.bottom = "calc(#{all.top}px - 1em)"
+    @tipHolder.innerHTML = @$.tooltip.innerHTML
