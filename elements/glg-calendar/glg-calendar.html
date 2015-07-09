@@ -3,158 +3,161 @@
 
 <dom-module id="glg-calendar">
   <template> 
-      <style type="text/css">
-    :host {
-      flex-wrap: norap;
-      align-items: center;
-    }
-    .glg-calendar {
-      font-family: 'font_35';
-      font-size: 1.4em;  
-    }
-    .dayLabels div {
-      width: 6.55em;
-      margin: auto;
-      text-align: center;
-      font-size: .75em;
-      display: inline-block;
-    }
-    .navigation {
-      width: 35.28em;
-      background-color: #e76563;
-    }
-    .navigation h4 {
-      margin: auto;
-      width: 7em;
-      color: #FFF;
-      font-weight: 200;
-      text-align: center;
-      display: inline;
-      padding-top: 1em;
-      padding-bottom: 1em;
+    <style type="text/css">
+      :host {
+        flex-wrap: norap;
+        align-items: center;
+      }
+      .glg-calendar {
+        font-family: 'font_35';
+        font-size: 1.4em;  
+      }
+      .dayLabels div {
+        width: 6.55em;
+        margin: auto;
+        text-align: center;
+        font-size: .75em;
+        display: inline-block;
+      }
+      .navigation {
+        width: 35.28em;
+        background-color: #e76563;
+      }
+      .navigation h4 {
+        margin: auto;
+        width: 7em;
+        color: #FFF;
+        font-weight: 200;
+        text-align: center;
+        display: inline;
+        padding-top: 1em;
+        padding-bottom: 1em;
+      }
+      .container {
+        width: 35.38em;
+      }
+      .day {
+        position: relative;
+        width: 5em;
+        height: 5em;
+        border: 1px solid #8C8C8C;
+        border-right: 0;
+        border-bottom: 0;
+        float: left;
+      }
+      .daynum {
+        padding-left: .25em;
+        margin-top: .25em;  
+        padding-bottom: .25em;
+        color: #8C8C8C;
+        height: 0em;
+      }
+      .minusleft {
+        border-left: 0;
+      }
+      .plus-bottom {
+        border-bottom: 1px solid #8C8C8C;
+      }
+      .currentDay {
+        background-color: #F2F2F2;
+      }
+      .currentDay p {
+        color: #000;
+        font-weight: 800;
+      }
+      .fakeday {
+        background: #B9B9B9;
+      }
+      .fakeday p {
+        visibility: hidden;
+      }
+      #minusMonth, #plusMonth {
+        color: #FFF;
+      }
+      .minusDiv {
+        -webkit-transform: rotate(90deg);
+        -webkit-transform-origin: 11px 12px;
+        transform: rotate(90deg);
+        transform-origin: 11px 12px;
+        width: 23.975px;
+        position:relative;
+        left: 12.3em;
+        top: 1.2em;
+        width: 1em;
+      }
+      .plusDiv {
+        -webkit-transform: rotate(270deg);
+        -webkit-transform-origin: 11px 12px;
+        transform: rotate(270deg);
+        transform-origin: 11px 12px;
+        width: 23.975px;
+        position:relative;
+        left: 22em;
+        bottom: 1.15em;
+        width: 1em;
+      }
+      .meeting {
+        border-left: .4em solid #e76563;
+        margin-left: .5em;
+        margin-bottom: .1em;
+        padding-left: .3em;
+        font-size: 0.5em;
+        font-weight: 800;
+        color: #e76563;
+        text-overflow: ellipsis;
+        width: 8em;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+      .meeting-overflow {
+        color: #fff;
+        position: relative;
+        left: 7.7em;
+        bottom: 0.1em;
+        width: 2em;
+        font-size: 0.45em;
+        text-align: center;
+        border-radius: .7em;
+        padding: 0.15em .3em;
+        background-color: #e76563;
+        font-family: "font_55";
+      }
+      .meeting-overflow span {
+        padding-left: .1em;
+        font-weight: 800;
+      }
+    </style>
 
-    }
-    .container {
-      width: 35.38em;
-    }
-    .day {
-      position: relative;
-      width: 5em;
-      height: 5em;
-      border: 1px solid #8C8C8C;
-      border-right: 0;
-      border-bottom: 0;
-      float: left;
-    }
-    .daynum {
-      padding-left: .25em;
-      margin-top: .25em;  
-      padding-bottom: .25em;
-      color: #8C8C8C;
-      height: 0em;
-    }
-    .minusleft {
-      border-left: 0;
-    }
-    .plus-bottom {
-      border-bottom: 1px solid #8C8C8C;
-    }
-    .currentDay {
-      background-color: #F2F2F2;
-    }
-    .currentDay p {
-      color: #000;
-      font-weight: 800;
-    }
-    .fakeday {
-      background: #B9B9B9;
-    }
-    .fakeday p {
-      visibility: hidden;
-    }
-    #minusMonth, #plusMonth {
-      color: #FFF;
-    }
-    .minusDiv {
-      -webkit-transform: rotate(90deg);
-      -webkit-transform-origin: 11px 12px;
-      transform: rotate(90deg);
-      transform-origin: 11px 12px;
-      width: 23.975px;
-      position:relative;
-      left: 12.3em;
-      top: 1.2em;
-      width: 1em;
-    }
-    .plusDiv {
-      -webkit-transform: rotate(270deg);
-      -webkit-transform-origin: 11px 12px;
-      transform: rotate(270deg);
-      transform-origin: 11px 12px;
-      width: 23.975px;
-      position:relative;
-      left: 22em;
-      bottom: 1.15em;
-      width: 1em;
-    }
-    .meeting {
-      border-left: .4em solid #e76563;
-      margin-left: .5em;
-      margin-bottom: .1em;
-      padding-left: .3em;
-      font-size: 0.5em;
-      font-weight: 800;
-      color: #e76563;
-      text-overflow: ellipsis;
-      width: 8em;
-      overflow: hidden;
-      white-space: nowrap;
-    }
-    .meeting-overflow {
-      color: #fff;
-      position: relative;
-      left: 7.7em;
-      bottom: 0.1em;
-      width: 2em;
-      font-size: 0.45em;
-      text-align: center;
-      border-radius: .7em;
-      padding: 0.15em .3em;
-      background-color: #e76563;
-      font-family: "font_55";
-    }
-    .meeting-overflow span {
-      padding-left: .1em;
-      font-weight: 800;
-    }
-  </style>
-    <div class="navigation">
-      <div class="minusDiv"><span id="minusMonth" class="icon-dropdownarrow"></span></div>
-      <center><h4>{{monthString}}</h4> <h4>{{year}}</h4></center>
-      <div class="plusDiv"><span id="plusMonth" class="icon-dropdownarrow"></span></div>
-    </div>  
-    <div class="container">
-      <div class="dayLabels">
-        <div>Sunday</div>
-        <div>Monday</div>
-        <div>Tuesday</div>
-        <div>Wednesday</div>
-        <div>Thursday</div>
-        <div>Friday</div>
-        <div>Saturday</div>
-      </div>    
-      <template is="dom-repeat" items="{{CalPositions}}" as="calPos">
-        <div class$="{{getDayClasses(calPos, month)}}">
-          <p class="daynum">{{getRealDay(calPos, month)}}</p>
-          <template is="dom-repeat" items$="{{getMeetings(calPos, meetings, month)}}" as="meeting">
-            <div class="meeting">{{meeting.title}}</div>
-          </template>
-          <template is="dom-if" if="{{getMeetingsLength(calPos, meetings, month)}}">
-            <div class="meeting-overflow">+<span>{{getMeetingsLength(calPos, meetings, month)}}</span></div>
-          </template>
+    <div>
+      <div class="navigation">
+        <div class="minusDiv"><span id="minusMonth" class="icon-dropdownarrow"></span></div>
+        <center><h4>{{monthString}}</h4> <h4>{{year}}</h4></center>
+        <div class="plusDiv"><span id="plusMonth" class="icon-dropdownarrow"></span></div>
+      </div>  
+      <div class="container">
+        <div class="dayLabels">
+          <div>Sunday</div>
+          <div>Monday</div>
+          <div>Tuesday</div>
+          <div>Wednesday</div>
+          <div>Thursday</div>
+          <div>Friday</div>
+          <div>Saturday</div>
+        </div>    
+        <template is="dom-repeat" items="{{CalPositions}}" as="calPos">
+          <div class$="{{getDayClasses(calPos, month)}}">
+            <p class="daynum">{{getRealDay(calPos, month)}}</p>
+            <template is="dom-repeat" items$="{{getMeetings(calPos, meetings, month)}}" as="meeting">
+              <div class="meeting">{{meeting.title}}</div>
+            </template>
+            <template is="dom-if" if="{{getMeetingsLength(calPos, meetings, month)}}">
+              <div class="meeting-overflow">+<span>{{getMeetingsLength(calPos, meetings, month)}}</span></div>
+            </template>
+          </div>
         </div>
-      </div>
-    </template>
+      </template>
+    </div>
+
   </template>
 </dom-module>
 
