@@ -2,7 +2,8 @@
 <link rel="stylesheet" type="text/css" href="css/fonts.css">
 
 <dom-module id="glg-calendar">
-  <style type="text/css">
+  <template> 
+      <style type="text/css">
     :host {
       flex-wrap: norap;
       align-items: center;
@@ -127,7 +128,6 @@
       font-weight: 800;
     }
   </style>
-  <template> 
     <div class="navigation">
       <div class="minusDiv"><span id="minusMonth" class="icon-dropdownarrow"></span></div>
       <center><h4>{{monthString}}</h4> <h4>{{year}}</h4></center>
