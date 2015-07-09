@@ -59,13 +59,13 @@
   font-style: normal;
   font-weight: 400;
 }
-@font-face {
+/*@font-face {
   font-family: "glgfont";
   src: url('../fonts/glg-icons/GLG_PD_131126.eot');
   src: url('../fonts/glg-icons/GLG_PD_131126.eot?#iefix') format('embedded-opentype'), url('../fonts/glg-icons/GLG_PD_131126.ttf') format('truetype'), url('../fonts/glg-icons/GLG_PD_131126.woff') format('woff'), url('../fonts/glg-icons/GLG_PD_131126.svg#GLG_PD_131126') format('svg');
   font-weight: normal;
   font-style: normal;
-}
+}*/
 @font-face {
   font-family: 'goco';
   src: url('../fonts/goco.eot');
