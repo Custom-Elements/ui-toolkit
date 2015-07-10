@@ -18,8 +18,14 @@ Polymer(
     },
     
     month: {
-      type: Number,
+      type: Object,
       value: () -> return moment().month(),
+      notify: true
+    },
+
+    year: {
+      type: Object,
+      value: () -> return moment().year(),
       notify: true
     }
 
@@ -36,7 +42,6 @@ Polymer(
 
   ready: ->
     @date = moment()
-    @year = @date.year()
     @firstofmonth = @getWeekDay(1)
     @lastofmonth = @getWeekDay(@date.daysInMonth())
     @realDays = @getRealDays()

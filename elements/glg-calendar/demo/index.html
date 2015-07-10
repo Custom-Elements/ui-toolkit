@@ -16,19 +16,24 @@
         background-color: var(--paper-blue-grey-50);
       }
     </style>
-
   </head>
 
   <body>
-    <glg-calendar ></glg-calendar>
+    <glg-calendar month="6" year="2015"></glg-calendar>
     
     <script>document.addEventListener('WebComponentsReady', function(){
       document.querySelector('glg-calendar').meetings = [{'Date':'2015-07-08 09:30:26', 'title':'George needs to go on a walk in the rain'}, {'Date':'2015-07-08 09:30:26', 'title':'blah'}, {'Date':'2015-07-08 09:30:26', 'title':'blah'}, {'Date':'2015-07-08 09:30:26', 'title':'blah'}, {'Date':'2015-07-08 09:30:26', 'title':'blah'}, {'Date':'2015-07-08 09:30:26', 'title':'blah'}];
 
-      document.addEventListener('on-month-changed', function(event) {
-          console.log('succces');
-          console.log(event);
-        })
+      document.querySelector('glg-calendar').addEventListener('month-changed', function(event) {
+          console.log('success');
+          console.log(event.detail);
+        });
+
+      document.querySelector('glg-calendar').addEventListener('year-changed', function(event) {
+          console.log('success');
+          console.log(event.detail);
+        });
+
     })
     </script>
 
