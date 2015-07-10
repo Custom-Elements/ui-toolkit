@@ -15,7 +15,14 @@ Polymer(
     meetings: {
       type: Array,
       value: () -> return []
+    },
+    
+    month: {
+      type: Number,
+      value: () -> return moment().month(),
+      notify: true
     }
+
   },
 
   listeners: {
@@ -29,7 +36,6 @@ Polymer(
 
   ready: ->
     @date = moment()
-    @month = @date.month()
     @year = @date.year()
     @firstofmonth = @getWeekDay(1)
     @lastofmonth = @getWeekDay(@date.daysInMonth())
