@@ -142,7 +142,7 @@
       .meeting-wrapper {
         position: relative;
       }
-      .popover {
+      .calendar-popover {
         visibility: hidden;
         opacity:0;
         background-color: rgba(205, 205, 205, 0.9);
@@ -163,14 +163,14 @@
         -webkit-transition: all .5s ease-out;
         -o-transition: all .5s ease-out;
       }
-      .meeting-wrapper:hover .popover {
+      .meeting-wrapper:hover .calendar-popover {
         visibility: visible;
         opacity:1;
 
         transform: translateY(0);
         -webkit-transform: translateY(0);
       }
-      .popover:after {
+      .calendar-popover:after {
         content: '';
         position: absolute;
         top: 100%;
@@ -204,7 +204,7 @@
             <p class="daynum">{{getRealDay(calPos, month)}}</p>
             <template is="dom-repeat" items$="{{getMeetings(calPos, meetings, month)}}" as="meeting">
               <div class="meeting-wrapper">
-                <div class="popover">{{meeting.title}}</div>
+                <div class="calendar-popover">{{meeting.title}}</div>
                 <div class="meeting">{{meeting.title}}</div>
               </div>
             </template>
