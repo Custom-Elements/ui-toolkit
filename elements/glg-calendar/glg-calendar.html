@@ -139,6 +139,48 @@
       .iconFont {
         font-family: 'goco';
       }
+      .meeting-wrapper {
+        position: relative;
+      }
+      .popover {
+        visibility: hidden;
+        opacity:0;
+        background-color: rgba(205, 205, 205, 0.9);
+        position: absolute;
+        width: 10em;
+        border-radius: 0.1em;
+        border-bottom-left-radius: 0;
+        z-index: 10;
+        padding: .5em;
+        font-size: .5em;
+        bottom: 1.5em;
+        left: 1.3em;
+        pointer-events: none;
+        transform: translateY(50%);
+        -webkit-transform: translateY(50%);
+        transition: all .5s ease-out,;
+        -moz-transition: all .5s ease-out;
+        -webkit-transition: all .5s ease-out;
+        -o-transition: all .5s ease-out;
+      }
+      .meeting-wrapper:hover .popover {
+        visibility: visible;
+        opacity:1;
+
+        transform: translateY(0);
+        -webkit-transform: translateY(0);
+      }
+      .popover:after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 0;
+        height: 0;
+        border-top: solid 0.3em rgba(205, 205, 205, 0.9);
+        border-left: solid 0.3em transparent;
+        border-right: solid 0.3em transparent;
+      }
     </style>
 
     <div class="glg-calendar">
@@ -161,10 +203,13 @@
           <div class$="{{getDayClasses(calPos, month)}}">
             <p class="daynum">{{getRealDay(calPos, month)}}</p>
             <template is="dom-repeat" items$="{{getMeetings(calPos, meetings, month)}}" as="meeting">
-              <div class="meeting">{{meeting.title}}</div>
+              <div class="meeting-wrapper">
+                <div class="popover">{{meeting.title}}</div>
+                <div class="meeting">{{meeting.title}}</div>
+              </div>
             </template>
             <template is="dom-if" if="{{getMeetingsLength(calPos, meetings, month)}}">
-              <div class="meeting-overflow">+<span>{{getMeetingsLength(calPos, meetings, month)}}</span></div>
+                <div class="meeting-overflow">+<span>{{getMeetingsLength(calPos, meetings, month)}}</span></div>
             </template>
           </div>
         </div>
