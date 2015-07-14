@@ -22,34 +22,56 @@
     }
     .meeting-row {
       display: inline-block;
-
-    }
-    .meeting-time {
-      width: 40px;
-      float: left;
-      margin-top: 3px;
-      font-size: 12px;
-      color: #6E6E6E;
-      margin-bottom: 17px;
-    }
-    .meeting-title {
       background-color: #f3f3f3;
       color: #e76563;
       border-left: 4px solid #e76563;
-      margin-bottom: 1px;
       padding: 7px; 
+      margin-bottom: 7px;
+      margin-left: 28px;
+      width: 454px;
+     
+    }
+    .meeting-time {
+      font-size: 12px;
+      color: #AEAEAE;
+    }
+    .meeting-title {
+      margin-bottom: 1px;
+    }
+    .meeting-event {
+      border-color: #6C6C6C;
+    }
+    .dayview-navigation {
+      
+    }
+    .meeting-icon {
+      font-size: 25px;
+      color: #AEAEAE;
+      font-family: 'goco';
+      position: absolute;
+    }
+    .icon-calendar {
+      margin-left: 405px;
+      margin-top: -12px;
+    }
+    .icon-phone {
+      margin-left: 407px;
+      margin-top: -10px;
     }
     </style>
 
     <div class="glg-schedule">
-      <div class="dayview-navigation"></div>
+      <div class="dayview-navigation">
+    </div>
       <template class="schedule-interval" is="dom-repeat" items="{{meetingHours}}" as="meetingInterval">
         <div class="schedule-row">
           <p class="interval-lable">{{getReadableHour(meetingInterval)}}</p>
           <template is="dom-repeat" items="{{getMeetingsDuring(meetingInterval)}}" as="meeting" index-as="index">
             <div class="meeting-row">
-              <span class="meeting-time">{{getMeetingTime(meeting.hour, meeting.minute)}}</span>
               <span class="meeting-title">{{meeting.title}}</span>
+              <br>
+              <span class="meeting-time">{{getMeetingTime(meeting.hour, meeting.minute)}}</span>
+              <span class$="{{getMeetingTypeIcon(meeting)}}"></span>
             </div>
           </template>
           <p></p>
