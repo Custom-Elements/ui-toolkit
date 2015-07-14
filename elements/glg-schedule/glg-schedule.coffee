@@ -1,8 +1,8 @@
 ###
-  This is a pill to display tag and short information. Also, includes
-  a deletable behavior.
+  This is a schedule to display information on a given interval. Also,
+  includes functions to determine usage and array disection.
 
-  @demo elements/glg-pill/demo/index.html
+  @demo elements/glg-schedule/demo/index.html
 ###
 
 moment = require('moment')
@@ -10,6 +10,19 @@ _ = require('lodash')
 
 Polymer(
   is: 'glg-schedule',
+
+  properties: {
+    meetings: {
+      type: Array,
+      value: () -> return []
+    },
+
+    day: {
+      type: Object,
+      value: () -> return moment().date()
+    }
+
+  },
 
   ready: ->
     @meetingHours = [0..12]
