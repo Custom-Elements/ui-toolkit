@@ -35,4 +35,37 @@
   </template>
 </dom-module>
 
+<dom-module id="flex-centered-row">
+  <style>
+    :host {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    row {
+      display: flex;
+      flex-direction: row;
+      flex: 1;
+    }
+    column {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    [display] {
+      position: relative;
+    }
+    [display] ::content {
+    }
+  </style>
+
+  <template>
+   <row>
+     <column></column>
+     <column display><content></content></column>
+     <column></column>
+   </row>
+  </template>
+</dom-module>
+
 <script src="./flex-centered.coffee"></script>
