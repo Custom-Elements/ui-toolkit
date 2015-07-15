@@ -80,7 +80,7 @@ Polymer(
   getMeetingsLength: (calPos, meetings, month) ->
     if (meetings.length && @getRealDay(calPos))
       dayMeetings = meetings[@getRealDay(calPos)-1]
-      return 0 if !dayMeetings
+      return 0 if !dayMeetings || dayMeetings.length-4 <= 0
       return dayMeetings.length-4
 
 
