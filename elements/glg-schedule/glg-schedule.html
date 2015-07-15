@@ -13,6 +13,7 @@
       font-family: 'font_35';
       font-size: 14px;
       width: 500px;
+
     }
     .interval-lable {
     }
@@ -23,13 +24,18 @@
     .meeting-row {
       display: inline-block;
       background-color: #f3f3f3;
+      box-shadow: 1px 2px 7px -1px rgba(0,0,0,.26);
+      -webkit-box-shadow: 1px 2px 7px -1px rgba(0,0,0,.26);
+      -moz-box-shadow: 1px 2px 7px -1px rgba(0,0,0,.26);
+      -ms-box-shadow: 1px 2px 7px -1px rgba(0,0,0,.26);
+      -o-box-shadow: 1px 2px 7px -1px rgba(0,0,0,.26);
       color: #e76563;
       border-left: 4px solid #e76563;
       padding: 7px; 
-      margin-bottom: 7px;
+      margin-bottom: 15px;
       margin-left: 28px;
       width: 454px;
-     
+
     }
     .meeting-time {
       font-size: 12px;
@@ -42,7 +48,16 @@
       border-color: #6C6C6C;
     }
     .dayview-navigation {
-      
+      width: 500px;
+      background-color: #E76563;
+      box-shadow: 1px 2px 7px -1px rgba(0,0,0,.26);
+      -webkit-box-shadow: 1px 2px 7px -1px rgba(0,0,0,.26);
+      padding: 8px 0;
+      text-align:center;
+    }
+    .dayview-navigation span {
+      color: #FFF;
+      font-size: 30px;
     }
     .meeting-icon {
       font-size: 25px;
@@ -58,25 +73,72 @@
       margin-left: 407px;
       margin-top: -10px;
     }
+    @media (min-width: 768px) {
+      .month-schedule {
+        display: none;
+      }
+    }
+    @media (max-width: 768px) {
+      .schedule-wrapper {
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+      }
+      .day-schedule {
+        display: none;
+      }
+      .glg-schedule {
+        width: 100%;
+      }
+      .meeting-row {
+        padding-right: 25px;
+      }
+    }
     </style>
 
-    <div class="glg-schedule">
-      <div class="dayview-navigation">
-    </div>
-      <template class="schedule-interval" is="dom-repeat" items="{{meetingHours}}" as="meetingInterval">
-        <div class="schedule-row">
-          <p class="interval-lable">{{getReadableHour(meetingInterval)}}</p>
-          <template is="dom-repeat" items="{{getMeetingsDuring(meetingInterval)}}" as="meeting" index-as="index">
-            <div class="meeting-row">
-              <span class="meeting-title">{{meeting.title}}</span>
-              <br>
-              <span class="meeting-time">{{getMeetingTime(meeting.hour, meeting.minute)}}</span>
-              <span class$="{{getMeetingTypeIcon(meeting)}}"></span>
+    <div class="glg-schedule schedule-wrapper">
+      <div class="day-schedule">
+        <div class="dayview-navigation">
+          <span>{{getReadableMonth(month)}}</span>
+        </div>
+        <template class="schedule-interval" is="dom-repeat" items="{{meetingHours}}" as="meetingInterval">
+          <div class="schedule-row">
+            <p class="interval-lable">{{getReadableHour(meetingInterval)}}</p>
+            <template is="dom-repeat" items="{{getMeetingsDuringHour(meetingInterval)}}" as="meeting" index-as="index">
+              <div class="meeting-row">
+                <span class="meeting-title">{{meeting.title}}</span>
+                <br>
+                <span class="meeting-time">{{getMeetingTime(meeting.hour, meeting.minute)}}</span>
+                <span class$="{{getMeetingTypeIcon(meeting)}}"></span>
+              </div>
+            </template>
+            <p></p>
+          </div>
+        </template>
+      </div>
+      <div class="month-schedule">
+        <div class="dayview-navigation">
+          <p>
+          <span>{{getReadableMonth(month)}}</span>
+          &nbsp;
+          <span>{{year}}</span>
+          </p>
+        </div>
+        <template class="schedule-interval" is="dom-repeat" items="{{meetingDays}}" as="meetingInterval">
+          <template is="dom-if" if="{{isMeetingIntervalUsed(meetingInterval)}}">
+            <div class="schedule-row">
+              <p class="interval-lable">{{getMonthLabel(meetingInterval)}}</p>
+              <template is="dom-repeat" items="{{getMeetingsDuringDay(meetingInterval)}}" as="meeting" index-as="index">
+                <div class="meeting-row">
+                  <span class="meeting-title">{{meeting.title}}</span>
+                  <br>
+                  <span class="meeting-time">{{getMeetingTimeFromDate(meeting.date)}}</span>
+                  <span class$="{{getMeetingTypeIcon(meeting)}}"></span>
+                </div>
+              </template>
             </div>
           </template>
-          <p></p>
-        </div>
-      </template>
+        </template>
+      </div>
     </div>
   </template>
 </dom-module>
