@@ -1,6 +1,6 @@
 {
   "name": "ui-toolkit",
-  "version": "0.0.110",
+  "version": "0.0.111",
   "dependencies": {
     "polymer": "git://github.com/custom-elements/polymer",
     "polymer-serve": "0.0.35",
