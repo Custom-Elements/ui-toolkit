@@ -48,6 +48,7 @@ Polymer(
     @monthString = @date.format("MMMM")
     @CalPositions = [0..41]
 
+  #Events
   meetingsChanged: () ->
 
   minusMonth: ->
@@ -65,6 +66,7 @@ Polymer(
     @month = @date.month()
     @monthString = @date.format("MMMM")
 
+  #calendar functions
   getStartOfMonth: ->
     @date.startOf("month")
 
@@ -76,29 +78,6 @@ Polymer(
 
   getRealDay: (calPos, month) ->
     pos = @realDays[calPos].daynum
-
-  getMeetings: (calPos, meetings, month) ->
-    if (meetings.length && @getRealDay(calPos))
-      return _.take(meetings[@getRealDay(calPos)-1],4)
-
-  getMeetingsLength: (calPos, meetings, month) ->
-    if (meetings.length && @getRealDay(calPos))
-      dayMeetings = meetings[@getRealDay(calPos)-1]
-      return 0 if !dayMeetings || dayMeetings.length-4 <= 0
-      return dayMeetings.length-4
-
-  isMeetingIntervalUsed: (day, meetings) ->
-    used = if @meetings[day-1] then true else false
-
-  getMeetingsDuringDay: (day, meetings) ->
-    @meetings[day-1]
-
-  getMeetingTimeFromDate: (date) ->
-    time = moment(date).format("hA")
-
-  getMeetingTypeIcon: (meeting) ->
-    type = if meeting.type == 'consultation' then "phone" else "calendar"
-    "meeting-icon icon-#{type}"
 
   getRealDays: ->
     realDays = []
@@ -123,8 +102,35 @@ Polymer(
     current = if (day.daynum == moment().date() and @year == moment().year() and @month == moment().month()) then " currentDay" else ""
     minusleft = if(calPos % 7 == 0) then " minusleft" else ""
     bottom = if(_.indexOf(@getWeekPos(5), calPos) > -1) then " plus-bottom" else ""
-
     "day#{active}#{current}#{minusleft}#{bottom}"
+
+
+  #meeting functions
+  getMeetings: (calPos, meetings, month) ->
+    if (meetings.length && @getRealDay(calPos))
+      return _.take(meetings[@getRealDay(calPos)-1],4)
+
+  getMeetingsLength: (calPos, meetings, month) ->
+    if (meetings.length && @getRealDay(calPos))
+      dayMeetings = meetings[@getRealDay(calPos)-1]
+      return 0 if !dayMeetings || dayMeetings.length-4 <= 0
+      return dayMeetings.length-4
+
+  getMeetingsDuringDay: (day, meetings) ->
+    @meetings[day-1]
+
+  getMeetingTimeFromDate: (date) ->
+    time = moment(date).format("hA")  
+
+  getMeetingTypeIcon: (meeting) ->
+    type = if meeting.type == 'consultation' then "phone" else "calendar"
+    "meeting-icon icon-#{type}"
+
+  isMeetingIntervalUsed: (day, meetings) ->
+    if @meetings[day-1] && @meetings[day-1].length  
+      return true 
+    else 
+      return false
 
 
 )
