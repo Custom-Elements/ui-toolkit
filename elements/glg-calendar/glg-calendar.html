@@ -181,9 +181,122 @@
         border-left: solid 0.3em transparent;
         border-right: solid 0.3em transparent;
       }
+
+    @media (min-width: 768px) {
+      .mobile {
+        display: none;
+      }
+    }
+    @media (max-width: 768px) {
+      .glg-calendar {
+        font-family: 'font_35';
+        font-size: 14px;
+        box-sizing: border-box;
+        width: 100%;
+      }
+      .schedule-wrapper {
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+      }
+      .desktop {
+        display: none;
+      }
+      .glg-schedule {
+        width: 100%;
+      }
+      .meeting-row {
+        padding-left: 15px;
+        margin-left: 0px;
+      }
+
+      .glg-schedule {
+        font-family: 'font_35';
+        font-size: 14px;
+        box-sizing: border-box;
+        width: 100%;
+      }
+
+      .interval-label {
+        font-weight: bold;
+        font-family: 'font_55'
+      }
+      .schedule-row {
+        border-bottom: 1px solid #b1b1b1;
+        padding: 1px inherit;
+      }
+      .meeting-row {
+        display: inline-block;
+        background-color: #f3f3f3;
+        box-shadow: 1px 2px 7px -1px rgba(0,0,0,.26);
+        -webkit-box-shadow: 1px 2px 7px -1px rgba(0,0,0,.26);
+        -moz-box-shadow: 1px 2px 7px -1px rgba(0,0,0,.26);
+        -ms-box-shadow: 1px 2px 7px -1px rgba(0,0,0,.26);
+        -o-box-shadow: 1px 2px 7px -1px rgba(0,0,0,.26);
+        color: #e76563;
+        border-left: 4px solid #e76563;
+        padding: 15px;
+        /*padding-left: 50px;*/
+        margin-left:2%;
+        margin-bottom: 15px;
+        width: 98%;
+
+      }
+      .meeting-time {
+        font-size: 12px;
+        color: #AEAEAE;
+        padding-left: 4px;
+        letter-spacing:1px;
+      }
+      .meeting-title {
+        margin-bottom: 1px; 
+        padding-left: 4px;
+        letter-spacing:1px;
+      }
+      .meeting-event {
+        border-color: #6C6C6C;
+      }
+
+      .meetinginfohldr {
+        width: 100%;
+
+      }
+      .dayview-navigation {
+        width: 100%;
+        background-color: #E76563;
+        box-shadow: 1px 2px 7px -1px rgba(0,0,0,.26);
+        -webkit-box-shadow: 1px 2px 7px -1px rgba(0,0,0,.26);
+        padding: 8px 0;
+        text-align:center;
+      }
+      .dayview-navigation span {
+        color: #FFF;
+        font-size: 30px;
+      }
+      .meeting-icon {
+        font-size: 25px;
+        color: #AEAEAE;
+        font-family: 'goco';
+        height: 40px;
+        padding-top: 10px;
+      }
+      .icon-calendar {
+        /*margin-left: 405px;*/
+        margin-top: -12px;
+        display: block;
+        font-size: 20px;
+        padding-bottom: 5px;
+      }
+      .icon-phone {
+        /*margin-left: 407px;*/
+        margin-top: -10px;
+        display: inline-block;
+      }
+
+    }
+
     </style>
 
-    <div class="glg-calendar">
+    <div class="glg-calendar desktop">
       <div class="navigation">
         <div class="minusDiv"><span id="minusMonth" class="icon-dropdownarrow iconFont"></span></div>
         <center><h4>{{monthString}}</h4> <h4>{{year}}</h4></center>
@@ -212,8 +325,38 @@
                 <div class="meeting-overflow">+<span>{{getMeetingsLength(calPos, meetings, month)}}</span></div>
             </template>
           </div>
+        </template>
+      </div>
+    </div>
+
+
+    <div class="glg-schedule schedule-wrapper mobile">
+      <div class="month-schedule">
+        <div class="dayview-navigation">
+          <p>
+            <span>{{monthString}}</span>
+            &nbsp;
+            <span>{{year}}</span>
+          </p>
         </div>
-      </template>
+        <template is="dom-repeat" items="{{meetingDays}}" as="meetingInterval">
+          <template is="dom-if" if="{{isMeetingIntervalUsed(meetingInterval, meetings)}}">
+            <div class="schedule-row">
+              <p class="interval-label">{{getMonthLabel(meetingInterval, month)}}</p>
+              <template is="dom-repeat" items="{{getMeetingsDuringDay(meetingInterval, meetings)}}" as="meeting" index-as="index">
+                <div class="meeting-row">
+                   <span class$="{{getMeetingTypeIcon(meeting)}}"></span>
+                   <div class="meetinginfohldr">
+                    <span class="meeting-title">{{meeting.title}}</span>
+                    <br>
+                    <span class="meeting-time">{{getMeetingTimeFromDate(meeting.date)}}</span>
+                   </div>
+                </div>
+              </template>
+            </div>
+          </template>
+        </template>
+      </div>
     </div>
   </template>
 </dom-module>

@@ -43,6 +43,7 @@ Polymer(
     @date = moment()
     @firstofmonth = @getWeekDay(1)
     @lastofmonth = @getWeekDay(@date.daysInMonth())
+    @meetingDays = [1..@date.daysInMonth()]
     @realDays = @getRealDays()
     @monthString = @date.format("MMMM")
     @CalPositions = [0..41]
@@ -67,6 +68,9 @@ Polymer(
   getStartOfMonth: ->
     @date.startOf("month")
 
+  getMonthLabel: (date, month) ->
+    label = moment().date(date).format("Do")
+
   getWeekDay: (day) ->
     @getStartOfMonth().date(day).format("d")
 
@@ -83,6 +87,18 @@ Polymer(
       return 0 if !dayMeetings || dayMeetings.length-4 <= 0
       return dayMeetings.length-4
 
+  isMeetingIntervalUsed: (day, meetings) ->
+    used = if @meetings[day-1] then true else false
+
+  getMeetingsDuringDay: (day, meetings) ->
+    @meetings[day-1]
+
+  getMeetingTimeFromDate: (date) ->
+    time = moment(date).format("hA")
+
+  getMeetingTypeIcon: (meeting) ->
+    type = if meeting.type == 'consultation' then "phone" else "calendar"
+    "meeting-icon icon-#{type}"
 
   getRealDays: ->
     realDays = []

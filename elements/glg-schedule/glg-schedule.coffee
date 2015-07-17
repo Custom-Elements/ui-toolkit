@@ -24,14 +24,7 @@ Polymer(
 
   ready: ->
     @meetingHours = [0..12]
-    @meetingDays = [1..moment().month(@month).daysInMonth()]
     @meetings = [{'date':'2015-07-09 13:00:26','title':'Show me the money meeting with Will and George', 'type': 'consultation'}, {'date':'2015-07-08 9:29:26','title':'Coffee time with Kevin', 'type': 'event'}, {'date':'2015-07-08 09:31:26','title':'Consultation with the restroom', 'type': 'consultation'}, {'date':'2015-07-08 09:30:26','title':'Pounding face on desk in frustration', 'type': 'event'}]
-
-  isDaySchedule: (scheduletype) -> 
-    bool = if scheduletype == 'day' then true else false
-
-  isMonthSchedule: (scheduletype) ->
-    bool = if scheduletype == 'month' then true else false  
 
   getMeetingTime: (hour, minute) ->
     moment().hour(hour).minute(minute).format("h:mm")
@@ -45,24 +38,11 @@ Polymer(
   getReadableMonth: (month) ->
     moment().month(month).format("MMMM")
 
-  isMeetingIntervalUsed: (day) ->
-    used = if _.includes(_.map(@meetings,(meeting) -> moment(meeting.date).date()), day) then true else false
-
-  getMeetingTimeFromDate: (date) ->
-    time = moment(date).format("hA")
-
-  getMonthLabel: (date) ->
-    label = moment().date(date).format("Do")
-
   getMeetingsDuringHour: (hourPos) ->
     realHour = @getRealHour(hourPos)
     meetingArr = _.map(@meetings,(meeting) -> {'hour': moment(meeting.date).format("H"), 'minute': moment(meeting.date).format("m"), 'title': meeting.title, 'type': meeting.type})
     meetingArr = _.filter(meetingArr ,(meeting) -> meeting.hour == realHour.format("H"))
     meetingArr = _.sortBy(meetingArr, 'minute')
-
-  getMeetingsDuringDay: (day) ->
-    meetingArr = _.map(@meetings,(meeting) -> {'day': moment(meeting.date).date(), 'date': meeting.date, 'title': meeting.title, 'type': meeting.type})
-    meetingArr = _.filter(meetingArr ,(meeting) -> meeting.day == day)
 
   getMeetingTypeIcon: (meeting) ->
     type = if meeting.type == 'consultation' then "phone" else "calendar"
