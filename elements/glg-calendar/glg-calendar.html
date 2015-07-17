@@ -193,33 +193,23 @@
         box-sizing: border-box;
         width: 100%;
       }
-      .schedule-wrapper {
+      .calendar-wrapper {
         box-sizing: border-box;
         -webkit-box-sizing: border-box;
       }
       .desktop {
         display: none;
       }
-      .glg-schedule {
-        width: 100%;
-      }
       .meeting-row {
         padding-left: 15px;
         margin-left: 0px;
-      }
-
-      .glg-schedule {
-        font-family: 'font_35';
-        font-size: 14px;
-        box-sizing: border-box;
-        width: 100%;
       }
 
       .interval-label {
         font-weight: bold;
         font-family: 'font_55'
       }
-      .schedule-row {
+      .calendar-row {
         border-bottom: 1px solid #b1b1b1;
         padding: 1px inherit;
       }
@@ -259,7 +249,7 @@
         width: 100%;
 
       }
-      .dayview-navigation {
+      .navigation {
         width: 100%;
         background-color: #E76563;
         box-shadow: 1px 2px 7px -1px rgba(0,0,0,.26);
@@ -267,7 +257,7 @@
         padding: 8px 0;
         text-align:center;
       }
-      .dayview-navigation span {
+      .navigation span {
         color: #FFF;
         font-size: 30px;
       }
@@ -329,9 +319,9 @@
     </div>
 
 
-    <div class="glg-schedule schedule-wrapper mobile">
-      <div class="month-schedule">
-        <div class="dayview-navigation">
+    <div class="glg-calendar calendar-wrapper mobile">
+      <div class="month">
+        <div class="navigation">
           <p>
             <span>{{monthString}}</span>
             &nbsp;
@@ -340,7 +330,7 @@
         </div>
         <template is="dom-repeat" items="{{meetingDays}}" as="meetingInterval">
           <template is="dom-if" if="{{isMeetingIntervalUsed(meetingInterval, meetings)}}">
-            <div class="schedule-row">
+            <div class="calendar-row">
               <p class="interval-label">{{getMonthLabel(meetingInterval, month)}}</p>
               <template is="dom-repeat" items="{{getMeetingsDuringDay(meetingInterval, meetings)}}" as="meeting" index-as="index">
                 <div class="meeting-row">
