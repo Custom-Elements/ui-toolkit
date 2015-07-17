@@ -101,7 +101,7 @@
         <template class="schedule-interval" is="dom-repeat" items="{{meetingHours}}" as="meetingInterval">
           <div class="schedule-row">
             <p class="interval-lable">{{getReadableHour(meetingInterval)}}</p>
-            <template is="dom-repeat" items="{{getMeetingsDuringHour(meetingInterval)}}" as="meeting" index-as="index">
+            <template is="dom-repeat" items="{{getMeetingsDuringHour(meetingInterval, meetings)}}" as="meeting" index-as="index">
               <div class="meeting-row">
                  <span class$="{{getMeetingTypeIcon(meeting)}}"></span>
                  <div class="meetinginfohldr">

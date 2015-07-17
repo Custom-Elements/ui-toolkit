@@ -20,12 +20,16 @@ Polymer(
       type: Number,
       value: () -> return moment().year()
     }
+
+    meetings:{
+      type: Array
+    }
+
   },
 
   ready: ->
     @meetingHours = [0..12]
-    @meetings = [{'date':'2015-07-09 13:00:26','title':'Show me the money meeting with Will and George', 'type': 'consultation'}, {'date':'2015-07-08 9:29:26','title':'Coffee time with Kevin', 'type': 'event'}, {'date':'2015-07-08 09:31:26','title':'Consultation with the restroom', 'type': 'consultation'}, {'date':'2015-07-08 09:30:26','title':'Pounding face on desk in frustration', 'type': 'event'}]
-
+    
   getMeetingTime: (hour, minute) ->
     moment().hour(hour).minute(minute).format("h:mm")
 

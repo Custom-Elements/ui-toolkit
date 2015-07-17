@@ -16,7 +16,12 @@ Polymer(
       type: Array,
       value: () -> return []
     },
-    
+
+    selected: {
+      type: Array,
+      notify: true
+    }
+
     month: {
       type: Number,
       value: () -> return moment().month(),
@@ -31,9 +36,9 @@ Polymer(
   },
 
   listeners: {
-    'minusMonth.tap': 'minusMonth',
-    'plusMonth.tap': 'plusMonth'
-  },  
+    'minusMonth.click': 'minusMonth',
+    'plusMonth.click': 'plusMonth'
+  }, 
   observers: [
     'meetingsChanged(meetings)'
   ],  
@@ -65,6 +70,9 @@ Polymer(
     @realDays = @getRealDays()
     @month = @date.month()
     @monthString = @date.format("MMMM")
+
+  dayClick: (event) ->
+    @selected = @meetings[@getRealDay(event.model.calPos-1)]
 
   #calendar functions
   getStartOfMonth: ->
