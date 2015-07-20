@@ -15,7 +15,7 @@
   "scripts": {
     "test": "polymer-serve .",
     "start": "polymer-serve --precache .",
-    "postinstall": "bower install"
+    "postinstall": "bower install && ln -s bower_components/polymer ./polymer"
   },
   "engines": {
     "npm": "2.5.1",
