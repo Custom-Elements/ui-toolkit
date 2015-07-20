@@ -50,6 +50,11 @@
           console.log(event.detail);
         });
 
+      document.querySelector('glg-calendar').addEventListener('selected-changed', function(event) {
+          console.log('success');
+          console.log(event.detail);
+        });
+
     })
     </script>
 
