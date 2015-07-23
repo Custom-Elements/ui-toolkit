@@ -51,12 +51,18 @@ Polymer(
 
   getMeetingsDuringHour: (hourPos) ->
     realHour = @getRealHour(hourPos)
-    meetingArr = _.map(@meetings,(meeting) -> {'hour': moment(meeting.date).format("H"), 'minute': moment(meeting.date).format("m"), 'title': meeting.title, 'type': meeting.type})
+    meetingArr = _.map(@meetings,(meeting) -> {'meetingId': meeting.id, 'hour': moment(meeting.date).format("H"), 'minute': moment(meeting.date).format("m"), 'title': meeting.title, 'type': meeting.type})
     meetingArr = _.filter(meetingArr ,(meeting) -> meeting.hour == realHour.format("H"))
     meetingArr = _.sortBy(meetingArr, 'minute')
 
   getMeetingTypeIcon: (meeting) ->
     type = if meeting.type == 'consultation' then "phone" else "calendar"
     "meeting-icon icon-#{type}"
+
+  meetingClick: (event) ->
+    @fire('consultationSelected', detail: {'consultations': event.model.meeting});
+
+  switchToCalendar: (event) ->
+    @fire('switchToCalendar')
 
 )

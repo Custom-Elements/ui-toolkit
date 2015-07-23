@@ -67,10 +67,21 @@
         padding: 8px 0;
         text-align:center;
       }
-      .dayview-navigation span {
+      .dayview-navigation p {
         color: #FFF;
         font-size: 30px;
+        display: inline;
       }
+      .icon-close {
+        font-family: 'goco';
+        color: #FFF;
+        font-size: 40px;
+        position: absolute;
+        width: 67px;
+        right: 20px;
+        margin-top: -5px;
+        display: inline-block;
+       }
       .meeting-icon {
         font-size: 25px;
         color: #AEAEAE;
@@ -96,15 +107,16 @@
     <div class="glg-schedule schedule-wrapper">
       <div class="day-schedule">
         <div class="dayview-navigation">
-          <span>{{getReadableMonth(month)}}</span>
+          <p>{{getReadableMonth(month)}}</p>
           &nbsp;
-          <span>{{getReadableDate(date)}}</span>
+          <p>{{getReadableDate(date)}}</p>
+          <span on-click="switchToCalendar" class="icon-close"></span>
         </div>
         <template class="schedule-interval" is="dom-repeat" items="{{meetingHours}}" as="meetingInterval">
           <div class="schedule-row">
             <p class="interval-lable">{{getReadableHour(meetingInterval)}}</p>
             <template is="dom-repeat" items="{{getMeetingsDuringHour(meetingInterval, meetings)}}" as="meeting" index-as="index">
-              <div class="meeting-row">
+              <div on-click="meetingClick" class="meeting-row">
                  <span class$="{{getMeetingTypeIcon(meeting)}}"></span>
                  <div class="meetinginfohldr">
                 <span class="meeting-title">{{meeting.title}}</span>
