@@ -12,6 +12,10 @@ Polymer(
   is: 'glg-schedule',
 
   properties: {
+    date: {
+      type: Number,
+      value: () -> return moment().date()
+    },
     month: {
       type: Number,
       value: () -> return moment().month()
@@ -41,6 +45,9 @@ Polymer(
 
   getReadableMonth: (month) ->
     moment().month(month).format("MMMM")
+
+  getReadableDate: (date) ->
+    moment().date(date).format("Do")
 
   getMeetingsDuringHour: (hourPos) ->
     realHour = @getRealHour(hourPos)

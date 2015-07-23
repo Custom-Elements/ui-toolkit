@@ -76,6 +76,7 @@ Polymer(
 
   dayClick: (event) ->
     @selected = @meetings[@getRealDay(event.model.calPos-1)]
+    @fire('dayClicked', detail: {'date': @getRealDay(event.model.calPos), 'month': @month})
 
   #calendar functions
   getStartOfMonth: ->
