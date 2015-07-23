@@ -108,7 +108,7 @@
         width: 1em;
       }
       .meeting {
-        border-left: .4em solid #e76563;
+        border-left: .4em solid #959595;
         margin-left: .7em;
         margin-bottom: .1em;
         padding-left: .3em;
@@ -119,6 +119,9 @@
         width: 8em;
         overflow: hidden;
         white-space: nowrap;
+      }
+      .meeting.highlight {
+        border-left: .4em solid #e76563;
       }
       .meeting-overflow {
         color: #fff;
@@ -281,37 +284,11 @@
         padding-bottom: 5px;
       }
       .icon-phone {
-        /*margin-left: 407px;*/
         margin-top: -10px;
         display: inline-block;
       }
     }
-/*    .calendar-popup {
-      width: 400px;
-      height: 200px;
-      background-color: #777;
-      position: fixed;
-      z-index: 99;
-      left: 34.1%;
-      background-color: white;
-      padding: 20px;
-      -webkit-box-shadow: 1px 2px 7px -1px rgba(0, 0, 0, 0.26);
-      -moz-box-shadow: 1px 2px 7px -1px rgba(0, 0, 0, 0.26);
-      -ms-box-shadow: 1px 2px 7px -1px rgba(0, 0, 0, 0.26);
-      -o-box-shadow: 1px 2px 7px -1px rgba(0, 0, 0, 0.26);
-      box-shadow: 1px 2px 7px -1px rgba(0, 0, 0, 0.26);
-      visibility: hidden;
-      opacity: 0;
-    }
-    .calendar-popup-show {
-      visibility: visible;
-      opacity: 1;
-    }
-    .calendar-popup p {
-      width: initial;
-      font-size: 14px;
-    }
-*/
+
     </style>
 
     <div class="glg-calendar desktop">
@@ -336,7 +313,7 @@
             <template is="dom-repeat" items$="{{getMeetings(calPos, meetings, month)}}" as="meeting">
               <div class="meeting-wrapper">
                 <div class="calendar-popover">{{meeting.title}}</div>
-                <div on-click="meetingClick" data-id$="{{meeting.id}}" class="meeting">{{meeting.title}}</div>
+                <div on-click="meetingClick" data-id$="{{meeting.id}}" class$="{{getMeetingClass(meeting)}}">{{meeting.title}}</div>
               </div>
             </template>
             <template is="dom-if" if="{{getMeetingsLength(calPos, meetings, month)}}">

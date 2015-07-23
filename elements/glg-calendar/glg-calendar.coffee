@@ -144,5 +144,8 @@ Polymer(
     else 
       return false
 
+  getMeetingClass: (meeting) ->
+    highlight = if (meeting.highlight) then ' highlight' else ''
+    "meeting#{highlight}"
 
 )
