@@ -329,7 +329,7 @@
         </div>    
         <template is="dom-repeat" items="{{CalPositions}}" as="calPos">
           <div class$="{{getDayClasses(calPos, month)}}">
-            <p class="daynum">{{getRealDay(calPos, month)}}</p>
+            <p on-click="dayClick" class="daynum">{{getRealDay(calPos, month)}}</p>
             <template is="dom-repeat" items$="{{getMeetings(calPos, meetings, month)}}" as="meeting">
               <div class="meeting-wrapper">
                 <div class="calendar-popover">{{meeting.title}}</div>
