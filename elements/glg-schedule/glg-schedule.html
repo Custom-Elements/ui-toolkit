@@ -114,8 +114,8 @@
           <span on-click="switchToCalendar" class="icon-close"></span>
         </div>
         <template class="schedule-interval" is="dom-repeat" items="{{meetingHours}}" as="meetingInterval">
-          <template is="dom-if" if="{{isMeetingIntervalUsed(meetingInterval)}}">
-            <div class="schedule-row">
+<!--           <template is="dom-if" if="{{isMeetingIntervalUsed(meetingInterval)}}">
+ -->            <div class="schedule-row">
               <p class="interval-lable">{{getReadableHour(meetingInterval)}}</p>
               <template is="dom-repeat" items="{{getMeetingsDuringHour(meetingInterval)}}" as="meeting" index-as="index">
                 <div on-click="meetingClick" class="meeting-row">
@@ -126,8 +126,8 @@
                   <span class="meeting-time">{{getMeetingTime(meeting.hour, meeting.minute)}}</span>
                    </div>
                 </div>
-              </template>
-              <p></p>
+<!--               </template>
+ -->              <p></p>
             </div>
           </template>
         </template>
