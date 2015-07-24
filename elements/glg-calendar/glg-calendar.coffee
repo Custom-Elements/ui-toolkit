@@ -37,7 +37,10 @@ Polymer(
 
   listeners: {
     'minusMonth.click': 'minusMonth',
-    'plusMonth.click': 'plusMonth'
+    'plusMonth.click': 'plusMonth',
+    'minusMonthMobile.click': 'minusMonth',
+    'plusMonthMobile.click': 'plusMonth'
+
   }, 
   observers: [
     'meetingsChanged(meetings)'

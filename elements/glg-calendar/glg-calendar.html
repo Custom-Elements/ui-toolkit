@@ -84,6 +84,7 @@
       #minusMonth, #plusMonth {
         color: #FFF;
         position: absolute;
+        font-family: 'goco';
       }
       .minusDiv {
         -webkit-transform: rotate(90deg);
@@ -287,6 +288,35 @@
         margin-top: -10px;
         display: inline-block;
       }
+      #minusMonthMobile, #plusMonthMobile {
+        font-family: 'goco';
+      }
+      .minusDivMobile {
+        -webkit-transform: rotate(90deg);
+        -webkit-transform-origin: 11px 12px;
+        transform: rotate(90deg);
+        transform-origin: 11px 12px;
+        position: relative;
+        width: 32px;
+        left: 12.3em;
+        display: block;
+      }
+      .plusDivMobile {
+        -webkit-transform: rotate(270deg);
+        -webkit-transform-origin: 11px 12px;
+        transform: rotate(270deg);
+        transform-origin: 11px 12px;
+        width: 32px;
+        position: relative;
+        left: 392px;
+        display: block;
+      }
+      .mobileDates {
+        font-size: 25px;
+        display: inline;
+        height: 20px; 
+        display: block;
+      }
     }
 
     </style>
@@ -328,11 +358,9 @@
     <div class="glg-calendar calendar-wrapper mobile">
       <div class="month">
         <div class="navigation">
-          <p>
-            <span>{{monthString}}</span>
-            &nbsp;
-            <span>{{year}}</span>
-          </p>
+          <div class="minusDivMobile"><span id="minusMonthMobile" class="icon-dropdownarrow iconFont"></span></div>
+          <center><h4 class="mobileDates">{{monthString}}</h4>&nbsp;&nbsp;&nbsp;<h4 class="mobileDates">{{year}}</h4></center>
+          <div class="plusDivMobile"><span id="plusMonthMobile" class="icon-dropdownarrow iconFont"></span></div>
         </div>
         <template is="dom-repeat" items="{{meetingDays}}" as="meetingInterval">
           <template is="dom-if" if="{{isMeetingIntervalUsed(meetingInterval, meetings)}}">
