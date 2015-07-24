@@ -72,6 +72,7 @@ Polymer(
     @monthString = @date.format("MMMM")
 
   meetingClick: (event) ->
+    console.log(event.model.meeting)
     @fire('consultationSelected', detail: {'consultations': event.model.meeting});
 
   dayClick: (event) ->

@@ -339,7 +339,7 @@
             <div class="calendar-row">
               <p class="interval-label">{{getMonthLabel(meetingInterval, month)}}</p>
               <template is="dom-repeat" items="{{getMeetingsDuringDay(meetingInterval, meetings)}}" as="meeting" index-as="index">
-                <div class="meeting-row">
+                <div class="meeting-row" on-click="meetingClick">
                    <span class$="{{getMeetingTypeIcon(meeting)}}"></span>
                    <div class="meetinginfohldr">
                     <span class="meeting-title">{{meeting.title}}</span>
