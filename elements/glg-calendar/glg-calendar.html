@@ -342,14 +342,16 @@
         <template is="dom-repeat" items="{{CalPositions}}" as="calPos">
           <div class$="{{getDayClasses(calPos, month)}}">
             <p on-click="dayClick" class="daynum">{{getRealDay(calPos, month)}}</p>
-            <template is="dom-repeat" items$="{{getMeetings(calPos, meetings, month)}}" as="meeting">
-              <div class="meeting-wrapper">
-                <div class="calendar-popover">{{meeting.title}}</div>
-                <div on-click="meetingClick" data-id$="{{meeting.id}}" class$="{{getMeetingClass(meeting)}}">{{meeting.title}}</div>
-              </div>
-            </template>
-            <template is="dom-if" if="{{getMeetingsLength(calPos, meetings, month)}}">
-                <div class="meeting-overflow">+<span>{{getMeetingsLength(calPos, meetings, month)}}</span></div>
+            <template is="dom-if" if="{{isRealDay(calPos)}}">
+              <template is="dom-repeat" items$="{{getMeetings(calPos, meetings, month)}}" as="meeting">
+                <div class="meeting-wrapper">
+                  <div class="calendar-popover">{{meeting.title}}</div>
+                  <div on-click="meetingClick" data-id$="{{meeting.id}}" class$="{{getMeetingClass(meeting)}}">{{meeting.title}}</div>
+                </div>
+              </template>
+              <template is="dom-if" if="{{getMeetingsLength(calPos, meetings, month)}}">
+                  <div class="meeting-overflow">+<span>{{getMeetingsLength(calPos, meetings, month)}}</span></div>
+              </template>
             </template>
           </div>
         </template>
