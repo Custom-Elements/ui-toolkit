@@ -49,6 +49,9 @@ Polymer(
   getReadableDate: (date) ->
     moment().date(date).format("Do")
 
+  isMeetingIntervalUsed: (hourPos) ->
+    _.includes(_.map(@meetings,(meeting) -> moment(meeting.date).format("H")), @getRealHour(hourPos).format("H"))
+
   getMeetingsDuringHour: (hourPos) ->
     realHour = @getRealHour(hourPos)
     meetingArr = _.map(@meetings,(meeting) -> {'meetingId': meeting.id, 'hour': moment(meeting.date).format("H"), 'minute': moment(meeting.date).format("m"), 'title': meeting.title, 'type': meeting.type})
