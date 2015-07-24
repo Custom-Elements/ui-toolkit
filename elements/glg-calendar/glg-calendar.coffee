@@ -95,6 +95,9 @@ Polymer(
   getRealDay: (calPos, month) ->
     pos = @realDays[calPos].daynum
 
+  isRealDay: (calPos) ->
+    bool = if @realDays[calPos].active == true then true else false
+
   getRealDays: ->
     realDays = []
     daynum = 0
