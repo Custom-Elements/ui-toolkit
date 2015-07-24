@@ -96,7 +96,6 @@ Polymer(
     pos = @realDays[calPos].daynum
 
   isRealDay: (calPos) ->
-    console.log @realDays[calPos]
     bool = if @realDays[calPos].active == true then true else false
 
   getRealDays: ->
