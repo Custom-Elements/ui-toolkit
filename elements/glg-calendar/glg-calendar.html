@@ -367,7 +367,7 @@
             <template is="dom-if" if="{{isRealDay(calPos)}}">
               <template is="dom-repeat" items$="{{getMeetings(calPos, meetings, month)}}" as="meeting">
                 <div class="meeting-wrapper">
-                  <div class="calendar-popover"><span class$="{{getMeetingTypeIcon(meeting)}}"></span> <span>{{meeting.title}}</span></div>
+                  <div class="calendar-popover"><span class$="{{getMeetingTypeIcon(meeting)}}"></span> <span>{{getMeetingTimeFromMeeting(meeting)}}</span>: <span>{{meeting.title}}</span></div>
                   <div on-click="meetingClick" data-id$="{{meeting.id}}" class$="{{getMeetingClass(meeting)}}">{{meeting.title}}</div>
                 </div>
               </template>

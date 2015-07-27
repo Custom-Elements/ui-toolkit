@@ -141,6 +141,9 @@ Polymer(
   getMeetingTimeFromDate: (date) ->
     time = moment(date).format("hA")  
 
+  getMeetingTimeFromMeeting: (meeting) ->
+    time = moment(meeting.date).format("ha")  
+
   getMeetingTypeIcon: (meeting) ->
     type = if meeting.type == 'consultation' then "phone" else "calendar"
     "meeting-icon icon-#{type}"
