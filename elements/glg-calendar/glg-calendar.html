@@ -193,6 +193,26 @@
         border-right: solid 0.3em transparent;
       }
 
+      .desktop .meeting-icon {
+        font-size: 25px;
+        color: #AEAEAE;
+        font-family: 'goco';
+        height: 40px;
+        padding-top: 10px;
+      }
+
+      .desktop .icon-calendar {
+        margin-top: -12px;
+        display: inline;
+        font-size: 20px;
+        padding-bottom: 5px;
+      }
+      
+      .desktop .icon-phone {
+        margin-top: -10px;
+        display: inline;
+      }
+
     @media (min-width: 768px) {
       .mobile {
         display: none;
@@ -281,7 +301,6 @@
         padding-top: 10px;
       }
       .icon-calendar {
-        /*margin-left: 405px;*/
         margin-top: -12px;
         display: block;
         font-size: 20px;
@@ -348,7 +367,7 @@
             <template is="dom-if" if="{{isRealDay(calPos)}}">
               <template is="dom-repeat" items$="{{getMeetings(calPos, meetings, month)}}" as="meeting">
                 <div class="meeting-wrapper">
-                  <div class="calendar-popover">{{meeting.title}}</div>
+                  <div class="calendar-popover"><span class$="{{getMeetingTypeIcon(meeting)}}"></span> <span>{{meeting.title}}</span></div>
                   <div on-click="meetingClick" data-id$="{{meeting.id}}" class$="{{getMeetingClass(meeting)}}">{{meeting.title}}</div>
                 </div>
               </template>
