@@ -52,7 +52,7 @@ Polymer(
   isMeetingIntervalUsed: (hourPos) ->
     _.includes(_.map(@meetings,(meeting) -> moment(meeting.date).format("H")), @getRealHour(hourPos).format("H"))
 
-  getMeetingsDuringHour: (hourPos) ->
+  getMeetingsDuringHour: (hourPos, meetings) ->
     realHour = @getRealHour(hourPos)
     meetingArr = _.map(@meetings,(meeting) -> {'meetingId': meeting.id, 'hour': moment(meeting.date).format("H"), 'minute': moment(meeting.date).format("m"), 'title': meeting.title, 'type': meeting.type})
     meetingArr = _.filter(meetingArr ,(meeting) -> meeting.hour == realHour.format("H"))
