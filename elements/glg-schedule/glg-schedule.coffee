@@ -32,13 +32,13 @@ Polymer(
   },
 
   ready: ->
-    @meetingHours = [0..12]
+    @meetingHours = [0..23]
     
   getMeetingTime: (hour, minute) ->
     moment().hour(hour).minute(minute).format("h:mm")
 
   getRealHour: (hourPos) ->
-    moment().hour(hourPos + 6).minute(0)
+    moment().hour(hourPos).minute(0)
 
   getReadableHour: (hourPos) ->
     moment(@getRealHour(hourPos)).format("hA")
@@ -49,7 +49,7 @@ Polymer(
   getReadableDate: (date) ->
     moment().date(date).format("Do")
 
-  isMeetingIntervalUsed: (hourPos) ->
+  isMeetingIntervalUsed: (hourPos, meetings) ->
     _.includes(_.map(@meetings,(meeting) -> moment(meeting.date).format("H")), @getRealHour(hourPos).format("H"))
 
   getMeetingsDuringHour: (hourPos, meetings) ->
