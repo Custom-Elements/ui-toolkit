@@ -232,10 +232,6 @@
       .desktop {
         display: none;
       }
-      .meeting-row {
-        padding-left: 15px;
-        margin-left: 0px;
-      }
 
       .interval-label {
         font-weight: bold;
@@ -245,7 +241,10 @@
         border-bottom: 1px solid #b1b1b1;
         padding: 1px inherit;
       }
-      .meeting-row {
+
+      .meeting {
+        padding-left: 15px;
+        margin-left: 0px;
         display: inline-block;
         background-color: #f3f3f3;
         box-shadow: 1px 2px 7px -1px rgba(0,0,0,.26);
@@ -254,13 +253,11 @@
         -ms-box-shadow: 1px 2px 7px -1px rgba(0,0,0,.26);
         -o-box-shadow: 1px 2px 7px -1px rgba(0,0,0,.26);
         color: #e76563;
-        border-left: 4px solid #e76563;
         padding: 15px;
         /*padding-left: 50px;*/
         margin-left:2%;
         margin-bottom: 15px;
         width: 98%;
-
       }
       .meeting-time {
         font-size: 12px;
@@ -398,7 +395,7 @@
             <div class="calendar-row">
               <p class="interval-label">{{getMonthLabel(meetingInterval, month)}}</p>
               <template is="dom-repeat" items="{{getMeetingsDuringDay(meetingInterval, meetings)}}" as="meeting" index-as="index">
-                <div class="meeting-row" on-click="meetingClick">
+                <div class$="{{getMeetingClass(meeting)}}" on-click="meetingClick">
                    <span class$="{{getMeetingTypeIcon(meeting)}}"></span>
                    <div class="meetinginfohldr">
                     <span class="meeting-title">{{meeting.title}}</span>
