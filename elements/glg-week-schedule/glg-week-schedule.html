@@ -120,13 +120,13 @@
                   <div style$="{{getTLPadding(height)}}" class="timeline"></div>
                 </template>
                 <div class="meeting-container">
-                  <template is="dom-repeat" items$="{{getMeetingsDuring(hourPos, dayPos, meetings)}}" as="meeting">
+                  <template is="dom-repeat" items$="{{getMeetingsDuring(hourPos, dayPos, updatedMeetings)}}" as="meeting">
                     <div class="week-meeting">
                       <p>{{meeting.title}}</p>
                       <p>{{meeting.OtherMeetingsDuringTimeFrame}}</p>
                     </div>
                   </template>
-                  <template is="dom-repeat" items$="{{getPlaceholderMeetings(hourPos, dayPos, meetings)}}" as="emptymeetings">
+                  <template is="dom-repeat" items$="{{getPlaceholderMeetings(hourPos, dayPos, updatedMeetings)}}" as="emptymeetings">
                     <div class="week-meeting"></div>
                   </template>
                </div>

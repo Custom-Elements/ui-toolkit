@@ -24,6 +24,10 @@ Polymer(
       type: Array,
       value: () -> return []
     }
+    meetings: {
+      type: Array,
+      value: () -> return []
+    }
   },
   observers: [
     'meetingsChanged(meetings)'
@@ -32,7 +36,7 @@ Polymer(
   ready: ->
     @dayArr = [0..6]
     @hourArr = [0..23]
-    @height = 0
+    @height = 0 
 
   attached: ->
     @async(() ->
@@ -40,10 +44,12 @@ Polymer(
     ,1)
 
   meetingsChanged: (meetings) ->
-    _.each @meetings, (meeting) =>
-      meeting.title = meeting.title + " "
-      meeting.OtherMeetingsDuringTimeFrame = _.filter(@meetings, (otherMeeting) -> 
-        moment(meeting.date) <= moment(otherMeeting.end) && moment(meeting.end) >= moment(otherMeeting.date) && meeting.id != otherMeeting.id).length
+    updatedMeetings = []
+    _.each meetings, (meeting) =>
+      meeting.OtherMeetingsDuringTimeFrame = _.filter(meetings, (otherMeeting) -> 
+        moment(meeting.date) <= moment(otherMeeting.end) && moment(meeting.end) >= moment(otherMeeting.date)).length
+      updatedMeetings.push(meeting)
+    @updatedMeetings = updatedMeetings
 
   getRealDate: (dayPos) ->
     moment().week(@week).day(dayPos)
@@ -80,17 +86,16 @@ Polymer(
 
   getMeetings: (dayPos, hourPos, meetings) ->
     realHour = @getRealHour(hourPos)
-    meetingArr = _.map(@meetings,(meeting) -> {'meetingId': meeting.id, 'day': moment(meeting.date).day(), 'hour': moment(meeting.date).hour(), 'minute': moment(meeting.date).minute(), 'title': meeting.title, 'type': meeting.type, 'end': meeting.end})
+    meetingArr = _.map(meetings,(meeting) -> {'meetingId': meeting.id, 'day': moment(meeting.date).day(), 'hour': moment(meeting.date).hour(), 'minute': moment(meeting.date).minute(), 'title': meeting.title, 'type': meeting.type, 'end': meeting.end})
     meetingArr = _.filter meetingArr ,(meeting) -> meeting.day == dayPos && meeting.hour == hourPos
-    console.log meetingArr
     meetingArr = _.sortByAll(meetingArr, ['hour','minute'])
 
-  getMeetingsDuring: (hourPos, dayPos, meetings, top) ->
-    _.filter @meetings, (meeting) -> moment(meeting.date).hour() <= hourPos <= moment(meeting.end).hour() && dayPos == moment(meeting.date).day()
+  getMeetingsDuring: (hourPos, dayPos, meetings) ->
+    _.filter meetings, (meeting) -> moment(meeting.date).hour() <= hourPos <= moment(meeting.end).hour() && dayPos == moment(meeting.date).day()
 
-  getByHour: (hourPos) ->
+  getByHour: (hourPos, meetings) ->
     realHour = @getRealHour(hourPos)
-    meetingArr = _.map @meetings,(meeting) -> {'meetingId': meeting.id,'hour': moment(meeting.date).format("H"), 'minute': moment(meeting.date).format("m"), 'day': moment(meeting.date).day()}
+    meetingArr = _.map meetings,(meeting) -> {'meetingId': meeting.id,'hour': moment(meeting.date).format("H"), 'minute': moment(meeting.date).format("m"), 'day': moment(meeting.date).day()}
     meetingArr = _.filter meetingArr ,(meeting) -> meeting.hour == realHour.format("H")
     meetingArr = _.sortBy(meetingArr, 'minute')
     meetingArr
@@ -102,10 +107,14 @@ Polymer(
   getPlaceholderMeetings: (hourPos, dayPos, meetings) ->
     othermeetingcount = 0
     meetingArr = @getMeetingsDuring(hourPos, dayPos, meetings)
-    _.each meetingArr, (meeting) ->
-      othermeetingcount = othermeetingcount + meeting.OtherMeetingsDuringTimeFrame / meetingArr.length
-    if othermeetingcount > 0
+    if meetingArr.length
       console.log "#{dayPos},#{hourPos}"
-      console.log (meetingArr.length - othermeetingcount)
-    [0..(meetingArr.length - othermeetingcount)]
+      console.log meetingArr
+    _.each meetingArr, (meeting) ->
+      othermeetingcount = othermeetingcount + meeting.OtherMeetingsDuringTimeFrame
+    if othermeetingcount
+      console.log "#{dayPos},#{hourPos}"
+      console.log othermeetingcount, meetingArr.length
+      console.log othermeetingcount/meetingArr.length
+    [0..othermeetingcount/meetingArr.length]
 )
