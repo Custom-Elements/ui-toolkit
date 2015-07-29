@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'NHaasGroteskDSW02-45Lt';
+  src: url('NHaasGroteskDSW02-45Lt.eot'); /* IE9 Compat Modes */
+  src: url('NHaasGroteskDSW02-45Lt.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('NHaasGroteskDSW02-45Lt.woff') format('woff'), /* Modern Browsers */
+       url('NHaasGroteskDSW02-45Lt.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('NHaasGroteskDSW02-45Lt.svg#cba4ea1365b44d60601500cecffd3587') format('svg'); /* Legacy iOS */
+       
+  font-style:   normal;
+  font-weight:  400;
+}
+

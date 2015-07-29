@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'NHaasGroteskDSStd-25Th';
+  src: url('Linotype - NHaasGroteskDSStd-25Th.eot'); /* IE9 Compat Modes */
+  src: url('Linotype - NHaasGroteskDSStd-25Th.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('Linotype - NHaasGroteskDSStd-25Th.woff') format('woff'), /* Modern Browsers */
+       url('Linotype - NHaasGroteskDSStd-25Th.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('Linotype - NHaasGroteskDSStd-25Th.svg#a6edbb850aba76ea59dba404ea3681c2') format('svg'); /* Legacy iOS */
+       
+  font-style:   normal;
+  font-weight:  400;
+}
+

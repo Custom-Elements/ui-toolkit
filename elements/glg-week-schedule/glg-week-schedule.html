@@ -1,0 +1,142 @@
+<link rel="import" href="../../polymer/polymer.html">
+<link rel="stylesheet" type="text/css" href="css/fonts.css">
+
+<dom-module id="glg-week-schedule">
+  <template> 
+    <style type="text/css">
+      :host {
+        flex-wrap: nowrap;
+        align-items: center;
+      }
+
+      .glg-week-schedule {
+        font-family: 'font_35';
+        font-size: 14px;
+        box-sizing: border-box;
+      }
+      .wsched-wrapper {
+        width: 100%;
+        display: table;
+        table-layout: fixed;
+      }
+      .weekday-label {
+        text-align: center;
+        background-color: #FAF;
+      }
+      #weeklabel {
+        width: 100%;
+        display: table-row;
+        position: relative;
+      }
+      .day-label {
+        display: table-cell;
+        width: 12.3%;
+        text-align: center;
+      }
+      .hour-wrapper {
+        width: 100%;
+        white-space: nowrap;
+        font-size: 0;
+        display: table-row;
+      }
+      .week-hour {
+        display: table-cell;
+        width: 12.3%;
+        position: relative;
+      }
+      .weekday {
+        border-right: 1px solid #EAEAEA;
+        border-top: 1px solid #EAEAEA;
+        white-space: normal;
+      }
+      .weekend {
+        background-color: #F5F5F5;
+      }
+      .endweek {
+        border-right: 0;
+      }
+      .currentDayLabel {
+        color: #FFF;
+        background-color: #e76563;
+        padding: 3px;
+        padding-bottom: 1.4px;
+        border-radius: 10px;
+      }
+      .timeline {
+        position: absolute;
+        width: 100%;
+        border-bottom: 2px solid rgba(231, 101, 99, 0.54);
+        z-index: 10;
+      }
+      .weekview-meeting {
+        margin: 0 5px;
+        background-color: rgba(0, 0, 0, 0.04);
+        position: absolute;
+        height: 100px;
+      }
+      .weekview-meeting .title {
+        box-sizing: border-box;
+        background-color: #e76563;
+        color: #FFF;
+        padding: 2px 5px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis; 
+        word-break: break-all; 
+        margin-top: 0;
+        word-wrap: break-word;
+      }
+      .meeting-container {
+        position: relative;
+        display: flex;
+      }
+      .week-meeting {
+        float: left;
+      }
+    </style>
+
+    <div class="glg-week-schedule">
+      <div class="wsched-wrapper">
+        <div id="weeklabel">
+          <div class="day-label" style="width: 50px;"></div>
+          <template is="dom-repeat" items="{{dayArr}}" as="dayPos">
+            <div class="day-label">
+              <p>
+                <span>{{getDateLabelOne(dayPos)}}</span>
+                &nbsp;
+                <span class$="{{getDayClasses(dayPos)}}">{{getDateLabelTwo(dayPos)}}</span>
+              </p>
+            </div>
+          </template>
+        </div>
+        <template is="dom-repeat" items="{{hourArr}}" as="hourPos">
+          <div id$="{{hourPos}}" class="hour-wrapper">
+            <div class="week-hour">
+             <p class="hour-label">{{getHourLabel(hourPos)}}</p>
+            </div>
+            <template is="dom-repeat" items="{{dayArr}}" as="dayPos">
+              <div id$="{{getWeekHourId(dayPos,hourPos)}}" class$="{{getWeekDayClasses(dayPos)}}">
+                <template is="dom-if" if="{{isCurrentHour(hourPos)}}">
+                  <div style$="{{getTLPadding(height)}}" class="timeline"></div>
+                </template>
+                <div class="meeting-container">
+                  <template is="dom-repeat" items$="{{getMeetingsDuring(hourPos, dayPos, meetings)}}" as="meeting">
+                    <div class="week-meeting">
+                      <p>{{meeting.title}}</p>
+                      <p>{{meeting.OtherMeetingsDuringTimeFrame}}</p>
+                    </div>
+                  </template>
+                  <template is="dom-repeat" items$="{{getPlaceholderMeetings(hourPos, dayPos, meetings)}}" as="emptymeetings">
+                    <div class="week-meeting"></div>
+                  </template>
+               </div>
+              </div>
+            </template>
+          </div>
+        </template> 
+      </div>
+    </div>
+  </template>
+</dom-module>
+
+<script src="./glg-week-schedule.coffee"></script>
