@@ -78,6 +78,10 @@ Polymer(
     endweek = if dayPos == 6 then " endweek" else ""
     "week-hour weekday#{weekend}#{current}#{endweek}"
 
+  getMeetingStyles: (hourPos, dayPos, meetings) ->
+    width = 100/(@getPlaceholderMeetings(hourPos, dayPos, meetings).length +  @getMeetingsDuring(hourPos, dayPos, meetings).length)
+    "width:#{width}%"
+
   getTLPadding: (height) ->
     "padding-top: #{@height}px"
 
@@ -105,16 +109,8 @@ Polymer(
     meetingArr
   
   getPlaceholderMeetings: (hourPos, dayPos, meetings) ->
-    othermeetingcount = 0
     meetingArr = @getMeetingsDuring(hourPos, dayPos, meetings)
     if meetingArr.length
-      console.log "#{dayPos},#{hourPos}"
-      console.log meetingArr
-    _.each meetingArr, (meeting) ->
-      othermeetingcount = othermeetingcount + meeting.OtherMeetingsDuringTimeFrame
-    if othermeetingcount
-      console.log "#{dayPos},#{hourPos}"
-      console.log othermeetingcount, meetingArr.length
-      console.log othermeetingcount/meetingArr.length
-    [0..othermeetingcount/meetingArr.length]
+      return [] if meetingArr[0].OtherMeetingsDuringTimeFrame - meetingArr.length <= 0
+      return [0..meetingArr[0].OtherMeetingsDuringTimeFrame - meetingArr.length - 1]
 )

@@ -88,10 +88,14 @@
       }
       .meeting-container {
         position: relative;
-        display: flex;
       }
+
+      .placeholderMeeting{
+      }
+
       .week-meeting {
         float: left;
+        display: inline;
       }
     </style>
 
@@ -121,13 +125,13 @@
                 </template>
                 <div class="meeting-container">
                   <template is="dom-repeat" items$="{{getMeetingsDuring(hourPos, dayPos, updatedMeetings)}}" as="meeting">
-                    <div class="week-meeting">
+                    <div style$="{{getMeetingStyles(hourPos, dayPos, updatedMeetings)}}" class="week-meeting">
                       <p>{{meeting.title}}</p>
-                      <p>{{meeting.OtherMeetingsDuringTimeFrame}}</p>
                     </div>
                   </template>
                   <template is="dom-repeat" items$="{{getPlaceholderMeetings(hourPos, dayPos, updatedMeetings)}}" as="emptymeetings">
-                    <div class="week-meeting"></div>
+                    <div style$="{{getMeetingStyles(hourPos, dayPos, updatedMeetings)}}" class="week-meeting placeholderMeeting">
+                    </div>
                   </template>
                </div>
               </div>
