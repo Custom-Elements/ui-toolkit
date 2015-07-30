@@ -113,4 +113,7 @@ Polymer(
     if meetingArr.length
       return [] if meetingArr[0].OtherMeetingsDuringTimeFrame - meetingArr.length <= 0
       return [0..meetingArr[0].OtherMeetingsDuringTimeFrame - meetingArr.length - 1]
+
+  isMeetingStart: (hourPos, meeting) ->
+    moment(meeting.date).hour() == hourPos
 )

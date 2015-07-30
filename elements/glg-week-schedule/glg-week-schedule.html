@@ -43,11 +43,13 @@
         display: table-cell;
         width: 12.3%;
         position: relative;
+        height: 100%;
       }
       .weekday {
         border-right: 1px solid #EAEAEA;
         border-top: 1px solid #EAEAEA;
         white-space: normal;
+        vertical-align: top;
       }
       .weekend {
         background-color: #F5F5F5;
@@ -92,12 +94,15 @@
       }
 
       .placeholderMeeting{
+        background-color: transparent!important;
       }
 
       .week-meeting {
         float: left;
-        display: inline;
+        display: inline-block;
         background-color: rgba(0, 0, 0, 0.04);
+        padding-bottom: 9px;
+        height: 100%;
       }
     </style>
 
@@ -127,9 +132,16 @@
                 </template>
                 <div class="meeting-container">
                   <template is="dom-repeat" items$="{{getMeetingsDuring(hourPos, dayPos, updatedMeetings)}}" as="meeting">
-                    <div style$="{{getMeetingStyles(hourPos, dayPos, updatedMeetings)}}" class="week-meeting">
-                      <p class="title">{{meeting.title}}</p>
-                    </div>
+                    <template is="dom-if" if="{{isMeetingStart(hourPos, meeting)}}">
+                      <div style$="{{getMeetingStyles(hourPos, dayPos, updatedMeetings)}}" class="week-meeting">
+                        <p class="title">{{meeting.title}}</p>
+                      </div>
+                    </template>
+                    <template is="dom-if" if="{{!isMeetingStart(hourPos, meeting)}}">
+                      <div style$="{{getMeetingStyles(hourPos, dayPos, updatedMeetings)}}" class="week-meeting">
+                        <p>&nbsp;</p>
+                      </div>
+                    </template>
                   </template>
                   <template is="dom-repeat" items$="{{getPlaceholderMeetings(hourPos, dayPos, updatedMeetings)}}" as="emptymeetings">
                     <div style$="{{getMeetingStyles(hourPos, dayPos, updatedMeetings)}}" class="week-meeting placeholderMeeting">
