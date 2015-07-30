@@ -80,7 +80,7 @@ Polymer(
   getDateLabelTwo: (dayPos) ->
     moment(@getRealDate(dayPos)).format("D")
 
-  getDayClasses: (dayPos) ->
+  getDayClasses: (dayPos, week) ->
     if moment().isSame(@getRealDate(dayPos)) then "currentDayLabel" else ""
 
   isCurrentHour: (hourPos) ->
