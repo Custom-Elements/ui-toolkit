@@ -104,6 +104,11 @@
         padding-bottom: 9px;
         height: 100%;
       }
+
+      .start-week-meeting{
+        padding-bottom: 19px;
+      }
+
     </style>
 
     <div class="glg-week-schedule">
@@ -133,7 +138,7 @@
                 <div class="meeting-container">
                   <template is="dom-repeat" items$="{{getMeetingsDuring(hourPos, dayPos, updatedMeetings)}}" as="meeting">
                     <template is="dom-if" if="{{isMeetingStart(hourPos, meeting)}}">
-                      <div style$="{{getMeetingStyles(hourPos, dayPos, updatedMeetings)}}" class="week-meeting">
+                      <div style$="{{getMeetingStyles(hourPos, dayPos, updatedMeetings)}}" class="week-meeting start-week-meeting">
                         <p class="title">{{meeting.title}}</p>
                       </div>
                     </template>
