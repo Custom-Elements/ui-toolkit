@@ -62,12 +62,10 @@ Polymer(
       @filterMeetings()
 
   filterMeetings: () ->
-    week = @week
-    @updatedMeetings = _.filter @monthMeetings, (meeting) ->
-      moment(meeting.date).week() == week 
+    @updatedMeetings = _.filter @monthMeetings, (meeting) =>
+      moment(meeting.date).week() == @week
 
   meetingClick: (event) ->
-    console.log(event.model.meeting)
     @fire('consultationSelected', detail: {'consultations': event.model.meeting});
       
   minusWeek: () ->
@@ -142,9 +140,9 @@ Polymer(
   
   getPlaceholderMeetings: (hourPos, dayPos, meetings) ->
     meetingArr = @getMeetingsDuring(hourPos, dayPos, meetings)
-    if meetingArr.length
-      return [] if meetingArr[0].OtherMeetingsDuringTimeFrame - meetingArr.length <= 0
-      return [0..meetingArr[0].OtherMeetingsDuringTimeFrame - meetingArr.length - 1]
+    return [] if !meetingArr.length || meetingArr[0].OtherMeetingsDuringTimeFrame - meetingArr.length <= 0
+    return [0..meetingArr[0].OtherMeetingsDuringTimeFrame - meetingArr.length - 1]
+   
 
   isMeetingStart: (hourPos, meeting) ->
     moment(meeting.date).hour() == hourPos
