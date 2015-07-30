@@ -41,8 +41,7 @@ Polymer(
     @hourArr = [0..23]
     @height = 0
     @week = moment().month(@month).week()
-    @monthMeetings = @meetings
-    @filterMeetings()
+    @monthMeetings = []
 
   attached: ->
     @async(() ->
@@ -50,16 +49,21 @@ Polymer(
     ,1)
 
   meetingsChanged: (meetings) ->
-    updatedMeetings = []
-    _.each meetings, (meeting) =>
-      meeting.OtherMeetingsDuringTimeFrame = _.filter(meetings, (otherMeeting) -> 
-        moment(meeting.date) <= moment(otherMeeting.end) && moment(meeting.end) >= moment(otherMeeting.date)).length
-      updatedMeetings.push(meeting)
-    @updatedMeetings = updatedMeetings
+    return if !meetings.length
+
+    @monthMeetings = _.flatten meetings
+    if @monthMeetings.length
+      updatedMeetings = []
+      _.each @monthMeetings, (meeting) =>
+        meeting.OtherMeetingsDuringTimeFrame = _.filter(meetings, (otherMeeting) -> 
+          moment(meeting.date) <= moment(otherMeeting.end) && moment(meeting.end) >= moment(otherMeeting.date)).length
+        updatedMeetings.push(meeting)
+      @updatedMeetings = updatedMeetings
+      @filterMeetings()
 
   filterMeetings: () ->
     week = @week
-    @meetings = _.filter @monthMeetings, (meeting) ->
+    @updatedMeetings = _.filter @monthMeetings, (meeting) ->
       moment(meeting.date).week() == week 
       
   minusWeek: () ->
