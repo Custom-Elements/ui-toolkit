@@ -16,14 +16,16 @@ Polymer(
       type: Number,
       value: () -> return moment().month()
     },
+    month: {
+      type: Number,
+      value: () -> return moment().month()
+      notify: true
+    },
     year: {
       type: Number,
       value: () -> return moment().year()
+      notify: true
     },
-    meetings: {
-      type: Array,
-      value: () -> return []
-    }
     meetings: {
       type: Array,
       value: () -> return []
