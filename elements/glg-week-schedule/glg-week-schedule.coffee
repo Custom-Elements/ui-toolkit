@@ -12,9 +12,9 @@ Polymer(
   is: 'glg-week-schedule',
 
   properties: {
-    week: {
+    month: {
       type: Number,
-      value: () -> return moment().week()
+      value: () -> return moment().month()
     },
     year: {
       type: Number,
@@ -41,7 +41,9 @@ Polymer(
   ready: ->
     @dayArr = [0..6]
     @hourArr = [0..23]
-    @height = 0 
+    @height = 0
+    @week = moment().month(@month).week()
+
 
   attached: ->
     @async(() ->
