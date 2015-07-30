@@ -29,6 +29,11 @@ Polymer(
       value: () -> return []
     }
   },
+  listeners: {
+    'minusWeek.click': 'minusWeek',
+    'plusWeek.click': 'plusWeek',
+
+  }, 
   observers: [
     'meetingsChanged(meetings)'
   ],  
@@ -51,16 +56,25 @@ Polymer(
       updatedMeetings.push(meeting)
     @updatedMeetings = updatedMeetings
 
+  minusWeek: () ->
+    @week = @week - 1
+
+  plusWeek: () ->
+    @week = @week + 1
+
+  getMonth: (week) ->
+    moment().week(@week).format("MMMM")
+
   getRealDate: (dayPos) ->
     moment().week(@week).day(dayPos)
 
   getRealHour: (hourPos) ->
     moment().week(@week).hour(hourPos)
 
-  getHourLabel: (hourPos) ->
+  getHourLabel: (hourPos, week) ->
     @getRealHour(hourPos).format("h A")
 
-  getDateLabelOne: (dayPos) ->
+  getDateLabelOne: (dayPos, week) ->
     moment(@getRealDate(dayPos)).format("ddd")
 
   getDateLabelTwo: (dayPos) ->
@@ -116,4 +130,5 @@ Polymer(
 
   isMeetingStart: (hourPos, meeting) ->
     moment(meeting.date).hour() == hourPos
+
 )

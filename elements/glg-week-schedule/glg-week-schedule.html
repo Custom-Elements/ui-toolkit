@@ -108,19 +108,56 @@
       .start-week-meeting{
         padding-bottom: 19px;
       }
-
+      .weekview-header {
+        height: 10px;
+        padding-bottom: 50px;
+      }
+      .weekview-header p {
+        font-size: 40px;
+        color: #E76563;
+        display: inline;
+        position: relative;
+      }
+      .weekview-header .month {
+        font-family: 'font_55';
+      }
+      .button-row {
+        float: right;
+        display: inline-block;
+      }
+      .button-row .btn {
+        padding: 5px;
+        background-color: #F5F5F5;
+        border: 1px solid #F1F1F1;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 20px;
+        color: #e76563;
+      }
+      .button-row .btn:hover {
+        background-color: #DADADA;
+      }
     </style>
 
     <div class="glg-week-schedule">
+      <div class="weekview-header">
+        <p class="month">{{getMonth(week)}}</p>
+        &nbsp;
+        <p class="year">{{year}}</p>
+        <div class="button-row">
+          <a id="minusWeek" class="btn"><</a>
+          <a id="plusWeek" class="btn">></a>
+        </div>
+      </div>
       <div class="wsched-wrapper">
         <div id="weeklabel">
           <div class="day-label" style="width: 50px;"></div>
           <template is="dom-repeat" items="{{dayArr}}" as="dayPos">
             <div class="day-label">
               <p>
-                <span>{{getDateLabelOne(dayPos)}}</span>
+                <span>{{getDateLabelOne(dayPos, week)}}</span>
                 &nbsp;
-                <span class$="{{getDayClasses(dayPos)}}">{{getDateLabelTwo(dayPos)}}</span>
+                <span class$="{{getDayClasses(dayPos)}}">{{getDateLabelTwo(dayPos, week)}}</span>
               </p>
             </div>
           </template>
