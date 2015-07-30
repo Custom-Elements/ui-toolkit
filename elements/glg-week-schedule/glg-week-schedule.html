@@ -74,7 +74,7 @@
         position: absolute;
         height: 100px;
       }
-      .weekview-meeting .title {
+      .week-meeting .title {
         box-sizing: border-box;
         background-color: #e76563;
         color: #FFF;
@@ -88,6 +88,7 @@
       }
       .meeting-container {
         position: relative;
+        margin: 0 5px;
       }
 
       .placeholderMeeting{
@@ -96,6 +97,7 @@
       .week-meeting {
         float: left;
         display: inline;
+        background-color: rgba(0, 0, 0, 0.04);
       }
     </style>
 
@@ -126,7 +128,7 @@
                 <div class="meeting-container">
                   <template is="dom-repeat" items$="{{getMeetingsDuring(hourPos, dayPos, updatedMeetings)}}" as="meeting">
                     <div style$="{{getMeetingStyles(hourPos, dayPos, updatedMeetings)}}" class="week-meeting">
-                      <p>{{meeting.title}}</p>
+                      <p class="title">{{meeting.title}}</p>
                     </div>
                   </template>
                   <template is="dom-repeat" items$="{{getPlaceholderMeetings(hourPos, dayPos, updatedMeetings)}}" as="emptymeetings">
