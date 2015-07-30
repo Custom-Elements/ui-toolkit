@@ -41,7 +41,8 @@ Polymer(
     @hourArr = [0..23]
     @height = 0
     @week = moment().month(@month).week()
-
+    @monthMeetings = @meetings
+    @filterMeetings()
 
   attached: ->
     @async(() ->
@@ -56,13 +57,20 @@ Polymer(
       updatedMeetings.push(meeting)
     @updatedMeetings = updatedMeetings
 
+  filterMeetings: () ->
+    week = @week
+    @meetings = _.filter @monthMeetings, (meeting) ->
+      moment(meeting.date).week() == week 
+      
   minusWeek: () ->
     @week = @week - 1
     @month = moment().week(@week).month()
+    @filterMeetings()
 
   plusWeek: () ->
     @week = @week + 1
     @month = moment().week(@week).month()
+    @filterMeetings()
 
   getMonth: (week) ->
     moment().week(@week).format("MMMM")
