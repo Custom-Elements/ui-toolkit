@@ -15,10 +15,6 @@ Polymer(
     month: {
       type: Number,
       value: () -> return moment().month()
-    },
-    month: {
-      type: Number,
-      value: () -> return moment().month()
       notify: true
     },
     year: {
