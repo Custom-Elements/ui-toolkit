@@ -65,6 +65,10 @@ Polymer(
     week = @week
     @updatedMeetings = _.filter @monthMeetings, (meeting) ->
       moment(meeting.date).week() == week 
+
+  meetingClick: (event) ->
+    console.log(event.model.meeting)
+    @fire('consultationSelected', detail: {'consultations': event.model.meeting});
       
   minusWeek: () ->
     @week = @week - 1
