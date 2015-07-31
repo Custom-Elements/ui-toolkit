@@ -66,6 +66,7 @@ Polymer(
       moment(meeting.date).week() == @week
 
   meetingClick: (event) ->
+    console.log(event.model.meeting)
     @fire('consultationSelected', detail: {'consultations': event.model.meeting});
       
   minusWeek: () ->
@@ -109,8 +110,10 @@ Polymer(
     "week-hour weekday#{weekend}#{current}#{endweek}"
 
   getMeetingStyles: (hourPos, dayPos, meetings) ->
-    width = 100/(@getPlaceholderMeetings(hourPos, dayPos, meetings).length +  @getMeetingsDuring(hourPos, dayPos, meetings).length)
-    "width:#{width}%"
+    placeholders = @getPlaceholderMeetings(hourPos, dayPos, meetings)
+    if placeholders
+      width = 100/(placeholders.length +  @getMeetingsDuring(hourPos, dayPos, meetings).length)
+      "width:#{width}%"
 
   getTLPadding: (height) ->
     "padding-top: #{@height}px"

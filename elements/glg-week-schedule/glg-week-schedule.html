@@ -137,6 +137,49 @@
       .button-row .btn:hover {
         background-color: #DADADA;
       }
+      .calendar-popover {
+        visibility: hidden;
+        opacity:0;
+        background-color: rgba(205, 205, 205, 0.9);
+        position: absolute;
+        z-index: 10;
+        max-width: 300px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        border-radius: 1px;
+        border-bottom-left-radius: 0;
+        z-index: 10;
+        padding: 12px;
+        font-size: 14px;
+        bottom: 15px;
+        pointer-events: none;
+        transform: translateY(50%);
+        -webkit-transform: translateY(50%);
+        transition: all .5s ease-out,;
+        -moz-transition: all .5s ease-out;
+        -webkit-transition: all .5s ease-out;
+        -o-transition: all .5s ease-out;
+      }
+      .week-hour:hover .calendar-popover {
+        visibility: visible;
+        opacity:1;
+
+        transform: translateY(0);
+        -webkit-transform: translateY(0);
+      }
+      .calendar-popover:after {
+        content: '';
+        position: absolute;
+        top: 40px;
+        z-index: 10;
+        left: 0;
+        width: 0;
+        border-top: solid 5px #FAF;
+        /*border-top: solid 5px rgba(205, 205, 205, 0.9);*/
+        border-left: solid 5px transparent;
+        border-right: solid 5px transparent;
+      }
     </style>
 
     <div class="glg-week-schedule">
@@ -176,7 +219,8 @@
                   <template is="dom-repeat" items$="{{getMeetingsDuring(hourPos, dayPos, updatedMeetings)}}" as="meeting">
                     <template is="dom-if" if="{{isMeetingStart(hourPos, meeting)}}">
                       <div on-click="meetingClick" style$="{{getMeetingStyles(hourPos, dayPos, updatedMeetings)}}" class="week-meeting start-week-meeting">
-                        <p class="title">{{meeting.title}}</p>
+                        <div class="calendar-popover"><span>{{meeting.title}}</span></div>
+                          <p class="title">{{meeting.title}}</p>
                       </div>
                     </template>
                     <template is="dom-if" if="{{!isMeetingStart(hourPos, meeting)}}">
@@ -186,7 +230,7 @@
                     </template>
                   </template>
                   <template is="dom-repeat" items$="{{getPlaceholderMeetings(hourPos, dayPos, updatedMeetings)}}" as="emptymeetings">
-                    <div style$="{{getMeetingStyles(hourPos, dayPos, updatedMeetings)}}" class="week-meeting placeholderMeeting">
+                    <div on-click="meetingClick" style$="{{getMeetingStyles(hourPos, dayPos, updatedMeetings)}}" class="week-meeting placeholderMeeting">
                     </div>
                   </template>
                </div>
