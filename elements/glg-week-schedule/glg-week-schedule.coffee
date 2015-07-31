@@ -26,11 +26,15 @@ Polymer(
     meetings: {
       type: Array,
       value: () -> return []
+    },
+    loading: {
+      type: Boolean,
+      value: () -> return true
     }
   },
   listeners: {
     'minusWeek.click': 'minusWeek',
-    'plusWeek.click': 'plusWeek',
+    'plusWeek.click': 'plusWeek'
 
   }, 
   observers: [
@@ -51,7 +55,7 @@ Polymer(
 
   meetingsChanged: (meetings) ->
     return if !meetings.length
-    
+
     @monthMeetings = _.flatten meetings
     if @monthMeetings.length
       updatedMeetings = []
@@ -70,16 +74,18 @@ Polymer(
     @fire('consultationSelected', detail: {'consultations': event.model.meeting});
       
   minusWeek: () ->
-    @week = @week - 1
-    @month = moment().week(@week).month()
-    @year = moment().week(@week).year()
-    @filterMeetings()
+    if !@loading
+      @week = @week - 1
+      @month = moment().week(@week).month()
+      @year = moment().week(@week).year()
+      @filterMeetings()
 
   plusWeek: () ->
-    @week = @week + 1
-    @month = moment().week(@week).month()
-    @year = moment().week(@week).year()
-    @filterMeetings()
+    if !@loading
+      @week = @week + 1
+      @month = moment().week(@week).month()
+      @year = moment().week(@week).year()
+      @filterMeetings()
 
   getMonth: (week) ->
     moment().week(@week).format("MMMM")
