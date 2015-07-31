@@ -2,6 +2,7 @@
   This is a schedule to display information on a given interval. Also,
   includes functions to determine usage and array disection.
 
+  meeting.highlight
   @demo elements/glg-week-schedule/demo/index.html
 ###
 
@@ -122,6 +123,10 @@ Polymer(
   getWeekHourId: (dayPos, hourPos) ->
     "#{hourPos},#{dayPos}"
 
+  getTitleClass: (meeting) ->
+    highlight = if meeting.highlight then " title-highlight" else ""
+    "title#{highlight}"
+
   getMeetings: (dayPos, hourPos, meetings) ->
     realHour = @getRealHour(hourPos)
     meetingArr = _.map(meetings,(meeting) -> {'meetingId': meeting.id, 'day': moment(meeting.date).day(), 'hour': moment(meeting.date).hour(), 'minute': moment(meeting.date).minute(), 'title': meeting.title, 'type': meeting.type, 'end': meeting.end})
@@ -150,5 +155,7 @@ Polymer(
 
   isMeetingStart: (hourPos, meeting) ->
     moment(meeting.date).hour() == hourPos
+
+
 
 )

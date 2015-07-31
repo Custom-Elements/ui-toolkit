@@ -160,7 +160,7 @@
         -webkit-transition: all .5s ease-out;
         -o-transition: all .5s ease-out;
       }
-      .week-hour:hover .calendar-popover {
+      .week-meeting:hover .calendar-popover {
         visibility: visible;
         opacity:1;
 
@@ -178,6 +178,9 @@
         border-top: solid 5px rgba(205, 205, 205, 0.9);
         border-left: solid 5px transparent;
         border-right: solid 5px transparent;
+      }
+      .title-highlight {
+        background-color: #959595;
       }
     </style>
 
@@ -218,8 +221,8 @@
                   <template is="dom-repeat" items$="{{getMeetingsDuring(hourPos, dayPos, updatedMeetings)}}" as="meeting">
                     <template is="dom-if" if="{{isMeetingStart(hourPos, meeting)}}">
                       <div on-click="meetingClick" style$="{{getMeetingStyles(hourPos, dayPos, updatedMeetings)}}" class="week-meeting start-week-meeting">
-                        <div class="calendar-popover"><span>{{meeting.title}}</span></div>
-                          <p class="title">{{meeting.title}}</p>
+                          <div class="calendar-popover"><span>{{meeting.title}}</span></div>
+                          <p class$="{{getTitleClass(meeting)}}">{{meeting.title}}</p>
                       </div>
                     </template>
                     <template is="dom-if" if="{{!isMeetingStart(hourPos, meeting)}}">
