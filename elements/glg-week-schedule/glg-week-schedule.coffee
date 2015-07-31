@@ -51,7 +51,7 @@ Polymer(
 
   meetingsChanged: (meetings) ->
     return if !meetings.length
-
+    
     @monthMeetings = _.flatten meetings
     if @monthMeetings.length
       updatedMeetings = []
@@ -124,7 +124,7 @@ Polymer(
     "#{hourPos},#{dayPos}"
 
   getTitleClass: (meeting) ->
-    highlight = if meeting.highlight then " title-highlight" else ""
+    highlight = if !meeting.highlight then ' title-highlight' else ''
     "title#{highlight}"
 
   getMeetings: (dayPos, hourPos, meetings) ->
