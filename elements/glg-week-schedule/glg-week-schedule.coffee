@@ -71,11 +71,13 @@ Polymer(
   minusWeek: () ->
     @week = @week - 1
     @month = moment().week(@week).month()
+    @year = moment().week(@week).year()
     @filterMeetings()
 
   plusWeek: () ->
     @week = @week + 1
     @month = moment().week(@week).month()
+    @year = moment().week(@week).year()
     @filterMeetings()
 
   getMonth: (week) ->
