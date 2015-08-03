@@ -34,7 +34,7 @@ Polymer(
     },
     loading: {
       type: Boolean,
-      value: () -> return true
+      value: () -> return false
     }
   },
   listeners: {
