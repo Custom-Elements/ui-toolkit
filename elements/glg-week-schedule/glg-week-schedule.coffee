@@ -13,6 +13,11 @@ Polymer(
   is: 'glg-week-schedule',
 
   properties: {
+    week: {
+      type: Number,
+      value: () -> return moment().week()
+      notify: true
+    },
     month: {
       type: Number,
       value: () -> return moment().month()
@@ -74,6 +79,7 @@ Polymer(
     @fire('consultationSelected', detail: {'consultations': event.model.meeting});
       
   minusWeek: () ->
+    console.log @loading
     if !@loading
       @week = @week - 1
       @month = moment().week(@week).month()
@@ -81,6 +87,7 @@ Polymer(
       @filterMeetings()
 
   plusWeek: () ->
+    console.log @loading
     if !@loading
       @week = @week + 1
       @month = moment().week(@week).month()
