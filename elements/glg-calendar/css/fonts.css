@@ -90,6 +90,15 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.icon-search:before {
+  content: "\e60f";
+}
+.icon-default:before {
+  content: "\e610";
+}
+.icon-translation:before {
+  content: "\e611";
+}
 .icon-on_hold:before {
   content: "\e60c";
 }
