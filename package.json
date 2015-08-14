@@ -43,7 +43,7 @@
     "ui-export-to-csv": "git://github.com/custom-elements/ui-export-to-csv",
     "glg-cm-badger": "git://github.com/custom-elements/glg-cm-badger",
     "glg-compliance-blinky": "git://github.com/custom-elements/glg-compliance-blinky",
-    "glg-add-to-project": "git://github.com/custom-elements/glg-add-to-project#1.0.0",
+    "glg-add-to-project": "git://github.com/custom-elements/glg-add-to-project#1.1.0",
     "glg-hummingbird": "git://github.com/custom-elements/glg-hummingbird#0.1.3",
     "ui-stats": "git://github.com/custom-elements/ui-stats",
     "glg-logging-widget": "git://github.com/custom-elements/glg-logging-widget",
