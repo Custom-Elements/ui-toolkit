@@ -1,6 +1,6 @@
 {
   "name": "ui-toolkit",
-  "version": "0.0.130",
+  "version": "0.0.131",
   "dependencies": {
     "polymer": "git://github.com/custom-elements/polymer",
     "polymer-serve": "0.0.36",
@@ -32,7 +32,7 @@
     "ui-typeahead": "git://github.com/custom-elements/ui-typeahead",
     "glg-nectar": "git://github.com/custom-elements/glg-nectar#2.0.3",
     "glg-name-match": "git://github.com/custom-elements/glg-name-match#1.0.2",
-    "glg-current-user": "git://github.com/custom-elements/glg-current-user#0.0.4",
+    "glg-current-user": "git://github.com/custom-elements/glg-current-user#0.0.5",
     "glg-taxonomy": "git://github.com/custom-elements/glg-taxonomy#elastic",
     "glg-stats": "git://github.com/custom-elements/glg-stats",
     "glg-tag-cm": "git://github.com/custom-elements/glg-tag-cm",
