@@ -48,7 +48,8 @@
     "ui-stats": "git://github.com/custom-elements/ui-stats",
     "glg-logging-widget": "git://github.com/custom-elements/glg-logging-widget",
     "glg-cm-card": "git://github.com/Custom-Elements/glg-cm-card",
-    "glg-cm-recommender": "git://github.com/Custom-Elements/glg-cm-recommender"
+    "glg-cm-recommender": "git://github.com/Custom-Elements/glg-cm-recommender",
+    "cm-payment-review": "git://github.com/Custom-Elements/cm-payment-review"
   },
   "repository": "git://github.com/custom-elements/ui-toolkit",
   "license": "ISC",
