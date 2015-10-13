@@ -1,6 +1,6 @@
 {
   "name": "ui-toolkit",
-  "version": "0.0.136",
+  "version": "0.0.137",
   "dependencies": {
     "polymer": "git://github.com/custom-elements/polymer",
     "polymer-serve": "0.0.36",
@@ -49,7 +49,7 @@
     "glg-logging-widget": "git://github.com/custom-elements/glg-logging-widget",
     "glg-cm-card": "git://github.com/Custom-Elements/glg-cm-card",
     "glg-cm-recommender": "git://github.com/Custom-Elements/glg-cm-recommender",
-    "cm-payment-review": "git://github.com/Custom-Elements/cm-payment-review"
+    "glg-cm-comments": "git://github.com/Custom-Elements/glg-cm-comments"
   },
   "repository": "git://github.com/custom-elements/ui-toolkit",
   "license": "ISC",
