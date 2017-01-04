@@ -57,8 +57,8 @@
     "start": "polymer-serve --precache .",
     "test": "polymer-serve ."
   },
-  "engine": {
-    "node": "6.7.0",
-    "npm": "3.10.3"
+  "engines": {
+    "npm" : "2.5.1",
+    "node": "0.12.1"
   }
 }
