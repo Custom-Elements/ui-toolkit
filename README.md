@@ -1,7 +1,11 @@
-#ui-toolkit 
- 
+#ui-toolkit
+
 Polymer elements packed together for high speed reference, saves you
 build time.
+
+## !!! Warning !!!
+
+Do not change the NPM version from 2.5.1.  This _will_ break ui-toolkit.  
 
 ##Individual Components
 
@@ -49,4 +53,3 @@ Example:
   </body>
 </html>
 ```
-
