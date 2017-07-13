@@ -18,7 +18,6 @@
     "postinstall": "bower install && ln -s bower_components/polymer ./polymer"
   },
   "engines": {
-    "npm": "2.5.1",
-    "node": "0.12.1"
+    "node": "4.8.4"
   }
 }
