@@ -41,13 +41,11 @@
     "ui-grid": "git://github.com/custom-elements/ui-grid",
     "ui-filtered-grid": "git://github.com/custom-elements/ui-filtered-grid",
     "ui-export-to-csv": "git://github.com/custom-elements/ui-export-to-csv",
-    "glg-cm-badger": "git://github.com/custom-elements/glg-cm-badger",
     "glg-compliance-blinky": "git://github.com/custom-elements/glg-compliance-blinky",
     "glg-hummingbird": "git://github.com/custom-elements/glg-hummingbird#0.1.4",
     "ui-stats": "git://github.com/custom-elements/ui-stats",
     "glg-logging-widget": "git://github.com/custom-elements/glg-logging-widget",
     "glg-cm-card": "git://github.com/Custom-Elements/glg-cm-card",
-    "glg-cm-recommender": "git://github.com/Custom-Elements/glg-cm-recommender",
     "glg-cm-comments": "git://github.com/Custom-Elements/glg-cm-comments"
   },
   "repository": "git://github.com/custom-elements/ui-toolkit",
