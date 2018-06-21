@@ -1,6 +1,6 @@
 {
   "name": "ui-toolkit",
-  "version": "0.0.162",
+  "version": "0.0.163",
   "dependencies": {
     "polymer": "git://github.com/custom-elements/polymer",
     "polymer-serve": "0.0.36",
@@ -42,7 +42,7 @@
     "ui-filtered-grid": "git://github.com/custom-elements/ui-filtered-grid",
     "ui-export-to-csv": "git://github.com/custom-elements/ui-export-to-csv",
     "glg-compliance-blinky": "git://github.com/custom-elements/glg-compliance-blinky#master",
-    "glg-compliance-blinky-jwt": "git://github.com/custom-elements/glg-compliance-blinky#jwt",
+    "glg-compliance-blinky-jwt": "git://github.com/custom-elements/glg-compliance-blinky-jwt#master",
     "glg-hummingbird": "git://github.com/custom-elements/glg-hummingbird#0.1.4",
     "ui-stats": "git://github.com/custom-elements/ui-stats",
     "glg-logging-widget": "git://github.com/custom-elements/glg-logging-widget",
