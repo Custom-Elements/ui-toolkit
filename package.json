@@ -32,7 +32,7 @@
     "ui-typeahead": "git+https://github.com/custom-elements/ui-typeahead",
     "glg-nectar": "git+https://github.com/custom-elements/glg-nectar#2.0.3",
     "glg-name-match": "git+https://github.com/custom-elements/glg-name-match#1.0.2",
-    "glg-current-user": "git+https://github.com/custom-elements/glg-current-user#0.0.6",
+    "glg-current-user": "git+https://github.com/custom-elements/glg-current-user#0.0.5",
     "glg-taxonomy": "git+https://github.com/custom-elements/glg-taxonomy#elastic",
     "glg-stats": "git+https://github.com/custom-elements/glg-stats",
     "glg-tag-cm": "git+https://github.com/custom-elements/glg-tag-cm",
