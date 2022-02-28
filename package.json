@@ -49,7 +49,7 @@
     "glg-cm-card": "git+https://github.com/Custom-Elements/glg-cm-card",
     "glg-cm-comments": "git+https://github.com/Custom-Elements/glg-cm-comments"
   },
-  "repository": "git//github.com/custom-elements/ui-toolkit",
+  "repository": "https://github.com/custom-elements/ui-toolkit",
   "license": "ISC",
   "scripts": {
     "start": "polymer-serve --precache .",
